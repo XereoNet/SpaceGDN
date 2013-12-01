@@ -1,0 +1,11 @@
+{
+    "name": "spigot",
+    "channels": [
+        {
+            "name": "build",
+            "interface": "jenkins",
+            "url": "http://ci.md-5.net/job/Spigot/",
+            "mirror": false
+        }
+    ]
+}

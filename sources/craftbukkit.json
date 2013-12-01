@@ -1,0 +1,20 @@
+{
+    "name": "craftbukkit",
+    "channels": [
+        {
+            "name": "dev",
+            "interface": "craftbukkit",
+            "mirror": false
+        },
+        {
+            "name": "beta",
+            "interface": "craftbukkit",
+            "mirror": false
+        },
+        {
+            "name": "rb",
+            "interface": "craftbukkit",
+            "mirror": false
+        }
+    ]
+}

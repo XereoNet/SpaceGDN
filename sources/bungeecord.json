@@ -1,0 +1,26 @@
+{
+    "name": "bungeecord",
+    "channels": [
+        {
+            "name": "build",
+            "interface": "jenkins",
+            "url": "http://ci.md-5.net/job/BungeeCord/",
+            "mirror": false
+        },
+        {
+            "name": "release",
+            "interface": "json",
+            "mirror": true,
+            "releases": [
+                {
+                    "version": "1.6.4",
+                    "url": "http://ci.md-5.net/job/BungeeCord/699/artifact/bootstrap/target/BungeeCord.jar"
+                },
+                {
+                    "version": "1.6.2",
+                    "url": "http://ci.md-5.net/job/BungeeCord/666/artifact/proxy/target/BungeeCord.jar"
+                }
+            ]
+        }
+    ]
+}
