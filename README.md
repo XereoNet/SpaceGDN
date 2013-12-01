@@ -1,4 +1,4 @@
-SpaceJDN
+SpaceGDN
 ========
 
-Jar Delivery Network for SpaceCP
+Game Delivery Network for SpaceCP
