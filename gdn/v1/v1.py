@@ -11,6 +11,9 @@ def index(path):
 def resolve(path):
 
 	parts = path.split('/')
-	data = builder.build(parts)
+	try:
+		data = builder.build(parts)
+	except Exception as e:
+		return e.args[0], 400
 
 	return response.run(data)

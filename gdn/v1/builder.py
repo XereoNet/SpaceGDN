@@ -3,7 +3,7 @@ from gdn.v1 import lang
 def build(parts):
 
 	valid_parts = ['type', 'channel', 'version', 'build']
-	heirarchy_pointer = 0
+	heirarchy_pointer = -1
 	expecting_id = False
 
 	data = {}
@@ -11,11 +11,11 @@ def build(parts):
 	for seg, part in enumerate(parts):
 		if expecting_id:
 			if part.isdigit():
-				data[seg - 1] = part
+				data[parts[seg - 1]] = part
 				expecting_id = False
 				continue
 			else:
-				return lang.invalid_digit % part, 400
+				raise Exception(lang.invalid_digit % part)
 
 		point = -1
 		for index, check in enumerate(valid_parts):
@@ -24,11 +24,12 @@ def build(parts):
 				break
 
 		if point == -1:
-			return lang.invalid_part % part, 400
+			raise Exception(lang.invalid_part % part)
 
 		if point <= heirarchy_pointer:
-			return lang.invalid_order % part, 400
+			raise Exception(lang.invalid_order % part)
 
+		heirarchy_pointer = point
 		expecting_id = True
 
 	if expecting_id:
