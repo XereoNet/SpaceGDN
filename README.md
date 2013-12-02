@@ -4,7 +4,7 @@ This API uses [Semantic Versioning](http://semver.org/). The current version is 
 #Version 1.0.0
 Version 1 of the API does not require any authentication to use. It is limited to a maximum of 1000 requests per hour per IP. If this maximum is exceeded, the API will return error 492 (in accordance with RFC 6585) in its errors (see below).
 
-Jars are layered by `Type > Name > Version > Build`. For example, a standard Craftbukkit build could be chained as `Craftbukkit > Recommended > 1.6.4 > 1850`, for the last recommended build of version 1.6.4. The API is [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) API. 
+Jars are layered by `Type > Channel > Version > Build`. For example, a standard Craftbukkit build could be chained as `Craftbukkit > Recommended > 1.6.4 > 1850`, for the last recommended build of version 1.6.4. The API is [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) API. 
 
 All requests to the API receive the following response format. `success` will either be set to true or false. `errors` will always be set, as an array of objects (see *Errors* below). In successful responses, `errors` will be empty. `results` will be the results of the query, and specified in the sections below. See the *Paginated Results* section for information on the pagination properties.
 
@@ -25,7 +25,7 @@ Errors are returned in the `errors` array in each request response. Each error i
 The following resources are available in this API:
 
  - `type` - the type of jar, such as "Craftbukkit" or "FTB".
- - `name` - name of the jar or channel, such as "Recommended" or "MindCrack".
+ - `channel` - channel of the jar or channel, such as "Recommended" or "MindCrack".
  - `version` - Minecraft version to correspond to, such as "1.6.2" or "1.7.2"
  - `build` - the jar build number, such as 1850.
 
@@ -33,12 +33,12 @@ The following resources are available in this API:
 
 ##Chaining
 
-The data is hierarchical, so chaining may be done in the order of `Type > Name > Version > Build`. For example, all of the following would be valid requests:
+The data is hierarchical, so chaining may be done in the order of `Type > Channel > Version > Build`. For example, all of the following would be valid requests:
 
-	GET /type/:id/name # Lists all names/channels for the given server type
+	GET /type/:id/channel # Lists all channels/channels for the given server type
 	GET /type/:id/build # Jumps down the chain and lists builds for the given type
-	GET /name/:id/build # Starts at the name/channel, and lists all builds inside of it
-	GET /type/:id/name/:id/version/:id/build # Verbosely gets all builds for the given version
+	GET /channel/:id/build # Starts at the channel/channel, and lists all builds inside of it
+	GET /type/:id/channel/:id/version/:id/build # Verbosely gets all builds for the given version
 
 ##Modifiers
 
@@ -100,14 +100,14 @@ Example:
 		}
 	}
 
-###Name
+###Channel
 
-Request for jar names/channels.
+Request for jar channels.
 
 #####Request
-List all available names/channels.
+List all available channels.
 
-	GET: /name
+	GET: /channel
 
 #####Response
 Example:
@@ -119,9 +119,9 @@ Example:
 	}
 
 #####Request
-Get information on a single name/channel, by ID:
+Get information on a single channel, by ID:
 
-	GET: /name/:id
+	GET: /channel/:id
 
 #####Response
 Example:
@@ -156,9 +156,9 @@ Example:
 	}
 
 #####Request
-Get information on a single name/channel, by ID:
+Get information on a single channel, by ID:
 
-	GET: /version/:id
+	GET: /channel/:id
 
 #####Response
 Example:
