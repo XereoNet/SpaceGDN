@@ -210,6 +210,7 @@ Example:
 			'downloads': 1234,
 			'size': 15295007,
 			'checksum': '5c3d125265a806e842fe97625658fb1c',
-			'url': 'http://dl.bukkit.org/downloads/craftbukkit/get/02389_1.6.4-R2.0/craftbukkit.jar'
+			'url': 'http://dl.bukkit.org/downloads/craftbukkit/get/02389_1.6.4-R2.0/craftbukkit.jar',
+			'created_at': 1384711375
 		}
 	}
