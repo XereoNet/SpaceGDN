@@ -1,9 +1,7 @@
-from sqlalchemy import Column, Integer, DateTime, String, ForeignKey
+from sqlalchemy import Column, Integer, DateTime, String, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
 
 from datetime import datetime
-
-from .. import config
 
 import connection
 
@@ -20,6 +18,7 @@ class Build(connection.Base):
 	created_at = Column(DateTime, default = datetime.now)
 
 	version = relationship("Version", backref = "builds")
+	__table_args__ = (UniqueConstraint('version_id', 'build', name='uix_1'), )
 
 class Version(connection.Base):
 	__tablename__ = 'versions'
@@ -30,6 +29,7 @@ class Version(connection.Base):
 	updated_at = Column(DateTime, default = datetime.now)
 
 	channel = relationship("Channel", backref = "versions")
+	__table_args__ = (UniqueConstraint('channel_id', 'version', name='uix_1'), )
 
 class Channel(connection.Base):
 	__tablename__ = 'channels'
@@ -40,12 +40,13 @@ class Channel(connection.Base):
 	updated_at = Column(DateTime, default = datetime.now)
 
 	jar = relationship("Jar", backref = "channels")
+	__table_args__ = (UniqueConstraint('jar_id', 'name', name='uix_1'), )
 
 class Jar(connection.Base):
 	__tablename__ = 'jars'
 
 	id = Column(Integer, primary_key = True)
-	name = Column(String(32))
+	name = Column(String(32), unique=True)
 	site_url = Column(String(100))
 	updated_at = Column(DateTime, default = datetime.now)
 
