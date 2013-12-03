@@ -1,5 +1,6 @@
 {
     "name": "craftbukkit",
+    "site_url": "dl.bukkit.org/downloads/craftbukkit/",
     "channels": [
         {
             "name": "dev",

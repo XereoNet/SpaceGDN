@@ -1,5 +1,6 @@
 {
     "name": "spigot",
+    "site_url": "http://www.spigotmc.org/",
     "channels": [
         {
             "name": "build",

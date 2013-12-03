@@ -1,5 +1,6 @@
 {
     "name": "bungeecord",
+    "site_url": "http://ci.md-5.net/job/BungeeCord/",
     "channels": [
         {
             "name": "build",
