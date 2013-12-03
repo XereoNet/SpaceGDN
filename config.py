@@ -1,0 +1,9 @@
+DEBUG = True
+TESTING = True
+SECRET_KEY = "SUPERSECRET"
+
+SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root:root@127.0.0.1/spacegdn'
+SQLALCHEMY_ECHO = True
+
+HTTP_HOST = '127.0.0.1'
+HTTP_PORT = 8000
