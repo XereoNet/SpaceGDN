@@ -1,6 +1,6 @@
 import os, importlib
 
-from gdn.db import connection, models
+from gdn.db import channel, version, build, jar
 
 from datetime import datetime
 
@@ -21,12 +21,12 @@ def loadSources():
 	return output
 
 def getLastBuild(data):
-	return connection.session.query(models.Channel)\
-		.filter(models.Channel.name == data['name'])\
-		.join(models.Version, models.Version.channel_id == models.Channel.id)\
-		.join(models.Build, models.Build.version_id == models.Version.id)\
-		.add_columns(models.Build.build, models.Build.created_at, models.Channel.name)\
-		.order_by(models.Build.build.desc())\
+	return channel.query\
+		.filter(channel.name == data['name'])\
+		.join(version, version.channel_id == channel.id)\
+		.join(build, build.version_id == version.id)\
+		.add_columns(build.build, build.created_at, channel.name)\
+		.order_by(build.build.desc())\
 		.first()
 
 def getAndMake(filters, model, data, ignore = []):
@@ -61,7 +61,7 @@ def insertDataWaterfall(jars):
 			'filters': {
 				'name':  current['name'],
 			},
-			'model': getattr(models, current['name'].capitalize()),
+			'model': globals()[current['name'].capitalize()],
 			'data': current,
 			'ignore': [heir[pointer + 1] + 's']
 		}
@@ -73,8 +73,6 @@ def insertDataWaterfall(jars):
 		if len(heir) > pointer + 1:
 			for item in current[ heir[pointer + 1] + 's']:
 				insertData(data, item, pointer + 1)
-
-	session.commit()
 
 def load():
 	sources = loadSources()
