@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
 from gdn.v1 import response, builder
 
 mod = Blueprint('v1', __name__, url_prefix='/v1')
@@ -16,4 +16,4 @@ def resolve(path):
 	except Exception as e:
 		return e.args[0], 400
 
-	return response.run(data)
+	return jsonify(response.run(data))

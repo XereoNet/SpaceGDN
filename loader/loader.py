@@ -1,5 +1,6 @@
 import os, importlib
 
+from gdn import app
 from gdn.db import channel, version, build, jar
 
 from datetime import datetime
@@ -42,19 +43,7 @@ def getAndMake(filters, model, data, ignore = []):
 
 def insertDataWaterfall(jars):
 
-	heir = [{
-		'name': 'jar',
-		'unique': 'name'
-	}, {
-		'name': 'channel',
-		'unique': 'name'
-	}, {
-		'name': 'version',
-		'unique': 'version'
-	}, {
-		'name': 'build',
-		'unique': 'build'
-	}]
+	heir = app.config['HEIRARCHY']
 	pointer = 0
 	def insertData(previous, current, pointer = 0):
 		args = {

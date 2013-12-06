@@ -7,7 +7,7 @@ def build(parts):
 	expecting_id = False
 
 	data = {}
-	print parts
+	
 	for seg, part in enumerate(parts):
 		if expecting_id:
 			if part.isdigit():
