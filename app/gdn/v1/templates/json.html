@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ method }} {{ path }}</title>
+</head>
+<body>
+	<h1>Request: {{ method }} {{ path }}</h1>
+	<h2>Response: HTTP {{ data.status }}</h2>
+	<pre>
+		{{ data.data }}
+	</pre>
+</body>
+</html>

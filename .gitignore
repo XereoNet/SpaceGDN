@@ -39,3 +39,4 @@ sftp-config.json
 *.sublime-*
 
 env
+node_modules
