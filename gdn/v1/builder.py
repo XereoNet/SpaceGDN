@@ -2,12 +2,12 @@ from gdn.v1 import lang
 
 def build(parts):
 
-	valid_parts = ['type', 'channel', 'version', 'build']
+	valid_parts = ['jar', 'channel', 'version', 'build']
 	heirarchy_pointer = -1
 	expecting_id = False
 
 	data = {}
-	
+
 	for seg, part in enumerate(parts):
 		if expecting_id:
 			if part.isdigit():
