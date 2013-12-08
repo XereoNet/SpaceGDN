@@ -3,12 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>{{ method }} {{ path }}</title>
+	<link href='http://fonts.googleapis.com/css?family=PT+Mono|PT+Serif' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ url_for('v1.static', filename='json.css') }}">
 </head>
 <body>
-	<h1>Request: {{ method }} {{ path }}</h1>
-	<h2>Response: HTTP {{ data.status }}</h2>
-	<pre>
-		{{ data.data }}
-	</pre>
+	<div class="container">
+		<h1>Request: {{ method }} {{ path }}</h1>
+		<h2>Response: HTTP {{ data.status }}</h2>
+		<br>
+		<pre><code id="js-code">{{ data.data }}</code></pre>
+	</div>
+	<script src="{{ url_for('v1.static', filename='highlight.js') }}"></script>
+	<script src="{{ url_for('v1.static', filename='formatter.js') }}"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

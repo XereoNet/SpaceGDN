@@ -1,5 +1,7 @@
 import sys
 
+from flask import json, make_response
+
 from gdn import app
 from gdn.models import * 
 
@@ -19,6 +21,19 @@ def joinerQuery(query, pointer):
 
 	return query
 
+
+def to_json(ls):
+	out = []
+	for model in ls:
+		data = {}
+		data['id'] = getattr(model, 'id')
+	 
+		for col in model._sa_class_manager.mapper.mapped_table.columns:
+			data[col.name] = getattr(model, col.name)
+		out.append(data)
+ 
+	return json.dumps(out)
+
 def run(data):
 
 	query = getModel(data['select']).query
@@ -28,4 +43,4 @@ def run(data):
 		model = getModel(key)
 		query = query.filter(getattr(model, 'id') == value)
 
-	return query.all()
+	return make_response((to_json(query.all()), 200))
