@@ -1,4 +1,3 @@
-
 # Original function by http://joncom.be/code/javascript-json-formatter/
 
 RealTypeOf = (v) ->
@@ -65,6 +64,5 @@ formatJSON = (oData, sIndent = "") ->
 	# return
 	return sHTML
 
-debugger
 elem = document.getElementById("js-code")
 elem.innerHTML = formatJSON(JSON.parse(elem.innerHTML))
