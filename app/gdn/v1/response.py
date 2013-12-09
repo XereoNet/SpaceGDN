@@ -44,7 +44,7 @@ def show_error(exception):
 			'message': lang.errors[code] % tup
 		},
 		'results': [],
-		'pages': 0
+		'pages': {}
 	}
 	return make_response((json.dumps(error), 400))
 
@@ -74,7 +74,6 @@ def run(path):
 		data = builder.build(parts)
 		pager = handle_query(data)
 	except Exception as e:
-		print e
 		return show_error(e)
 
 	reponse = {
@@ -90,6 +89,5 @@ def run(path):
 		}
 	}
 
-	res = make_response((json.dumps(reponse), 200))
-	print res
+	res = make_response((json.dumps(reponse), 200))\
 	return res
