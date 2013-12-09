@@ -10,13 +10,13 @@ All requests to the API receive the following response format. `success` will ei
 
 	{
 		success: true|false,
-		errors: [],
+		error: [],
 		results: ...,
 		pages: ...
 	}
 
 ##Errors
-Errors are returned in the `errors` array in each request response. Each error is an object consisting of two parts: a numeric error code (should be used for any internal testing) and a textual error message (for debugging or display). When an error occurs, a HTTP 400 code will be returned. The API may return the following errors:
+Error are returned in the `error` property in each request response. Each error is an object consisting of two parts: a numeric error code (should be used for any internal testing) and a textual error message (for debugging or display). When an error occurs, a HTTP 400 code will be returned. The API may return the following errors:
 
  - `{ code: 492, message: 'API rate limit exceeded.' }` - This error is returned if the rate limit, 1000 requests per hour, is exceeded.
  - `{ code: 1000, message: 'Expecting digit, not "foo".' }` - This error is returned if a string was found in place of a digit, as would occur in the request `GET /jar/foo`, for example.
@@ -60,9 +60,20 @@ To tie this all together, let's say I wanted to get all updates for the jar with
 	GET /jar/1/build?order_by=last_updated&order_dir=DESC&where_value=last_updated&where_op=>&where_is=1384711375
 
 ##Paginated Results
-In order to prevent flooding, results are paginated automatically to 100 results. The number of pages is always returned in the response object (see above). Non-paginated results will simply display as having 1 page. Pages can be navigated to by passing the property `page` in the URL. For example:
+In order to prevent flooding, results are paginated automatically to 100 results. Page information is always returned in the response object. Non-paginated results will simply display as having 1 page. Pages can be navigated to by passing the property `page` in the URL. For example:
 
 	GET /jar/1/build?page=10
+
+A page response object looks something like this. Properties are fairly self-explanitory:
+
+	{
+		pages: 42,
+		has_next: true,
+		has_prev: true,
+		current_page: 8,
+		total_items: 4244
+	}
+
 
 ##Requests
 
@@ -80,7 +91,7 @@ Returns an array of all jars available in the API. See the below request for con
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: [{ ... }, { ... }, { ... }, ...]
 	}
 
@@ -94,7 +105,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: {
 			'id': 1,
 			'name': 'Craftbukkit',
@@ -117,7 +128,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: [{ ... }, { ... }, { ... }, ...]
 	}
 
@@ -131,7 +142,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: {
 			'id': 1,
 			'name': 'Recommended',
@@ -154,7 +165,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: [{ ... }, { ... }, { ... }, ...]
 	}
 
@@ -168,7 +179,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: {
 			'id': 1,
 			'version': '1.6.4',
@@ -191,7 +202,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: [{ ... }, { ... }, { ... }, ...]
 	}
 
@@ -205,7 +216,7 @@ Example:
 
 	{
 		success: true,
-		errors: [],
+		error: {},
 		results: {
 			'id': 1,
 			'version_id': 1,
