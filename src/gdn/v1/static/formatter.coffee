@@ -10,7 +10,7 @@ RealTypeOf = (v) ->
 	typeof (v)
 
 formatJSON = (oData, sIndent = "") ->
-	sIndentStyle = "		"
+	sIndentStyle = "  "
 	sDataType = RealTypeOf(oData)
 	
 	# open object

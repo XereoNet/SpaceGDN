@@ -1,5 +1,3 @@
-from gdn.v1 import lang
-
 def build(parts):
 
 	valid_parts = ['jar', 'channel', 'version', 'build']
@@ -15,7 +13,7 @@ def build(parts):
 				expecting_id = False
 				continue
 			else:
-				raise Exception(lang.invalid_digit % part)
+				raise Exception(1000, (part, ))
 
 		point = -1
 		for index, check in enumerate(valid_parts):
@@ -24,10 +22,10 @@ def build(parts):
 				break
 
 		if point == -1:
-			raise Exception(lang.invalid_part % part)
+			raise Exception(1001, (part, ))
 
 		if point <= heirarchy_pointer:
-			raise Exception(lang.invalid_order % part)
+			raise Exception(1002, (part, ))
 
 		heirarchy_pointer = point
 		expecting_id = True

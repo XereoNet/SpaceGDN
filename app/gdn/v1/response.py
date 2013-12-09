@@ -4,6 +4,7 @@ from flask import json, make_response
 
 from gdn import app
 from gdn.models import * 
+from gdn.v1 import lang, builder
 
 def getModel(name):
 	return getattr(sys.modules[__name__], name.capitalize())
@@ -34,7 +35,21 @@ def to_json(ls):
  
 	return json.dumps(out)
 
-def run(data):
+def show_error(exception):
+	code, tup = exception.args
+	error = {
+		'code': code,
+		'message': lang.errors[code] % tup
+	}
+	return make_response((json.dumps(error), 400))
+
+def run(path):
+
+	parts = path.split('/')
+	try:
+		data = builder.build(parts)
+	except Exception as e:
+		return show_error(e)
 
 	query = getModel(data['select']).query
 	joinerQuery(query, data['select'])

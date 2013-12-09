@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from gdn.v1 import response, builder
+from gdn.v1 import response
 from gdn.util import request_wants_json
 
 mod = Blueprint('v1', __name__, url_prefix='/v1', template_folder='templates',  static_folder='static')
@@ -11,19 +11,13 @@ def index(path):
 @mod.route('/<path:path>')
 def resolve(path):
 
-	parts = path.split('/')
-	try:
-		data = builder.build(parts)
-	except Exception as e:
-		return e.args[0], 400
-
-	res = response.run(data)
+	res = response.run(path)
 
 	if (request_wants_json()):
 		return res
 	else:
 		return render_template('json.html',
-			path = request.url,
+			path = '/v1/' + path,
 			method = request.method,
 			data = res
 		)
