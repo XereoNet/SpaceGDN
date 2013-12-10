@@ -1,13 +1,12 @@
 from flask.ext.script import Manager
-from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.migrate import MigrateCommand
 
 from models import *
-from . import app, db
+from . import app
 
 manager = Manager(app)
 
 manager.add_command('db', MigrateCommand)
-migrate = Migrate(app, db)
 
 @manager.command
 def run():
