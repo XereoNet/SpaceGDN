@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     coffee: {
-      dist: {
+      app: {
         expand: true,
         cwd: 'src',
         src: ['**/*.coffee'],
@@ -15,24 +15,24 @@ module.exports = function(grunt) {
         banner: '/*! Built with Grunt */',
         compress: false
       },
-      dist: {
+      app: {
         files: [{
           expand: true,
           cwd: '.tmp/js',
           src: ['**/*.js'],
-          dest: 'dist',
+          dest: 'app',
           ext: '.js'
         }, {
           expand: true,
           cwd: 'src',
           src: ['**/*.js'],
-          dest: 'dist',
+          dest: 'app',
           ext: '.js'
         }]
       }
     },
     less: {
-      dist: {
+      app: {
         options: {
           yuicompress: true,
           concat: false
@@ -41,23 +41,18 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src',
           src: ['**/*.less'],
-          dest: 'dist',
+          dest: 'app',
           ext: '.css'
         }]
       }
     },
     copy: {
       app: {
-        files: [{
-          expand: true,
-          cwd: 'app',
-          src: ['**/*.*'],
-          dest: 'dist'
-        }]
+        files: []
       },
     },
     imagemin: {
-      dist: {
+      app: {
         options: {
           removeComments: true
         },
@@ -65,7 +60,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src',
           src: ['**/*.{png,jpg,jpeg}'],
-          dest: 'dist',
+          dest: 'app',
         }]
       }
     },
@@ -73,7 +68,6 @@ module.exports = function(grunt) {
       build: ['coffee', 'less', 'copy', 'imagemin']
     },
     clean: {
-      pre: ['dist'],
       post: ['.tmp']
     }
   });
@@ -86,6 +80,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.registerTask('default', ['clean:pre', 'concurrent:build', 'uglify', 'clean:post']);
+  grunt.registerTask('default', ['concurrent:build', 'uglify', 'clean:post']);
 
 };
