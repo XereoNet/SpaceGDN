@@ -1,3 +1,3 @@
 class loader_json:
-	def load(data):
+	def load(self, data):
 		return data['releases']

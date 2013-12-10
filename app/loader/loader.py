@@ -1,5 +1,6 @@
 import os, yggdrasil
 from interfaces import *
+from gdn import app
 
 _path = os.path.dirname(os.path.realpath(__file__))
 
@@ -37,7 +38,11 @@ def getAndMake(filters, model, data, ignore = []):
 	return item
 
 def getLoader(name):
-	return locals()['loader_' + name]()
+	if not 'loader_' + name in globals():
+		app.logger.warning('Interface not found, "%s"' % name)
+		return False
+
+	return globals()['loader_' + name]()
 
 def load():
 	sources = loadSources()
@@ -46,13 +51,15 @@ def load():
 
 	for source in sources:
 
-		jar = adder.addJar(source)
+		jar_obj = adder.addJar(source)
 
-		for channel in source['channels']:
-			channel = adder.addChannel(channel, jar)
-			l = getLoader(channel['interface'])
+		for channel_data in source['channels']:
+			channel = adder.addChannel(channel_data, jar_obj)
+			l = getLoader(channel_data['interface'])
 
-			for build in l.load(channel):
+			if not l: continue;
+
+			for build in l.load(channel_data):
 				adder.addBuild(build, channel)
 
 	adder.commit()
