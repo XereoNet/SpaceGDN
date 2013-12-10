@@ -1,9 +1,5 @@
-import os, importlib
-
-from gdn import app
-from gdn.db import channel, version, build, jar
-
-from datetime import datetime
+import os, yggdrasil
+from interfaces import *
 
 _path = os.path.dirname(os.path.realpath(__file__))
 
@@ -15,7 +11,6 @@ def loadSources():
 	output = []
 
 	for f in files:
-
 		with open(f) as handle:
 			output.append(json.load(handle))
 
@@ -33,56 +28,31 @@ def getLastBuild(data):
 def getAndMake(filters, model, data, ignore = []):
 	item = connection.session.query(model).filter_by(**filters).first()
 	if not item:
-	   item = model(**data)
-	   session.add(item)
+		item = model(**data)
+		session.add(item)
 	else:
 		for key, value in data.iteritems():
 			if not key in ignore:
 				setattr(item, key, value)
 	return item
 
-def insertDataWaterfall(jars):
-
-	heir = app.config['HEIRARCHY']
-	pointer = 0
-	def insertData(previous, current, pointer = 0):
-		args = {
-			'filters': {
-				'name':  current['name'],
-			},
-			'model': globals()[current['name'].capitalize()],
-			'data': current,
-			'ignore': [heir[pointer + 1] + 's']
-		}
-		if 0 >= pointer - 1:
-			args['filters'][heir[pointer - 1] + '_id'] = previous.id
-
-		data = getAndMake(**args)
-
-		if len(heir) > pointer + 1:
-			for item in current[ heir[pointer + 1] + 's']:
-				insertData(data, item, pointer + 1)
+def getLoader(name):
+	return locals()['loader_' + name]()
 
 def load():
 	sources = loadSources()
 
-	jars = []
+	adder = yggdrasil.Yggdrasil()
 
 	for source in sources:
-		print 'Loading source "%s"' % source['name']
 
-		updated = False
-		ins = {
-			'name': source['name'],
-			'site_url': source['site_url']
-		}
+		jar = adder.addJar(source)
 
 		for channel in source['channels']:
-			module = importlib.import_module('loader', channel['interface'])
+			channel = adder.addChannel(channel, jar)
+			l = getLoader(channel['interface'])
 
-			last = getLastBuild(channel)
+			for build in l.load(channel):
+				adder.addBuild(build, channel)
 
-		if updated:
-			ins['updated'] = datetime.datetime.now()
-		
-		jars.append(ins)
+	adder.commit()

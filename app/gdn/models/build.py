@@ -1,5 +1,4 @@
 from gdn import db
-from datetime import datetime
 
 class Build(db.Model):
 	__tablename__ = 'builds'
@@ -11,7 +10,7 @@ class Build(db.Model):
 	size = db.Column(db.Integer)
 	checksum = db.Column(db.String(32))
 	url = db.Column(db.String(150))
-	created_at = db.Column(db.DateTime, default = datetime.now)
+	created_at = db.Column(db.TIMESTAMP, server_default=db.func.now())
 
 	version = db.relationship("Version", backref = "builds")
 	__table_args__ = (db.UniqueConstraint('version_id', 'build', name='uix_1'), )

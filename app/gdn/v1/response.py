@@ -89,5 +89,5 @@ def run(path):
 		}
 	}
 
-	res = make_response((json.dumps(reponse), 200))\
+	res = make_response((json.dumps(reponse), 200))
 	return res
