@@ -46,7 +46,6 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('version_id', sa.Integer(), nullable=True),
     sa.Column('build', sa.Integer(), nullable=True),
-    sa.Column('downloads', sa.Integer(), nullable=True),
     sa.Column('size', sa.Integer(), nullable=True),
     sa.Column('checksum', sa.String(length=32), nullable=True),
     sa.Column('url', sa.String(length=150), nullable=True),
