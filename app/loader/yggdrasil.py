@@ -10,6 +10,7 @@ class Yggdrasil():
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
 
+
 		new = False
 		if not item:
 			new = True
@@ -22,6 +23,7 @@ class Yggdrasil():
 
 		if new:
 			db.session.add(item)
+			db.session.commit()
 
 		return item
 
@@ -34,6 +36,7 @@ class Yggdrasil():
 	def addChannel(self, data, jar):
 		if not jar in self.jars:
 			raise Exception('Tried to add a channel %s in a nonexistant jar %s.' % (data['name'], jar))
+
 
 		data['jar_id'] = jar
 		channel = self.getOrMake(model = Channel, data = data, where = {'name': data['name'], 'jar_id': jar})
@@ -69,4 +72,4 @@ class Yggdrasil():
 		self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
 
 	def commit(self):
-		db.session.commit()
+		pass
