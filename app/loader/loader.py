@@ -1,6 +1,7 @@
 import os, yggdrasil
 from interfaces import *
 from gdn import app
+from gdn.models import Version, Build
 
 _path = os.path.dirname(os.path.realpath(__file__))
 
@@ -17,13 +18,12 @@ def loadSources():
 
 	return output
 
-def getLastBuild(data):
-	return channel.query\
-		.filter(channel.name == data['name'])\
-		.join(version, version.channel_id == channel.id)\
-		.join(build, build.version_id == version.id)\
-		.add_columns(build.build, build.created_at, channel.name)\
-		.order_by(build.build.desc())\
+def getLastBuild(channel_id):
+	return Version.query\
+		.filter(Version.channel_id == channel_id)\
+		.join(Build, Build.version_id == Version.id)\
+		.add_columns(Build.build)\
+		.order_by(Build.build.desc())\
 		.first()
 
 def getAndMake(filters, model, data, ignore = []):
@@ -59,7 +59,12 @@ def load():
 
 			if not l: continue;
 
-			for build in l.load(channel_data):
+			data = getLastBuild(channel)
+			last_build = 0
+			if data:
+				last_build = data.build
+
+			for build in l.load(channel_data, last_build):
 				adder.addBuild(build, channel)
 
 	adder.commit()
