@@ -6,7 +6,6 @@ class Build(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
 	version_id = db.Column(db.Integer, db.ForeignKey('versions.id'))
 	build = db.Column(db.Integer)
-	downloads = db.Column(db.Integer)
 	size = db.Column(db.Integer)
 	checksum = db.Column(db.String(32))
 	url = db.Column(db.String(150))

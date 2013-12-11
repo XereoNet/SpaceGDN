@@ -43,22 +43,6 @@ The data is hierarchical, so chaining may be done in the order of `Type > Channe
 	GET /channel/:id/build # Starts at the channel/channel, and lists all builds inside of it
 	GET /jar/:id/channel/:id/version/:id/build # Verbosely gets all builds for the given version
 
-##Modifiers
-
-You may also note that you can apply the following modifiers to your query, to adjust the results:
-
- - Order by:
- 	- `order_by` - Sets the column to order the results by.
- 	- `order_dir` - Sets the direction, ASCending or DESCending, to show the results by.
- - Where:
-    - `where_value` the value to check, such as `last_updated`.
-    - `where_is` the value to check against.
- 	- `where_op` sets the operator to use in the where query. Defaults to `=` if not given.
-
-To tie this all together, let's say I wanted to get all updates for the jar with "id" of 1 since the Unix time 1384711375. I would make the following request. Note that I have not URL encoded the parameters for readability, though I would have to in order to actually make a request.
-
-	GET /jar/1/build?order_by=last_updated&order_dir=DESC&where_value=last_updated&where_op=>&where_is=1384711375
-
 ##Paginated Results
 In order to prevent flooding, results are paginated automatically to 100 results. Page information is always returned in the response object. Non-paginated results will simply display as having 1 page. Pages can be navigated to by passing the property `page` in the URL. For example:
 
@@ -221,7 +205,6 @@ Example:
 			'id': 1,
 			'version_id': 1,
 			'build': 1234,
-			'downloads': 1234,
 			'size': 15295007,
 			'checksum': '5c3d125265a806e842fe97625658fb1c',
 			'url': 'http://dl.bukkit.org/downloads/craftbukkit/get/02389_1.6.4-R2.0/craftbukkit.jar',
