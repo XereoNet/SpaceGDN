@@ -140,11 +140,12 @@ Example:
 Request for versions.
 
 #####Request
-List all available versions.
+List all available versions. Note that versions may not be able to be resolved for some Jenkins sources, such as Bungeecord. In this case, version will be zero.
 
 	GET: /version
 
 #####Response
+
 Example:
 
 	{
@@ -196,6 +197,9 @@ Get information on a single build, by ID:
 	GET: /build/:id
 
 #####Response
+
+Currently the `checksum` and `size` properties are not available for Jenkins-based sources. You can use these if they are there, but don't depend upon them!
+
 Example:
 
 	{

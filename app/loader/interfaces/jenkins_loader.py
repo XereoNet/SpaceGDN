@@ -19,20 +19,20 @@ class loader_jenkins:
 		data = self.getJSON(build['url'])
 
 		if data['result'] != 'SUCCESS': return False
-		
+
 		def getVersion (i):
 
-			if isinstance(i, (list, )):
+			if isinstance(i, list):
 				for item in i:
 					out = getVersion(item)
 					if out: return out
 
-			if isinstance(i, (dict, )):
-				for item in i.iteritems():
+			if isinstance(i, dict):
+				for key, item in i.iteritems():
 					out = getVersion(item)
 					if out: return out
 
-			if isinstance(i, (str, )):
+			if isinstance(i, (basestring, str)):
 				m = re.search('[0-9].[0-9].[0-9]{1,2}', i)
 				if m: return m.group(0)
 
