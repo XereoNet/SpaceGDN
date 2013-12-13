@@ -18,6 +18,7 @@ def run():
 	http_server.listen(app.config['HTTP_PORT'])
 	IOLoop.instance().start()
 
+@manager.command
 def debug():
 	app.run(debug = app.config['DEBUG'], host=app.config['HTTP_HOST'], port=app.config['HTTP_PORT'])
 
