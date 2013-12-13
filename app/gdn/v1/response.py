@@ -6,6 +6,8 @@ from gdn import app
 from gdn.models import * 
 from gdn.v1 import lang, builder
 
+from datetime import datetime
+
 def getModel(name):
 	return getattr(sys.modules[__name__], name.capitalize())
 
@@ -35,8 +37,7 @@ def to_dict(ls):
  
 	return out
 
-def show_error(exception):
-	code, tup = exception.args
+def show_error(code, tup = ()):
 	error = {
 		'success': False,
 		'error': {
@@ -66,15 +67,42 @@ def handle_query(data):
 
 	return query.paginate(page, 100, False)
 
+def check_ip(ip):
+	record = API_Request.query.filter(API_Request.ip == ip).first()
+
+	if not record:
+		record = API_Request()
+		record.ip = ip
+		record.requests = 0
+		record.updated_at = datetime.now()
+		db.session.add(record)
+
+	delta = datetime.now() - record.updated_at
+	
+	if delta.total_seconds() > 3600:
+		record.requests = 0
+		record.updated_at = datetime.now()
+
+	record.requests += 1
+	db.session.commit()
+
+	if record.requests > 3:
+		return False
+	else:
+		return True
+
 def run(path):
 
-	parts = path.split('/')
+	if not check_ip(request.remote_addr):
+		return show_error(492)
+
+	parts = path.rstrip('/').split('/')
 
 	try:
 		data = builder.build(parts)
 		pager = handle_query(data)
 	except Exception as e:
-		return show_error(e)
+		return show_error(e.args[0], e.args[1])
 
 	reponse = {
 		'success': True,

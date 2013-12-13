@@ -54,6 +54,14 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('version_id','build', name='uix_1')
     )
+    op.create_table('requests',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('requests', sa.Integer(), nullable=True),
+    sa.Column('ip', sa.String(length=45), nullable=True),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.func.current_timestamp(), nullable=True),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('ip', name='uix_1')
+    )
     ### end Alembic commands ###
 
 
