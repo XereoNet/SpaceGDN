@@ -78,7 +78,7 @@ def check_ip(ip):
 		db.session.add(record)
 
 	delta = datetime.now() - record.updated_at
-	
+
 	if delta.total_seconds() > 3600:
 		record.requests = 0
 		record.updated_at = datetime.now()
@@ -86,7 +86,7 @@ def check_ip(ip):
 	record.requests += 1
 	db.session.commit()
 
-	if record.requests > 3:
+	if record.requests > 1000:
 		return False
 	else:
 		return True
