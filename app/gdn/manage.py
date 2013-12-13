@@ -16,7 +16,27 @@ def run():
 
 	http_server = HTTPServer(WSGIContainer(app))
 	http_server.listen(app.config['HTTP_PORT'])
-	IOLoop.instance().start()
+	try:
+		print '''===========================================================================
+   __...____________________          ,
+   `(\ [ ===SPACEGDN===--|__|) ___..--"_`--.._____
+     `"""""""""""""""""| |""` [_""_-___________"_/
+                       | |   /..../`'-._.-'`
+                   ____| |__/::..'_
+                  |\ ".`"` '_____//\\
+                  `"'-.   """""  \\\\/
+                       `""""""""""`
+===========================================================================
+SpaceGDN developed by pyxld.com and is OSS under the MPL-2.0 at
+https://github.com/connor4312/SpaceGDN. We're lifting off...
+==========================================================================='''
+		IOLoop.instance().start()
+	except KeyboardInterrupt:
+		print '''
+SpaceGDN has shut down. Find any bugs? Report on our Github project above.
+===========================================================================
+'''
+		IOLoop.instance().stop()
 
 @manager.command
 def debug():
