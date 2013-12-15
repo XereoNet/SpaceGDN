@@ -1,5 +1,5 @@
 
-This API uses [Semantic Versioning](http://semver.org/). The current version is 0.0.0, developing towards 0.1.0.
+This API uses [Semantic Versioning](http://semver.org/). The current version is 0.1.0, developing towards 0.1.0.
 
 #Version 1.0.0
 Version 1 of the API does not require any authentication to use. It is limited to a maximum of 1000 requests per hour per IP. If this maximum is exceeded, the API will return error 492 (in accordance with RFC 6585) in its errors (see below).
