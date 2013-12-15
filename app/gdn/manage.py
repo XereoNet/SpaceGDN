@@ -10,12 +10,9 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def run():
-	from tornado.wsgi import WSGIContainer
-	from tornado.httpserver import HTTPServer
-	from tornado.ioloop import IOLoop
+	from gevent.wsgi import WSGIServer
 
-	http_server = HTTPServer(WSGIContainer(app))
-	http_server.listen(app.config['HTTP_PORT'])
+	http_server = WSGIServer(('', app.config['HTTP_PORT']), app)
 	try:
 		print '''===========================================================================
    __...____________________          ,
@@ -30,14 +27,14 @@ def run():
 SpaceGDN developed by pyxld.com and is OSS under the MPL-2.0 at
 https://github.com/connor4312/SpaceGDN. We're lifting off...
 ==========================================================================='''
-		IOLoop.instance().start()
+		http_server.serve_forever()
 	except KeyboardInterrupt:
+		http_server.stop()
 		print '''
-SpaceGDN has shut down. Find any bugs? Report on our Github project above.
+SpaceGDN has shut down. Find any bugs? Report on our Github at
+https://github.com/connor4312/SpaceGDN
 ===========================================================================
 '''
-		IOLoop.instance().stop()
-
 @manager.command
 def debug():
 	app.run(debug = app.config['DEBUG'], host=app.config['HTTP_HOST'], port=app.config['HTTP_PORT'])

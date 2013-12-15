@@ -3,4 +3,4 @@ Flask-Script
 Flask-SQLAlchemy
 Flask-Migrate
 MySQL-Python
-Tornado
+Gevent
