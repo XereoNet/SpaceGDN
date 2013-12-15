@@ -33,7 +33,7 @@ class loader_jenkins:
 					if out: return out
 
 			if isinstance(i, (basestring, str)):
-				m = re.search('[0-9].[0-9].[0-9]{1,2}', i)
+				m = re.search('[[0-9].[0-9].[0-9]{1,2}(-R[0-9].[0-9])?', i)
 				if m: return m.group(0)
 
 			return False
