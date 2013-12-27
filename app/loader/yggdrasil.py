@@ -1,6 +1,8 @@
 from gdn import db
 from gdn.models import Jar, Channel, Version, Build
 
+from datetime import datetime
+
 class Yggdrasil():
 	jars = {}
 	channels = {}
@@ -9,7 +11,6 @@ class Yggdrasil():
 
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
-
 
 		new = False
 		if not item:
@@ -20,8 +21,10 @@ class Yggdrasil():
 			table, column = str(key).split('.', 1)
 			if column in data and getattr(item, column) != data[column]:
 				setattr(item, column, data[column])
-
+				item.updated_at = datetime.now()
+			
 		if new:
+			item.created_at = datetime.now()
 			db.session.add(item)
 			db.session.commit()
 
@@ -70,6 +73,15 @@ class Yggdrasil():
 		data['version_id'] = version
 
 		self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
+		self.bubbleUpdate(channel);
+
+	def bubbleUpdate(self, channel):
+		channel_model = self.channels[channel]
+		version_model = self.versions[channel_model.version_id]
+		jar_model = self.jars[version_model.jar_id]
+
+		for parent in [channel_model, version_model, jar_model]:
+			parent.updated_at = datetime.now()
 
 	def commit(self):
-		pass
+		db.session.commit()
