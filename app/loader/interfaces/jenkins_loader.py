@@ -1,6 +1,19 @@
-import urllib2, json, re
+import urllib2, json, re, sys, math
 
 class loader_jenkins:
+
+	def makeProgressBar(self, message):
+		toolbar_width = 20
+
+		sys.stdout.write("\n" + message + "\n")
+
+		sys.stdout.write("[%s]" % (" " * toolbar_width))
+		sys.stdout.flush()
+		sys.stdout.write("\b" * (toolbar_width+1))
+
+	def incrementProgressBar(self):
+		sys.stdout.write("-")
+		sys.stdout.flush()
 
 	def apiURL(self, url):
 		if not url.endswith('/'): url += '/'
@@ -49,7 +62,14 @@ class loader_jenkins:
 		data = self.getJSON(channel['url'])
 		builds = []
 
-		for build in data['builds']:
+		every = math.floor(len(data['builds']) / 20)
+		if every > 0:
+			self.makeProgressBar('Grabbing from Jenkins...')
+
+		for i, build in enumerate(data['builds']):
+			if every > 0 and i % every == 0:
+				self.incrementProgressBar()
+
 			if build['number'] <= last_build: continue
 
 			out = self.getBuildData(build)

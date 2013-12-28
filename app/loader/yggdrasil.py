@@ -2,6 +2,7 @@ from gdn import db
 from gdn.models import Jar, Channel, Version, Build
 
 from datetime import datetime
+import sys
 
 class Yggdrasil():
 	jars = {}
@@ -73,12 +74,12 @@ class Yggdrasil():
 		data['version_id'] = version
 
 		self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
-		self.bubbleUpdate(channel);
+		self.bubbleUpdate(version);
 
-	def bubbleUpdate(self, channel):
-		channel_model = self.channels[channel]
-		version_model = self.versions[channel_model.version_id]
-		jar_model = self.jars[version_model.jar_id]
+	def bubbleUpdate(self, version):
+		version_model = self.versions[version]
+		channel_model = self.channels[version_model.channel_id]
+		jar_model = self.jars[channel_model.jar_id]
 
 		for parent in [channel_model, version_model, jar_model]:
 			parent.updated_at = datetime.now()
