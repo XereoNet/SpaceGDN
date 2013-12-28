@@ -4,10 +4,6 @@ from gdn.util import request_wants_json
 
 mod = Blueprint('v1', __name__, url_prefix='/v1', template_folder='templates',  static_folder='static')
 
-@mod.route('/', defaults={'path': ''})
-def index(path):
-	return render_template('index.html')
-
 @mod.route('/<path:path>')
 def resolve(path):
 
