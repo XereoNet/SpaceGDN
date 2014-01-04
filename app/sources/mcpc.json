@@ -1,0 +1,12 @@
+{
+    "name": "forge",
+    "site_url": "http://files.minecraftforge.com",
+    "channels": [
+        {
+            "name": "build",
+            "interface": "jenkins",
+            "url": "http://ci.md-5.net/job/MCPC-Plus/",
+            "mirror": false
+        }
+    ]
+}
