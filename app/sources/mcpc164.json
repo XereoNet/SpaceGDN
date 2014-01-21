@@ -1,0 +1,12 @@
+{
+    "name": "mcpc164",
+    "site_url": "http://ci.md-5.net/job/MCPC-Plus-164/",
+    "channels": [
+        {
+            "name": "build",
+            "interface": "jenkins",
+            "url": "http://ci.md-5.net/job/MCPC-Plus-164/",
+            "mirror": false
+        }
+    ]
+}
