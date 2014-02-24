@@ -14,13 +14,12 @@ def getModel(name):
 def joinerQuery(query, pointer):
 	clutch_in = True
 	previous_name = ''
-	for part in app.config['HEIRARCHY']:
+	for part in reversed(app.config['HEIRARCHY']):
 		if clutch_in == False:
 			model = getModel(part['name'])
-			query = query.join(model, getattr(model, previous_name + '_id') == model.id)
-		elif part['name'] == pointer:
+			query = query.join(model)
+		if part['name'] == pointer:
 			clutch_in = False
-		previous_name = part['name']
 
 	return query
 
@@ -57,7 +56,7 @@ def getNum(num, default = 0):
 
 def handle_query(data):
 	query = getModel(data['select']).query
-	joinerQuery(query, data['select'])
+	query = joinerQuery(query, data['select'])
 
 	for key, value in data['data'].iteritems():
 		model = getModel(key)
