@@ -6,6 +6,6 @@ class API_Request(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
 	requests = db.Column(db.Integer)
 	ip = db.Column(db.String(45))
-	updated_at = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp())
+	updated_at = db.Column(db.TIMESTAMP)
 
 	__table_args__ = (db.UniqueConstraint('ip', name='uix_1'), )

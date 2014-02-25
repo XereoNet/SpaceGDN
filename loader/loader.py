@@ -1,4 +1,4 @@
-import os, yggdrasil
+import os, yggdrasil, sys
 from interfaces import *
 from gdn import app
 from gdn.models import Version, Build
@@ -57,6 +57,8 @@ def load():
 			channel = adder.addChannel(channel_data, jar_obj)
 			l = getLoader(channel_data['interface'])
 
+			sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
+
 			if not l: continue;
 
 			data = getLastBuild(channel)
@@ -68,3 +70,4 @@ def load():
 				adder.addBuild(build, channel)
 
 	adder.commit()
+	sys.stdout.write("\n\n")
