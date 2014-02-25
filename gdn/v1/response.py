@@ -1,6 +1,7 @@
 import sys
 
 from flask import json, make_response, request
+from sqlalchemy.util import KeyedTuple
 
 from gdn import app
 from gdn.models import * 
@@ -26,7 +27,11 @@ def joinerQuery(query, pointer):
 def to_dict(ls):
 	out = []
 	for result in ls:
-		model = result[0]
+		if isinstance(result, KeyedTuple):
+			model = result[0]
+		else:
+			model = result
+			result = []
 		data = {}
 		data['id'] = getattr(model, 'id')
 	 
