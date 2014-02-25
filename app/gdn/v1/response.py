@@ -13,26 +13,31 @@ def getModel(name):
 
 def joinerQuery(query, pointer):
 	clutch_in = True
-	previous_name = ''
-	for part in app.config['HEIRARCHY']:
+	for part in reversed(app.config['HEIRARCHY']):
 		if clutch_in == False:
 			model = getModel(part['name'])
-			query = query.join(model, getattr(model, previous_name + '_id') == model.id)
-		elif part['name'] == pointer:
+			query = query.join(model).add_columns(model.id.label(part['name'] + '_id'))
+		if part['name'] == pointer:
 			clutch_in = False
-		previous_name = part['name']
 
 	return query
 
 
 def to_dict(ls):
 	out = []
-	for model in ls:
+	for result in ls:
+		model = result[0]
 		data = {}
 		data['id'] = getattr(model, 'id')
 	 
 		for col in model._sa_class_manager.mapper.mapped_table.columns:
 			data[col.name] = getattr(model, col.name)
+
+		l = len(result)
+
+		for index in range(1, l):
+			data[app.config['HEIRARCHY'][l - index - 1]['name'] + '_id'] = result[index]
+
 		out.append(data)
  
 	return out
@@ -57,7 +62,7 @@ def getNum(num, default = 0):
 
 def handle_query(data):
 	query = getModel(data['select']).query
-	joinerQuery(query, data['select'])
+	query = joinerQuery(query, data['select'])
 
 	for key, value in data['data'].iteritems():
 		model = getModel(key)
