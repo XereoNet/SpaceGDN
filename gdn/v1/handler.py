@@ -19,6 +19,30 @@ def joinerQuery(query, pointer):
 
     return query
 
+def applySorting(query, params):
+    if not 'sort' in params:
+        return query
+
+    splits = params['sort'].lower().split('.')
+    if not len(splits) == 3:
+        return query
+
+    [model_name, column, direction] = splits
+
+    if not direction == 'asc' and not direction == 'desc':
+        return query
+    if not model_name in [m['name'] for m in app.config['HEIRARCHY']]:
+        return query
+
+    model = getModel(model_name)
+
+    if not column in model.__table__.columns:
+        return query
+
+    m_columns = getattr(model, column)
+    m_direction = getattr(m_columns, direction)
+
+    return query.order_by(m_direction())
 
 def to_dict(ls):
     out = []
@@ -52,6 +76,7 @@ def getNum(num, default = 0):
 def handle_query(data):
     query = getModel(data['select']).query
     query = joinerQuery(query, data['select'])
+    query = applySorting(query, request.args)
 
     for key, value in data['data'].iteritems():
         model = getModel(key)

@@ -1,7 +1,7 @@
 
-This API uses [Semantic Versioning](http://semver.org/). The current version is 0.1.0, developing towards 0.1.0.
+This API uses [Semantic Versioning](http://semver.org/). The current version is 0.1.1-dev, developing towards 1.1.0.
 
-#Version 1.0.0
+#Version 1.1.0-dev
 Version 1 of the API does not require any authentication to use. It is limited to a maximum of 1000 requests per hour per IP. If this maximum is exceeded, the API will return error 492 (in accordance with RFC 6585) in its errors (see below).
 
 Jars are layered by `Type > Channel > Version > Build`. For example, a standard Craftbukkit build could be chained as `Craftbukkit > Recommended > 1.6.4 > 1850`, for the last recommended build of version 1.6.4. The API is [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) API. 
@@ -43,6 +43,19 @@ The data is hierarchical, so chaining may be done in the order of `Type > Channe
 	GET /channel/:id/build # Starts at the channel/channel, and lists all builds inside of it
 	GET /jar/:id/channel/:id/version/:id/build # Verbosely gets all builds for the given version
 
+##Bubbling
+Bubbling was added in 1.0.1. Essentially, all requests will return the IDs of all their parents. For example, any `build` also returns the fields for `channel_id` and `jar_id`, as well as its own `version_id`.
+
+##Sorting
+
+Query results may be sorted, by appending a parameter to the URL in the following way format: `model.column.direction`.
+
+ - `model` Must be one of: "jar", "channel", "version", "build"
+ - `column` Must be a column on the model, as are returned in API requests.
+ - `direction` Must be one of: "asc", "desc"
+
+For example, a request like `GET /jar/1/build?sort=build.created_at.desc` returns builds, sorting by the newest added to the oldest. It's also worth noting that, with the "bubbling" added in version 1.0.1 of the API, it is possible to sort by any parent properties as well, such for example: `GET /jar/1/build?sort=jar.name.desc`
+
 ##Paginated Results
 In order to prevent flooding, results are paginated automatically to 100 results. Page information is always returned in the response object. Non-paginated results will simply display as having 1 page. Pages can be navigated to by passing the property `page` in the URL. For example:
 
@@ -57,7 +70,6 @@ A page response object looks something like this. Properties are fairly self-exp
 		current_page: 8,
 		total_items: 4244
 	}
-
 
 ##Requests
 
