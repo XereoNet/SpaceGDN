@@ -9,7 +9,8 @@ def resolve(path):
 
 	res = response.run(path)
 
-	if (request_wants_json()):
+	if request_wants_json() or 'json' in request.args:
+		res.headers.add('Access-Control-Allow-Origin', '*')
 		return res
 	else:
 		return render_template('json.html',

@@ -10,7 +10,7 @@
 	<div class="container">
 		<h1>Request: {{ method }} {{ path }}</h1>
 		<h2>Response: HTTP {{ data.status }}</h2>
-		<p>Want plain JSON? Set the HTTP accept header to <code>application/json</code> and we'll give it to you! Most frameworks, like jQuery, do this automagically.</p>
+		<p>Want plain JSON? Set the HTTP accept header to <code>application/json</code> or append <code>?json</code> on the end of the URL and we'll give it to you! Most frameworks, like jQuery, do this automagically.</p>
 		<pre><code id="js-code">{{ data.data }}</code></pre>
 	</div>
 	<footer>
