@@ -19,6 +19,17 @@ def joinerQuery(query, pointer):
 
     return query
 
+def isValidReference(model_name, column_name):
+    if not model_name in [m['name'] for m in app.config['HEIRARCHY']]:
+        return False
+
+    model = getModel(model_name)
+
+    if not column_name in model.__table__.columns:
+        return False
+
+    return True
+
 def applySorting(query, params):
     if not 'sort' in params:
         return query
@@ -31,18 +42,55 @@ def applySorting(query, params):
 
     if not direction == 'asc' and not direction == 'desc':
         return query
-    if not model_name in [m['name'] for m in app.config['HEIRARCHY']]:
+    if not isValidReference(model_name, column):
         return query
 
     model = getModel(model_name)
-
-    if not column in model.__table__.columns:
-        return query
 
     m_columns = getattr(model, column)
     m_direction = getattr(m_columns, direction)
 
     return query.order_by(m_direction())
+
+def applyWheres(query, params):
+    if not 'where' in params:
+        return query
+
+    expressions = params['where'].lower().split('|')
+    for e in expressions:
+        query = applyWhereExpression(query, e)
+
+    return query
+
+def applyWhereExpression(query, expression):
+
+    splits = expression.split('.')
+
+    if not len(splits) == 4:
+        return query
+
+    [model_name, column, operator, value] = splits
+
+    if not isValidReference(model_name, column):
+        return query
+
+    model = getModel(model_name)
+    m_column = getattr(model, column)
+
+    if operator == 'in':
+        return query.filter(m_column.in_(value.split(',')))
+    if operator == 'lt':
+        return query.filter(m_column < value)
+    if operator == 'gt':
+        return query.filter(m_column > value)
+    if operator == 'eq':
+        return query.filter(m_column == value)
+    if operator == 'lteq':
+        return query.filter(m_column <= value)
+    if operator == 'gteq':
+        return query.filter(m_column >= value)
+
+    return query
 
 def to_dict(ls):
     out = []
@@ -77,6 +125,7 @@ def handle_query(data):
     query = getModel(data['select']).query
     query = joinerQuery(query, data['select'])
     query = applySorting(query, request.args)
+    query = applyWheres(query, request.args)
 
     for key, value in data['data'].iteritems():
         model = getModel(key)

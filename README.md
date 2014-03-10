@@ -56,6 +56,24 @@ Query results may be sorted, by appending a parameter to the URL in the followin
 
 For example, a request like `GET /jar/1/build?sort=build.created_at.desc` returns builds, sorting by the newest added to the oldest. It's also worth noting that, with the "bubbling" added in version 1.0.1 of the API, it is possible to sort by any parent properties as well, such for example: `GET /jar/1/build?sort=jar.name.desc`
 
+##Where
+1.1.0-dev introduced the ability to run WHERE queries in the formation `model.column.operator.value`. For example:
+
+	GET /v1/build?where=build.build.eq.2973
+
+Retrieves the "build" with build number 2973. The parameters:
+
+ - `model` Must be one of: "jar", "channel", "version", "build"
+ - `column` Must be a column on the model, as are returned in API requests.
+ - `operator` Must be one of:
+   - `eq` Where column EQUALS the value
+   - `lt` Where column is LESS THAN the value
+   - `gt` Where column is GREATER THAN the value
+   - `gteq` Where column is GREATER THAN or EQUAL TO the value
+   - `lteq` Where column is LESS THAN or EQUAL TO the value
+   - `in` Where the column is one of the "value", seperated by commas. For example: `build.build.in.2973,2972` gets build numbers 2973 *and* 2972
+ - `value` The value to compare against.
+
 ##Paginated Results
 In order to prevent flooding, results are paginated automatically to 100 results. Page information is always returned in the response object. Non-paginated results will simply display as having 1 page. Pages can be navigated to by passing the property `page` in the URL. For example:
 
