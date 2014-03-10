@@ -1,4 +1,4 @@
-"""empty message
+"""Primary SpaceGDN structure
 
 Revision ID: 3df41fbd302d
 Revises: None

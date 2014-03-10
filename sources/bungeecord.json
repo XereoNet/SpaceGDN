@@ -1,6 +1,7 @@
 {
     "name": "bungeecord",
     "site_url": "http://ci.md-5.net/job/BungeeCord/",
+    "description": "BungeeCord is a free, easy and reliable way to connect multiple servers together.",
     "channels": [
         {
             "name": "build",

@@ -1,6 +1,7 @@
 {
     "name": "spigot",
     "site_url": "http://www.spigotmc.org/",
+    "description": "Spigot is a high performance, no lag customized CraftBukkit server.",
     "channels": [
         {
             "name": "build",
