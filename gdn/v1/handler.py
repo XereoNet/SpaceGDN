@@ -34,7 +34,7 @@ def applySorting(query, params):
     if not 'sort' in params:
         return query
 
-    splits = params['sort'].lower().split('.')
+    splits = params['sort'].lower().split('.', 2)
     if not len(splits) == 3:
         return query
 
@@ -64,7 +64,7 @@ def applyWheres(query, params):
 
 def applyWhereExpression(query, expression):
 
-    splits = expression.split('.')
+    splits = expression.split('.', 3)
 
     if not len(splits) == 4:
         return query
