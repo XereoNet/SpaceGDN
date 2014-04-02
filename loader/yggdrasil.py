@@ -2,13 +2,18 @@ from gdn import db
 from gdn.models import Jar, Channel, Version, Build
 
 from datetime import datetime
-import sys
+import md5
+import requests
 
 class Yggdrasil():
 	jars = {}
 	channels = {}
 	versions = {}
 	builds = {}
+
+	def md5sumRemote(self, url):
+		r = requests.get(url)
+		return md5.new(r.content).hexdigest()
 
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
@@ -72,6 +77,9 @@ class Yggdrasil():
 
 		del data['version']
 		data['version_id'] = version
+
+		if not 'checksum' in data or not data['checksum']:
+			data['checksum'] = self.md5sumRemote(data['url'])
 
 		self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
 		self.bubbleUpdate(version);
