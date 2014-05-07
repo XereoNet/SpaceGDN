@@ -4,7 +4,7 @@ TESTING = True
 SECRET_KEY = "SUPERSECRET"
 
 # Database settings
-SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root:root@127.0.0.1/spacegdn'
+SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@127.0.0.1/spacegdn'
 SQLALCHEMY_ECHO = False
 
 # Webserver Settings

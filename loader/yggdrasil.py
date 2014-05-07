@@ -1,6 +1,8 @@
 from gdn import db
 from gdn.models import Jar, Channel, Version, Build
-
+import urllib
+from urlparse import urlparse
+from os.path import splitext, basename
 from datetime import datetime
 import md5
 import requests
@@ -68,6 +70,10 @@ class Yggdrasil():
 		return version.id
 
 	def addBuild(self, data, channel):
+		URLdisassembled = urlparse(data['url'])
+		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
+		urllib.urlretrieve (data['url'], 'cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext)
+
 		if not channel in self.channels:
 			raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
 		if not data['version'] in self.versions:
