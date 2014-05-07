@@ -72,7 +72,7 @@ class Yggdrasil():
 	def addBuild(self, data, channel):
 		URLdisassembled = urlparse(data['url'])
 		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-		urllib.urlretrieve (data['url'], 'cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext)
+		urllib.urlretrieve (data['url'], 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext)
 
 		if not channel in self.channels:
 			raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
