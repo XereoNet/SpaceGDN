@@ -1,0 +1,13 @@
+{
+    "name": "pixelmon",
+    "site_url": "http://pixelmonmod.com",
+    "description": "The amazing pokemon mod for minecraft players and server owners to play with the world of pokemon in one of the most creative pc games.",
+    "channels": [
+        {
+            "name": "release",
+            "interface": "pixelmon",
+            "url": "http://mirror2.pixelmongaming.com",
+            "mirror": false
+        }
+    ]
+}

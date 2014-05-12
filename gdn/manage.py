@@ -13,6 +13,10 @@ def run():
 	from gevent.wsgi import WSGIServer
 
 	http_server = WSGIServer(('', app.config['HTTP_PORT']), app)
+	if app.config['DEBUG']:
+		debugModeStr = '''Debug mode enabled!'''
+	else: 
+		debugModeStr = ''
 	try:
 		print '''===========================================================================
    __...____________________          ,
@@ -25,7 +29,10 @@ def run():
                        `""""""""""`
 ===========================================================================
 SpaceGDN developed by pyxld.com and is OSS under the MPL-2.0 at
-https://github.com/connor4312/SpaceGDN. We're lifting off...
+https://github.com/connor4312/SpaceGDN. We're lifting off... 
+===========================================================================
+Running on '''+app.config['HTTP_HOST']+''':'''+str(app.config['HTTP_PORT'])+'''
+'''+debugModeStr+'''
 ==========================================================================='''
 		http_server.serve_forever()
 	except KeyboardInterrupt:

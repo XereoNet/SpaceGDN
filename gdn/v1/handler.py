@@ -107,7 +107,6 @@ def to_dict(ls):
         if isinstance(model, Build):
             URLdisassembled = urlparse(getattr(model, 'url'))
             URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-            print('gdn/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext)
             if os.path.isfile('gdn/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext):
                 setattr(model, 'url', 'http://'+app.config['HTTP_HOST']+':'+str(app.config['HTTP_PORT'])+'/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext)   
 

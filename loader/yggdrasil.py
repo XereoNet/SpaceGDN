@@ -72,7 +72,7 @@ class Yggdrasil():
 	def addBuild(self, data, channel):
 		URLdisassembled = urlparse(data['url'])
 		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-		urllib.urlretrieve (data['url'], 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext)
+		self.download_file(data['url'], 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext)
 
 		if not channel in self.channels:
 			raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
@@ -100,3 +100,13 @@ class Yggdrasil():
 
 	def commit(self):
 		db.session.commit()
+
+	def download_file(self, url, local_filename):
+	    # NOTE the stream=True parameter
+	    r = requests.get(url, stream=True)
+	    with open(local_filename, 'wb') as f:
+	        for chunk in r.iter_content(chunk_size=1024): 
+	            if chunk: # filter out keep-alive new chunks
+	                f.write(chunk)
+	                f.flush()
+	    return local_filename
