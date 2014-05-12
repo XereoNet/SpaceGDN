@@ -1,4 +1,4 @@
-import requests
+import requests, urllib
 from lxml import etree as ET
 
 class loader_creeperrepo:
@@ -10,15 +10,13 @@ class loader_creeperrepo:
 
 	def getData(self, name, version, file_):
 
-		print(file_)
-
-		url = self.base_url + '/FTB2/modpacks%5E'+name+'%5E'+version+'%5E'+file_
+		url = self.base_url + '/FTB2/' + urllib.quote_plus('modpacks^'+name+'^'+version+'^'+file_)
 
 		# site = requests.head(url)
 
 		# size = site.headers['content-length'];
 
-		return {'url' : url}
+		return url
 
 	def getXML(self, name):
 		r = requests.get(self.artifactURL(self))
@@ -30,22 +28,20 @@ class loader_creeperrepo:
 
 		for modpack in data.findall('modpack'):
 
-			if modpack.get('serverPack') != "": continue
+			if modpack.get('serverPack') == "": continue
 
 			if modpack.get('repoVersion') != None:
 				version = modpack.get('repoVersion')
 			else:
 				version = modpack.get('version')
 
-			print(modpack.items())
-
-			data = self.getData(modpack.get('name'), version, modpack.get('serverPack'))
+			url = self.getData(modpack.get('dir'), version, modpack.get('serverPack'))
 
 			builds.append({
 				'version': version,
 				'size': None,
 				'checksum': None,
-				'url': data['url'],
+				'url': url,
 				'build': 1
 			})
 
