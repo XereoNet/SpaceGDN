@@ -4,7 +4,7 @@ import urllib
 from urlparse import urlparse
 from os.path import splitext, basename
 from datetime import datetime
-import md5
+import hashlib
 import requests
 
 class Yggdrasil():
@@ -13,9 +13,8 @@ class Yggdrasil():
 	versions = {}
 	builds = {}
 
-	def md5sumRemote(self, url):
-		r = requests.get(url)
-		return md5.new(r.content).hexdigest()
+	def md5sumRemote(self, file_):
+		return hashlib.md5(open(file_).read()).hexdigest()
 
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
@@ -72,7 +71,8 @@ class Yggdrasil():
 	def addBuild(self, data, channel):
 		URLdisassembled = urlparse(data['url'])
 		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-		self.download_file(data['url'], 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext)
+		fileURL = 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext
+		self.download_file(data['url'], fileURL)
 
 		if not channel in self.channels:
 			raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
@@ -85,7 +85,7 @@ class Yggdrasil():
 		data['version_id'] = version
 
 		if not 'checksum' in data or not data['checksum']:
-			data['checksum'] = self.md5sumRemote(data['url'])
+			data['checksum'] = self.md5sumRemote(fileURL)
 
 		self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
 		self.bubbleUpdate(version);

@@ -19,6 +19,8 @@ class loader_craftbukkit:
 		for build in data['results']:
 			if build['build_number'] <= last_build or build['is_broken']: continue
 
+			print("Loaded "+build['name'])
+
 			builds.append({
 				'version': build['version'],
 				'size': build['file']['size'] / 1024,
