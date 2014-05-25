@@ -1,5 +1,5 @@
 {
-    "name": "craftbukkit",
+    "name": "bukkit",
     "site_url": "dl.bukkit.org/downloads/craftbukkit/",
     "description": "CraftBukkit is The Minecraft Server Mod API Implementation.",
     "channels": [
