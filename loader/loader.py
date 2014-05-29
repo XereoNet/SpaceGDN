@@ -9,7 +9,7 @@ def loadSources():
 
 	import glob, json
 
-	files = glob.glob(_path + '/../sources/*.json')
+	files = glob.glob(_path + '/../sources/creeperrepo.json')
 	output = []
 
 	for f in files:
@@ -50,24 +50,51 @@ def load():
 	adder = yggdrasil.Yggdrasil()
 
 	for source in sources:
+		if source['name'] != 'creeperrepo' :
 
-		jar_obj = adder.addJar(source)
+			jar_obj = adder.addJar(source)
 
-		for channel_data in source['channels']:
-			channel = adder.addChannel(channel_data, jar_obj)
-			l = getLoader(channel_data['interface'])
+			for channel_data in source['channels']:
+				channel = adder.addChannel(channel_data, jar_obj)
+				l = getLoader(channel_data['interface'])
 
-			sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
+				sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
 
-			if not l: continue;
+				if not l: continue;
 
-			data = getLastBuild(channel)
-			last_build = 0
-			if data:
-				last_build = data.build
+				data = getLastBuild(channel)
+				last_build = 0
+				if data:
+					last_build = data.build
 
-			for build in l.load(channel_data, last_build):
-				adder.addBuild(build, channel)
+				for build in l.load(channel_data, last_build):
+					adder.addBuild(build, channel)
+			adder.commit()
+			sys.stdout.write("\n\n")
+		else:
+			for channel_data in source['channels']:
+				interface = channel_data['interface']
+				l = getLoader(channel_data['interface'])
 
-	adder.commit()
-	sys.stdout.write("\n\n")
+				for modpack in l.getXML(channel_data['interface']).findall('modpack'):
+
+					if modpack.get('serverPack') == "": continue
+
+					print modpack.get('name')
+
+					jar_obj = adder.addJarName(modpack.get('name'))
+					channel = adder.addChannel(channel_data, jar_obj)
+
+					sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
+
+					if not l: continue;
+
+					data = getLastBuild(channel)
+					last_build = 0
+					if data:
+						last_build = data.build
+
+					for build in l.load(channel_data, last_build):
+						adder.addBuild(build, channel)
+			adder.commit()
+			sys.stdout.write("\n\n")

@@ -28,8 +28,6 @@ class loader_creeperrepo:
 
 		for modpack in data.findall('modpack'):
 
-			if modpack.get('serverPack') == "": continue
-
 			if modpack.get('repoVersion') != None:
 				version = modpack.get('repoVersion')
 			else:

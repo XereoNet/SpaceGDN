@@ -34,8 +34,14 @@ class Yggdrasil():
 			item.created_at = datetime.now()
 			db.session.add(item)
 			db.session.commit()
-
+			
 		return item
+
+	def addJarName(self, data):
+		jar = self.getOrMake(model = Jar, data = data, where = {'name': data})
+		self.jars[jar.id] = jar
+
+		return jar.id
 
 	def addJar(self, data):
 		jar = self.getOrMake(model = Jar, data = data, where = {'name': data['name']})
@@ -46,7 +52,6 @@ class Yggdrasil():
 	def addChannel(self, data, jar):
 		if not jar in self.jars:
 			raise Exception('Tried to add a channel %s in a nonexistant jar %s.' % (data['name'], jar))
-
 
 		data['jar_id'] = jar
 		channel = self.getOrMake(model = Channel, data = data, where = {'name': data['name'], 'jar_id': jar})
