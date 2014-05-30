@@ -22,25 +22,22 @@ class loader_creeperrepo:
 		r = requests.get(self.artifactURL(self))
 		return ET.fromstring(r.content)
 
-	def load(self, channel, last_build):
-		data = self.getXML(channel['name'])
+	def load(self, modpack, last_build):
 		builds = []
 
-		for modpack in data.findall('modpack'):
+		if modpack.get('repoVersion') != None:
+			version = modpack.get('repoVersion')
+		else:
+			version = modpack.get('version')
 
-			if modpack.get('repoVersion') != None:
-				version = modpack.get('repoVersion')
-			else:
-				version = modpack.get('version')
+		url = self.getData(modpack.get('dir'), version, modpack.get('serverPack'))
 
-			url = self.getData(modpack.get('dir'), version, modpack.get('serverPack'))
-
-			builds.append({
-				'version': version,
-				'size': None,
-				'checksum': None,
-				'url': url,
-				'build': 1
-			})
+		builds.append({
+			'version': version,
+			'size': None,
+			'checksum': None,
+			'url': url,
+			'build': 1
+		})
 
 		return builds

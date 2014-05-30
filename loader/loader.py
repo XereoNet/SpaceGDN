@@ -80,9 +80,7 @@ def load():
 
 					if modpack.get('serverPack') == "": continue
 
-					print modpack.get('name')
-
-					jar_obj = adder.addJarName(modpack.get('name'))
+					jar_obj = adder.addJarName({'name': modpack.get('name'), 'url': 'http://www.feed-the-beast.com/mod-packs', 'desc': modpack.get('description')})
 					channel = adder.addChannel(channel_data, jar_obj)
 
 					sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
@@ -94,7 +92,7 @@ def load():
 					if data:
 						last_build = data.build
 
-					for build in l.load(channel_data, last_build):
+					for build in l.load(modpack, last_build):
 						adder.addBuild(build, channel)
 			adder.commit()
 			sys.stdout.write("\n\n")
