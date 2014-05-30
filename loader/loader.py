@@ -9,7 +9,7 @@ def loadSources():
 
 	import glob, json
 
-	files = glob.glob(_path + '/../sources/creeperrepo.json')
+	files = glob.glob(_path + '/../sources/*.json')
 	output = []
 
 	for f in files:
