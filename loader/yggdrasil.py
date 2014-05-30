@@ -1,6 +1,6 @@
 from gdn import db
 from gdn.models import Jar, Channel, Version, Build
-import urllib
+import urllib,json
 from urlparse import urlparse
 from os.path import splitext, basename
 from datetime import datetime
@@ -34,8 +34,37 @@ class Yggdrasil():
 			item.created_at = datetime.now()
 			db.session.add(item)
 			db.session.commit()
-
+			
 		return item
+
+	def getOrMakeCustom(self, where, model, data, ignore = []):
+		item = model.query.filter_by(**where).first()
+
+		new = False
+		if not item:
+			new = True
+			item = model()
+
+		item.updated_at = datetime.now()
+		item.name = data['name']
+		item.site_url = data['url']
+		item.description = self.cap(data['desc'], 200)
+			
+		if new:
+			item.created_at = datetime.now()
+			db.session.add(item)
+			db.session.commit()
+			
+		return item
+
+	def cap(self, s, l):
+	    return s if len(s)<=l else s[0:l-3]+'...'
+
+	def addJarName(self, data):
+		jar = self.getOrMakeCustom(model = Jar, data = data, where = {'name': data['name']})
+		self.jars[jar.id] = jar
+
+		return jar.id
 
 	def addJar(self, data):
 		jar = self.getOrMake(model = Jar, data = data, where = {'name': data['name']})
@@ -46,7 +75,6 @@ class Yggdrasil():
 	def addChannel(self, data, jar):
 		if not jar in self.jars:
 			raise Exception('Tried to add a channel %s in a nonexistant jar %s.' % (data['name'], jar))
-
 
 		data['jar_id'] = jar
 		channel = self.getOrMake(model = Channel, data = data, where = {'name': data['name'], 'jar_id': jar})
@@ -69,6 +97,7 @@ class Yggdrasil():
 		return version.id
 
 	def addBuild(self, data, channel):
+		print json.dumps(data, indent=4, sort_keys=True)
 		URLdisassembled = urlparse(data['url'])
 		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
 		fileURL = 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext
