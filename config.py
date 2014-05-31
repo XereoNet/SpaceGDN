@@ -1,6 +1,6 @@
 # App settings
-DEBUG = True
-TESTING = True
+DEBUG = False
+TESTING = False
 SECRET_KEY = "SUPERSECRET"
 
 # Database settings

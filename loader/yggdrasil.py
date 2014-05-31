@@ -46,7 +46,7 @@ class Yggdrasil():
 			item = model()
 
 		item.updated_at = datetime.now()
-		item.name = data['name']
+		item.name = data['name'].lower().replace (" ", "_")
 		item.site_url = data['url']
 		item.description = self.cap(data['desc'], 200)
 			
