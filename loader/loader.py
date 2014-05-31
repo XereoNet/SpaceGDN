@@ -44,13 +44,18 @@ def getLoader(name):
 
 	return globals()['loader_' + name]()
 
+def cap(s, l):
+    return s if len(s)<=l else s[0:l-3]+'...'
+
 def load():
 	sources = loadSources()
 
 	adder = yggdrasil.Yggdrasil()
 
 	for source in sources:
-		if source['name'] != 'creeperrepo' :
+		if source['name'] != 'creeperrepo':
+
+			source['description'] = cap(source['description'], 200)
 
 			jar_obj = adder.addJar(source)
 

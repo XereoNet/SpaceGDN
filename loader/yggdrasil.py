@@ -97,10 +97,9 @@ class Yggdrasil():
 		return version.id
 
 	def addBuild(self, data, channel):
-		print json.dumps(data, indent=4, sort_keys=True)
 		URLdisassembled = urlparse(data['url'])
 		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-		fileURL = 'gdn/static/cache/'+URLfilename+'Build'+str(data['build'])+URLfile_ext
+		fileURL = 'gdn/static/cache/'+urllib.unquote(URLfilename).decode('utf8')+'Build'+str(data['build'])+URLfile_ext
 		self.download_file(data['url'], fileURL)
 
 		if not channel in self.channels:
