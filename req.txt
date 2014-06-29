@@ -5,3 +5,4 @@ Flask-Migrate
 MySQL-Python
 Gevent
 requests
+beautifulsoup4
