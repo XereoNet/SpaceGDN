@@ -1,4 +1,4 @@
-import urllib2, json
+import requests, json
 
 class loader_craftbukkit:
 
@@ -9,8 +9,8 @@ class loader_craftbukkit:
 
 	def getJSON(self, name):
 		_url = self.artifactURL(name)
-		response = urllib2.urlopen(_url)
-		return json.loads(response.read())
+		r = requests.get(_url)
+		return json.loads(r.content)
 
 	def load(self, channel, last_build):
 		data = self.getJSON(channel['name'])

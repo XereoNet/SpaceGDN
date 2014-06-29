@@ -9,7 +9,7 @@ def loadSources():
 
 	import glob, json
 
-	files = glob.glob(_path + '/../sources/*.json')
+	files = glob.glob(_path + '/../sources/cauldron164.json')
 	output = []
 
 	for f in files:

@@ -6,3 +6,4 @@ from creeperrepo_loader import *
 from pixelmon_loader import *
 from tekkit_loader import *
 from direct_loader import *
+from cauldron_loader import *
