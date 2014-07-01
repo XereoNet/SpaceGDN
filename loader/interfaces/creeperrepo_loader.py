@@ -1,4 +1,4 @@
-import requests, urllib
+import requests, urllib, re
 from lxml import etree as ET
 
 class loader_creeperrepo:
@@ -20,24 +20,24 @@ class loader_creeperrepo:
 
 	def getXML(self, name):
 		r = requests.get(self.artifactURL(self))
-		return ET.fromstring(r.content)
 
-	def load(self, modpack, last_build):
-		builds = []
+		return ET.fromstring(r.content).find('modpack[@name="%s"]' % name)
 
-		if modpack.get('repoVersion') != None:
-			version = modpack.get('repoVersion')
-		else:
-			version = modpack.get('version')
+	def load(self, channel, last_build):
+		modpack = self.getXML(channel['full_name'])
 
-		url = self.getData(modpack.get('dir'), version, modpack.get('serverPack'))
+		build = re.sub('[^0-9]', '', modpack.get('repoVersion'))
+		if build == last_build:
+			return []
 
-		builds.append({
-			'version': version,
+		version = modpack.get('version')
+
+		url = self.getData(modpack.get('dir'), modpack.get('repoVersion'), modpack.get('serverPack'))
+
+		return [{
+			'version': modpack.get('version'),
 			'size': None,
 			'checksum': None,
 			'url': url,
-			'build': 1
-		})
-
-		return builds
+			'build': build
+		}]

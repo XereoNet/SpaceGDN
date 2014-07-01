@@ -1,0 +1,12 @@
+{
+    "name": "magic-farm-2",
+    "site_url": "http://www.creeperrepo.net/",
+    "description": "",
+    "channels": [
+        {
+            "name": "build",
+            "interface": "creeperrepo",
+            "full_name": "Magic Farm 2:Adventures in Technology"
+        }
+    ]
+}

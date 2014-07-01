@@ -6,3 +6,4 @@ MySQL-Python
 Gevent
 requests
 beautifulsoup4
+lxml

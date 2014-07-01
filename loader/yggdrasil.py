@@ -112,9 +112,6 @@ class Yggdrasil():
 		del data['version']
 		data['version_id'] = version
 
-		if not 'checksum' in data or not data['checksum']:
-			data['checksum'] = self.md5sumRemote(fileURL)
-
 		self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
 		self.bubbleUpdate(version);
 
