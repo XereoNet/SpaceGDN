@@ -4,10 +4,11 @@
     "description": "The amazing pokemon mod for minecraft players and server owners to play with the world of pokemon in one of the most creative pc games.",
     "channels": [
         {
-            "name": "release",
-            "interface": "pixelmon",
-            "url": "http://mirror2.pixelmongaming.com",
-            "mirror": false
+            "name": "pixelmon",
+            "interface": "direct",
+            "mirror": false,
+            "url" : "https://dl.dropboxusercontent.com/content_link/ShHKKSjrpR9AKL2ZOMRtXClmGjzJfhLXhrAaZdCE4hPH0PMShGWRR8fylbJoDlf4?dl=1",
+            "version" : "1.7"
         }
     ]
 }
