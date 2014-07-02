@@ -26,7 +26,7 @@ class loader_creeperrepo:
 	def load(self, channel, last_build):
 		modpack = self.getXML(channel['full_name'])
 
-		build = re.sub('[^0-9]', '', modpack.get('repoVersion'))
+		build = int(re.sub('[^0-9]', '', modpack.get('repoVersion')))
 		if build == last_build:
 			return []
 
