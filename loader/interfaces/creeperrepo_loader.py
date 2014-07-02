@@ -32,7 +32,7 @@ class loader_creeperrepo:
 
 		version = modpack.get('version')
 
-		url = self.getData(modpack.get('dir'), modpack.get('repoVersion'), modpack.get('serverPack'))
+		url = self.getData(modpack.get('dir'), re.sub('\.', '_', modpack.get('repoVersion')), modpack.get('serverPack'))
 
 		return [{
 			'version': modpack.get('version'),
