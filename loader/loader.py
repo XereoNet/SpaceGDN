@@ -61,7 +61,7 @@ def load():
 			channel = adder.addChannel(channel_data, jar_obj)
 			l = getLoader(channel_data['interface'])
 
-			sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
+			sys.stdout.write("\nLoading builds for %s\n" % (source['name'] + '#' + channel_data['name']))
 
 			if not l: continue;
 
@@ -71,6 +71,6 @@ def load():
 				last_build = data.build
 
 			for build in l.load(channel_data, last_build):
-				adder.addBuild(build, channel)
+				adder.addBuild(build, channel, source['name'])
 		adder.commit()
 		sys.stdout.write("\n\n")

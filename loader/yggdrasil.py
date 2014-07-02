@@ -1,11 +1,13 @@
 from gdn import db
 from gdn.models import Jar, Channel, Version, Build
-import urllib,json
 from urlparse import urlparse
-from os.path import splitext, basename
 from datetime import datetime
+from modifier import Modifier
+import urllib
 import hashlib
 import requests
+import os.path
+import imp
 
 class Yggdrasil():
 	jars = {}
@@ -18,13 +20,13 @@ class Yggdrasil():
 
 	def md5sumLocal(self, file, block_size=2**20):
 		with open(file, 'r') as f:
-		    md5 = hashlib.md5()
-		    while True:
-		        data = f.read(block_size)
-		        if not data:
-		            break
-		        md5.update(data)
-		    return md5.hexdigest()
+			md5 = hashlib.md5()
+			while True:
+				data = f.read(block_size)
+				if not data:
+					break
+				md5.update(data)
+			return md5.hexdigest()
 
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
@@ -106,15 +108,13 @@ class Yggdrasil():
 
 		return version.id
 
-	def addBuild(self, data, channel):
-		URLdisassembled = urlparse(data['url'])
-		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-		fileURL = 'gdn/static/cache/'+urllib.unquote(URLfilename).decode('utf8')+'Build'+str(data['build'])+URLfile_ext
-		fileName = self.download_file(data['url'], fileURL)
+	def addBuild(self, data, channel, jarname):
+		fileName = self.download_file(data)
+		modifier = Modifier(jarname)
+		modifier.modify(fileName, data)
 
 		if not 'checksum' in data or not data['checksum']:
-			data['checksum'] = self.md5sumLocal(fileURL)
-
+			data['checksum'] = self.md5sumLocal(fileName)
 
 		if not channel in self.channels:
 			raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
@@ -140,10 +140,14 @@ class Yggdrasil():
 	def commit(self):
 		db.session.commit()
 
-	def download_file(self, url, local_filename):
+	def download_file(self, data):
+		URLdisassembled = urlparse(data['url'])
+		URLfilename, URLfile_ext = os.path.splitext(os.path.basename(URLdisassembled.path))
+		local_filename = 'gdn/static/cache/'+urllib.unquote(URLfilename).decode('utf8')+'Build'+str(data['build'])+URLfile_ext
+
 		# NOTE the stream=True parameter
-		print 'Downloading ' + url
-		r = requests.get(url, stream=True)
+		print 'Downloading ' + data['url']
+		r = requests.get(data['url'], stream=True)
 		with open(local_filename, 'wb') as f:
 			for chunk in r.iter_content(chunk_size=1024): 
 				if chunk: # filter out keep-alive new chunks
