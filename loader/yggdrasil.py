@@ -24,7 +24,7 @@ class Yggdrasil():
 		        if not data:
 		            break
 		        md5.update(data)
-		    return md5.digest()
+		    return md5.hexdigest()
 
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
