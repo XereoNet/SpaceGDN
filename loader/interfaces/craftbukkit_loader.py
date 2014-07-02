@@ -22,7 +22,7 @@ class loader_craftbukkit:
 				'version': build['version'],
 				'size': build['file']['size'] / 1024,
 				'checksum': build['file']['checksum_md5'],
-				'url': self.base_url + build['file']['url'],
+				'url': build['file']['url'],
 				'build': build['build_number']
 			})
 

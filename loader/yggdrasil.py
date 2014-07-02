@@ -16,6 +16,16 @@ class Yggdrasil():
 	def md5sumRemote(self, file_):
 		return hashlib.md5(open(file_).read()).hexdigest()
 
+	def md5sumLocal(self, file, block_size=2**20):
+		with open(file, 'r') as f:
+		    md5 = hashlib.md5()
+		    while True:
+		        data = f.read(block_size)
+		        if not data:
+		            break
+		        md5.update(data)
+		    return md5.digest()
+
 	def getOrMake(self, where, model, data, ignore = []):
 		item = model.query.filter_by(**where).first()
 
@@ -58,7 +68,7 @@ class Yggdrasil():
 		return item
 
 	def cap(self, s, l):
-	    return s if len(s)<=l else s[0:l-3]+'...'
+		return s if len(s)<=l else s[0:l-3]+'...'
 
 	def addJarName(self, data):
 		jar = self.getOrMakeCustom(model = Jar, data = data, where = {'name': data['name']})
@@ -100,7 +110,11 @@ class Yggdrasil():
 		URLdisassembled = urlparse(data['url'])
 		URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
 		fileURL = 'gdn/static/cache/'+urllib.unquote(URLfilename).decode('utf8')+'Build'+str(data['build'])+URLfile_ext
-		self.download_file(data['url'], fileURL)
+		fileName = self.download_file(data['url'], fileURL)
+
+		if not 'checksum' in data or not data['checksum']:
+			data['checksum'] = self.md5sumLocal(fileURL)
+
 
 		if not channel in self.channels:
 			raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
@@ -127,11 +141,12 @@ class Yggdrasil():
 		db.session.commit()
 
 	def download_file(self, url, local_filename):
-	    # NOTE the stream=True parameter
-	    r = requests.get(url, stream=True)
-	    with open(local_filename, 'wb') as f:
-	        for chunk in r.iter_content(chunk_size=1024): 
-	            if chunk: # filter out keep-alive new chunks
-	                f.write(chunk)
-	                f.flush()
-	    return local_filename
+		# NOTE the stream=True parameter
+		print 'Downloading ' + url
+		r = requests.get(url, stream=True)
+		with open(local_filename, 'wb') as f:
+			for chunk in r.iter_content(chunk_size=1024): 
+				if chunk: # filter out keep-alive new chunks
+					f.write(chunk)
+					f.flush()
+		return local_filename

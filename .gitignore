@@ -19,8 +19,6 @@ lib
 lib64
 __pycache__
 
-gdn/static/cache/*
-
 # Installer logs
 pip-log.txt
 
