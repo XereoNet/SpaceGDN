@@ -12,6 +12,7 @@ HTTP_HOST = '127.0.0.1'
 HTTP_PORT = 8000
 
 # API settings
+RATE_LIMIT = True
 HEIRARCHY = [{
 	'name': 'jar',
 	'unique': 'name'
