@@ -9,14 +9,9 @@
             "mirror": true,
             "releases": [
                 {
-                    "version": "1.3.1",
-                    "url": "https://dl.dropboxusercontent.com/content_link/ShHKKSjrpR9AKL2ZOMRtXClmGjzJfhLXhrAaZdCE4hPH0PMShGWRR8fylbJoDlf4?dl=1",
-                    "build": 131
-                },
-                {
-                    "version": "1.3.2",
-                    "url": "https://dl.dropboxusercontent.com/s/1ds26f6cvarcmr0/Pixelmon17.zip",
-                    "build": 132
+                    "version": "1.3.4",
+                    "url": "https://s3.amazonaws.com/SpaceZips/Pixelmon17.zip",
+                    "build": 314
                 }
             ]
         }
