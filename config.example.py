@@ -26,3 +26,6 @@ HEIRARCHY = [{
 	'name': 'build',
 	'unique': 'build'
 }]
+
+# Raven DSN. If False, Raven handler will not be enabled.
+RAVEN_DSN = False

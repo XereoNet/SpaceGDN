@@ -7,3 +7,4 @@ Gevent
 requests
 beautifulsoup4
 lxml
+raven[flask]
