@@ -5,8 +5,11 @@ class loader_creeperrepo:
 
 	base_url = 'http://www.creeperrepo.net'
 
-	def artifactURL(self, name):
-		return self.base_url + '/FTB2/static/modpacks.xml'
+	def artifactURLs(self):
+		return [
+			'http://new.creeperrepo.net/FTB2/static/thirdparty.xml',
+			'http://www.creeperrepo.net/FTB2/static/modpacks.xml'
+		]
 
 	def getData(self, name, version, file_):
 
@@ -19,9 +22,12 @@ class loader_creeperrepo:
 		return url
 
 	def getXML(self, name):
-		r = requests.get(self.artifactURL(self))
-
-		return ET.fromstring(r.content).find('modpack[@name="%s"]' % name)
+		for url in self.artifactURLs():
+			r = requests.get(url)
+			d = ET.fromstring(r.content).find('modpack[@name="%s"]' % name)
+			
+			if d is not None:
+				return d
 
 	def load(self, channel, last_build):
 		modpack = self.getXML(channel['full_name'])
