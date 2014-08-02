@@ -1,0 +1,14 @@
+{
+    "name": "tekkit",
+    "site_url": "http://www.technicpack.net/tekkit",
+    "description": "Tekkit has launched into a new era, and with it new frontiers to explore! Dimensions, pockets and planets, it’s all there for you and your friends to exploit and conquer.",
+    "channels": [
+        {
+            "name": "tekkit",
+            "interface": "direct",
+            "mirror": false,
+            "url" : "http://mirror.technicpack.net/Technic/servers/tekkitmain/Tekkit_Server_v1.2.9e.zip",
+            "version" : "1.2.9e"
+        }
+    ]
+}

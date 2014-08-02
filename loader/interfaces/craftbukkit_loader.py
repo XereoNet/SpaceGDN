@@ -1,4 +1,4 @@
-import urllib2, json
+import requests, json
 
 class loader_craftbukkit:
 
@@ -9,8 +9,8 @@ class loader_craftbukkit:
 
 	def getJSON(self, name):
 		_url = self.artifactURL(name)
-		response = urllib2.urlopen(_url)
-		return json.loads(response.read())
+		r = requests.get(_url)
+		return json.loads(r.content)
 
 	def load(self, channel, last_build):
 		data = self.getJSON(channel['name'])
@@ -18,12 +18,11 @@ class loader_craftbukkit:
 
 		for build in data['results']:
 			if build['build_number'] <= last_build or build['is_broken']: continue
-
 			builds.append({
 				'version': build['version'],
 				'size': build['file']['size'] / 1024,
 				'checksum': build['file']['checksum_md5'],
-				'url': self.base_url + build['file']['url'],
+				'url': build['file']['url'],
 				'build': build['build_number']
 			})
 

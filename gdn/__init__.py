@@ -5,6 +5,10 @@ from flask.ext.migrate import Migrate
 app = Flask(__name__)
 app.config.from_pyfile('../config.py')
 
+if app.config['RAVEN_DSN']:
+    from raven.contrib.flask import Sentry
+    sentry = Sentry(app, dsn=app.config['RAVEN_DSN'])
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

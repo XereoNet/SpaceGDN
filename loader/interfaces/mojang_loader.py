@@ -1,4 +1,4 @@
-import urllib2, json
+import urllib2, json, datetime, re
 
 class loader_mojang:
 
@@ -9,25 +9,20 @@ class loader_mojang:
 		response = urllib2.urlopen(self.url)
 		return json.loads(response.read())
 
-	def create_build_numbers(self, builds):
-		numbers = dict()
-		builds.sort(key=lambda b: b['releaseTime'])
-		counter = 1
-		for build in builds:
-			numbers[build['id']] = counter
-			counter += 1
-		return numbers
+	def totimestamp(self, dt, epoch=datetime.datetime(1970,1,1)):
+	    td = dt - epoch
+	    return (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6) / 1e6 
 
 	def load(self, channel, last_build):
 		data = self.getJSON()
-
-		build_numbers = self.create_build_numbers(data['versions'])
 
 		builds = []
 		for build in data['versions']:
 			if build['type'] != channel['name']: continue
 
-			build_number = build_numbers[build['id']]
+			time = datetime.datetime.strptime(re.sub(r'\+[0-9]{2}:[0-9]{2}$', '', build['releaseTime']), '%Y-%m-%dT%H:%M:%S')
+			build_number = int(self.totimestamp(time))
+
 			if build_number <= last_build: continue
 
 			builds.append({

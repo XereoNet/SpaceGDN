@@ -1,5 +1,6 @@
 from flask import json, make_response, request
 from gdn.v1 import lang, builder, handler
+from gdn import app
 
 from gdn.models import * 
 from datetime import datetime
@@ -17,6 +18,9 @@ def show_error(code, tup = ()):
     return make_response((json.dumps(error), 400))
 
 def check_ip(ip):
+    if not app.config['RATE_LIMIT']:
+        return True
+
 	record = API_Request.query.filter(API_Request.ip == ip).first()
 
 	if not record:

@@ -15,8 +15,6 @@ var
 sdist
 develop-eggs
 .installed.cfg
-lib
-lib64
 __pycache__
 
 # Installer logs
@@ -40,3 +38,4 @@ sftp-config.json
 
 env
 node_modules
+config.py

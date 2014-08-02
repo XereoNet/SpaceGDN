@@ -1,0 +1,12 @@
+{
+    "name": "horizons",
+    "site_url": "http://www.creeperrepo.net/",
+    "description": "",
+    "channels": [
+        {
+            "name": "build",
+            "interface": "creeperrepo",
+            "full_name": "Horizons"
+        }
+    ]
+}

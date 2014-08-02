@@ -1,0 +1,14 @@
+{
+    "name": "voltz",
+    "site_url": "http://www.technicpack.net/voltz",
+    "description": "The pack consists of various tech mods that uses a standardized electricity system, brining technology and exciting possibilities into Minecraft.",
+    "channels": [
+        {
+            "name": "voltz",
+            "interface": "direct",
+            "mirror": false,
+            "url" : "http://mirror.technicpack.net/Technic/servers/voltz/Voltz_Server_v2.0.4.zip",
+            "version" : "2.0.4"
+        }
+    ]
+}

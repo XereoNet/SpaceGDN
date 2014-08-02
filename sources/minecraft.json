@@ -1,0 +1,12 @@
+{
+    "name": "minecraft",
+    "site_url": "http://www.minecraft.net/",
+    "description": "Vanilla Minecraft server, as created by Mojang.",
+    "channels": [
+        {
+            "name": "release",
+            "interface": "mojang",
+            "mirror": false
+        }
+    ]
+}

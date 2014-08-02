@@ -1,4 +1,4 @@
-import os, yggdrasil, sys
+import os, yggdrasil, sys, traceback
 from interfaces import *
 from gdn import app
 from gdn.models import Version, Build
@@ -44,12 +44,16 @@ def getLoader(name):
 
 	return globals()['loader_' + name]()
 
+def cap(s, l):
+    return s if len(s)<=l else s[0:l-3]+'...'
+
 def load():
 	sources = loadSources()
 
 	adder = yggdrasil.Yggdrasil()
 
 	for source in sources:
+		source['description'] = cap(source['description'], 200)
 
 		jar_obj = adder.addJar(source)
 
@@ -57,7 +61,7 @@ def load():
 			channel = adder.addChannel(channel_data, jar_obj)
 			l = getLoader(channel_data['interface'])
 
-			sys.stdout.write("\n\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
+			print("\nLoading builds for %s" % (source['name'] + '#' + channel_data['name']))
 
 			if not l: continue;
 
@@ -66,8 +70,14 @@ def load():
 			if data:
 				last_build = data.build
 
-			for build in l.load(channel_data, last_build):
-				adder.addBuild(build, channel)
+			try:
+				for build in l.load(channel_data, last_build):
+					adder.addBuild(build, channel, source['name'])
+			except Exception, err:
+				print '=' * 75
+				traceback.print_exc()
+				print '=' * 75
+				print 'Loading of %s failed, continuing...' % (source['name'] + '#' + channel_data['name'])
 
-	adder.commit()
-	sys.stdout.write("\n\n")
+		adder.commit()
+		sys.stdout.write("\n\n")

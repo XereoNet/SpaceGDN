@@ -75,4 +75,6 @@ class loader_jenkins:
 			out = self.getBuildData(build)
 			if out: builds.append(out)
 
+		print ''
+
 		return builds

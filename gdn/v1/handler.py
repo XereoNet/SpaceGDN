@@ -1,7 +1,10 @@
 import sys
+import os.path
 from gdn import app
+import urllib
 from flask import request
-
+from urlparse import urlparse
+from os.path import splitext, basename
 from sqlalchemy.util import KeyedTuple
 from gdn.models import * 
 
@@ -101,6 +104,13 @@ def to_dict(ls):
             model = result
             result = []
         data = {}
+
+        if isinstance(model, Build):
+            URLdisassembled = urlparse(getattr(model, 'url'))
+            URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
+            if os.path.isfile('gdn/static/cache/'+urllib.unquote_plus(URLfilename)+'Build'+str(getattr(model, 'build'))+URLfile_ext):
+                setattr(model, 'url', 'http://'+app.config['HTTP_HOST']+':'+str(app.config['HTTP_PORT'])+'/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext)   
+
         data['id'] = getattr(model, 'id')
      
         for col in model._sa_class_manager.mapper.mapped_table.columns:
