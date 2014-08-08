@@ -1,8 +1,18 @@
 
-This API uses [Semantic Versioning](http://semver.org/). The current version is 0.1.1-dev, developing towards 1.1.0.
+This API uses [Semantic Versioning](http://semver.org/). The current version is 1.1.0-dev, developing towards 1.1.0.
 
 #Version 1.1.0-dev
 Version 1 of the API does not require any authentication to use. It is limited to a maximum of 1000 requests per hour per IP. If this maximum is exceeded, the API will return error 492 (in accordance with RFC 6585) in its errors (see below).
+
+## Implementations
+
+There have been several implementations of the SpaceGDN API in various languages:
+
+ * **PHP**: [mcprohosting/spacegdn-bridge](https://github.com/MCProHosting/spacegdn-bridge)
+ * **JavaScript**: [connor4312/spacegdn-bridge](https://github.com/connor4312/spacegdn-bridge)
+ * **Python**: [totokaka/pySpaceGDN](https://github.com/totokaka/pySpaceGDN)
+
+## Overview
 
 Jars are layered by `Type > Channel > Version > Build`. For example, a standard Craftbukkit build could be chained as `Craftbukkit > Recommended > 1.6.4 > 1850`, for the last recommended build of version 1.6.4. The API is [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) API. 
 
