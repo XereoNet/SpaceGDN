@@ -11,6 +11,7 @@ There have been several implementations of the SpaceGDN API in various languages
  * **PHP**: [mcprohosting/spacegdn-bridge](https://github.com/MCProHosting/spacegdn-bridge)
  * **JavaScript**: [connor4312/spacegdn-bridge](https://github.com/connor4312/spacegdn-bridge)
  * **Python**: [totokaka/pySpaceGDN](https://github.com/totokaka/pySpaceGDN)
+ * **Java**: [boboman13/SpaceGDN-Java](https://github.com/boboman13/SpaceGDN-Java)
 
 ## Overview
 
