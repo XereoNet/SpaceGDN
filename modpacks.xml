@@ -1,244 +1,244 @@
 <modpacks>
-	<modpack 
-		name="Monster" author="The FTB Team" version="1.1.1" repoVersion="1_1_1" logo="Monster_Icon.png" url="Monster.zip" image="Monster_Banner.png" dir="Monster" mcVersion="1.6.4" serverPack="MonsterServer.zip" 
-		description="This pack is a mega build pack and contains a large number of mods to allow players the ability to customize their own experience."
-		mods="Additional Buildcraft Objects - Flow86; Advanced Genetics - ObsiLP; Agriculture - Team Metallurgy; Alternate Terrain Generation - TTFTCUTS; Applied Energistics - AlgorithmX2; ArmorStatusHUD - bspkrs; AutoUtils - AUTOMATIC_MAIDEN; Backpacks - Eydamos; Basic Components - Universal Electricity Team; bdlib - bdew; BetterStorage - copygirl; BiblioCraft - Nuchaz; BiblioWoods-BoP - Nuchaz; BiblioWoods-Forestry - Nuchaz; BiblioWoods-Natura - Nuchaz; Big Reactors - ErogeneousBeef; Biomes O Plenty - Flostride, Adubbz, etc.; Blood Magic - WayofTime; bspkrsCore - bspkrs; Buildcraft - SpaceToad, etc.; Chicken Chunks - Chickenbones; Chisel - AUTOMATIC_MAIDEN; CodeChickenCore - Chickenbones; COFHcore - Team COFH; Compact Solars - cpw; Compact Windmills - Aroma1997; ComputerCraft - dan200; Craft Heraldry - Vazkii; DamageIndicators - rich1051414; denlib - denoflions; denPipes - denoflions; denPipes-Emerald - denoflions; denPipes-Forestry - denoflions; DragonAPI - Reika; Dye Trees - Reika; Dynamic Liquid Tanks 2 - WingsOfLife; Emasher's Resource - Emasher; Enderstorage - Chickenbones; EnderIO - CrazyPants; Endernet - asiekierka; Engineer's Toolbox - Emasher; Enhanced Portals 3 - Alz454; EVOC - ProfMobius; Expanded Redstone - Reika; Extra Utilities - RWTema; Factorization - neptunepink; Flatsigns - Myrathi; Forestry - SirSengir; Forge Multipart - Chickenbones; GasCraft - Emasher; Gate Copy - denoflions; Gendustry - bdew; GeoStrata - Reika; Hopper Ducts - FyberOptic; IChunUtil - IChun; IC2 Experimental - IC2 Dev Team; Infinibows - Myrathi; Inventory Tweaks - Kobata; Iron Chests - cpw; JABBA - ProfMobius; JourneyMap - Techbrew; Logistic Pipes - RS485; Lycanites Mobs - Lycanite; Magic Bees - MysteriousAges; Magical Crops - Mark719; Mariculture - joshie; Meteorcraft - Reika; MFFS - Calclavia; Mimicry - sparroha; MineFactoryReloaded - powercrystals, skyboy; MobiusCore - ProfMobius; Modular Powersuits - MachineMuse; Mystcraft - xcompwiz; Natura - mDiyo; NEI Addons - bdew; NEI Plugins - mistaqur; Nether Ores - powercrystals, skyboy; Not Enough Items - Chickenbones; Not Enough Keys - Mr. Okushama; Numina - MachineMuse; Obsidiplates - Myrathi; OpenBlocks - Mikee; OpenPeripheral - Mikee; Opis - ProfMobius; Project:Red - MrTjp; Portal Gun - iChun; PowerCrystalsCore - powercrystals, skyboy; QuarryPlus - denoflions; Railcraft - CovertJaguar; Random Things - lumien; ReactorCraft - Reika; Redstone Arsenal - Team COFH; Rei's Minimap - ReiNSFK; Reliquary - TheMike; RemoteIO - dmillerw; Revamp - Rivvest; Roguelike Dungeons - Greymerk; Rotarycraft - Reika; Sort Fix - LexManos; Special Mobs - FatherToast; StatusEffectHUD - bspkrs; Steve's Carts - Vswe; Switches - Myrathi; Sync - iChun; Thaumcraft 4 - Azanor; Thaumcraft Mob Aspects - Iguana_man; Thaumic Tinkerer - Vazkii; Thermal Expansion - Team COFH; Tinker's Construct - mDiyo; Tinker's Mechworks - mDiyo; Torch Levers - HitchH1k3r; Twilight Forest - Benimatic; Universal Electricity Core - Universal Electricity Team; Waila - ProfMobius; WRCBE - Chickenbones; Zan's Minimap - MamiyaOtaru" 
-		oldVersions="1.1.1;1.1.0;1.0.11;1.0.10;1.0.9;1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"
-	/>
-	<modpack 
-		name="Pax East 2014 Map" author="The FTB Team" version="1.0.1" repoVersion="1_0_1" logo="logo_ftb.png" url="pax2014.zip" image="paxeast.png" dir="pax2014" mcVersion="1.6.4" serverPack="" 
-		description="FTB's challenge map for the upcoming Pax East 2014 convention."
-		mods="" 
-		oldVersions="1.0.1;1.0.0"
-	/>
-	<modpack 
-		name="Direwolf20" author="The FTB Team" version="1.0.21" repoVersion="1_0_21" logo="DW20v2Icon.png" url="Direwolf20.zip" image="DW20v2Splash.png" dir="Direwolf20_1_6_4" mcVersion="1.6.4" serverPack="Direwolf20Server.zip" 
-		description="PUBLIC BETA TEST VERSION Please Read the news section of the forums before updating any pack.- Please Read the news section of the forums before updating any pack. Play along with Direwolf20 using the same pack he uses in his SSP youtube series." 
-		mods="Additional Buildcraft Objects by Flow86; Applied Energistics by AlgorithmX2; Ars Magica 2 by Mithion; BiblioCraft by Nuchaz; BiblioWoods - BoP by Nuchaz; BiblioWoods - Forestry by Nuchaz; Extra Bees and Trees - Binnie; Powersuits Addons - eximius88; BiblioWoods - Natura by Nuchaz; Billund by dan200; Biomes O Plenty by Forstride, Adubbz, etc.; Buildcraft	by SpaceToad, SirSengir, CovertJaguar, etc.; Chicken Chunks by Chickenbones; CodeChickenCore by Chickenbones; COFHcore by Team COFH; Compact Solars by cpw; ComputerCraft by dan200; denlib by denoflions; denPipes by denoflions; denPipes - Emerald by denoflions; denPipes - Forestry by denoflions; Enderstorage by Chickenbones; EVOC by ProfMobius; Extra Utilities by RWTema; Factorization by neptunepink; Flatsigns by Myrathi; Forestry by SirSengir; Forge Multipart by Chickenbones; Gate Copy by denoflions; GravityGun by iChun; Hat Stands by iChun; Hats by iChun; iChunUtil by iChun; Industrial Craft 2 Exp by Industrial Craft 2 Dev Team; Infinibows by Myrathi; Inventory Tweaks by Kobata; Iron Chests by cpw; Logistic Pipes by RS485; Magic Bees by MysteriousAges; MobiusCore by ProfMobius; Modular Powersuits by MachineMuse; ModularForceFieldSystems (Cal) by Calclavia; Morph by iChun; Mystcraft by xcompwiz; Natura by mDiyo; NEI Addons by bdew; NEI Plugins by mistaqur; Not Enough Items by Chickenbones; Nuclear Control by Shedar; Obsidiplates by Myrathi; OpenBlocks by OpenMods Team; OpenPeripheral by OpenMods Team; Opis by ProfMobius; PneumaticCraft - Minemaarten; Plugins for Forestry by denoflions; Portal Gun by iChun; Project:Red by Mr_TJP; qCraft by dan200; Railcraft by CovertJaguar; Steve's Carts by Vswe; Switches by Myrathi; Thaumcraft 4 by Azanor; Thaumic Tinkerer by Vazkii; Thermal Expansion by Team COFH; TiC:Mechworks by mDiyo; Tinker's Construct by mDiyo; Translocators by Chickenbones; Twilight Forest by Benimatic; Waila by ProfMobius; WRCBE by Chickenbones; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew" 
-		oldVersions="1.0.22;1.0.21;1.0.20;1.0.19;1.0.18;1.0.16;1.0.15;1.0.14;1.0.13;1.0.12;1.0.11;1.0.9;1.0.8;1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.0" 
-	/>		
+    <modpack 
+        name="Monster" author="The FTB Team" version="1.1.1" repoVersion="1_1_1" logo="Monster_Icon.png" url="Monster.zip" image="Monster_Banner.png" dir="Monster" mcVersion="1.6.4" serverPack="MonsterServer.zip" 
+        description="This pack is a mega build pack and contains a large number of mods to allow players the ability to customize their own experience."
+        mods="Additional Buildcraft Objects - Flow86; Advanced Genetics - ObsiLP; Agriculture - Team Metallurgy; Alternate Terrain Generation - TTFTCUTS; Applied Energistics - AlgorithmX2; ArmorStatusHUD - bspkrs; AutoUtils - AUTOMATIC_MAIDEN; Backpacks - Eydamos; Basic Components - Universal Electricity Team; bdlib - bdew; BetterStorage - copygirl; BiblioCraft - Nuchaz; BiblioWoods-BoP - Nuchaz; BiblioWoods-Forestry - Nuchaz; BiblioWoods-Natura - Nuchaz; Big Reactors - ErogeneousBeef; Biomes O Plenty - Flostride, Adubbz, etc.; Blood Magic - WayofTime; bspkrsCore - bspkrs; Buildcraft - SpaceToad, etc.; Chicken Chunks - Chickenbones; Chisel - AUTOMATIC_MAIDEN; CodeChickenCore - Chickenbones; COFHcore - Team COFH; Compact Solars - cpw; Compact Windmills - Aroma1997; ComputerCraft - dan200; Craft Heraldry - Vazkii; DamageIndicators - rich1051414; denlib - denoflions; denPipes - denoflions; denPipes-Emerald - denoflions; denPipes-Forestry - denoflions; DragonAPI - Reika; Dye Trees - Reika; Dynamic Liquid Tanks 2 - WingsOfLife; Emasher's Resource - Emasher; Enderstorage - Chickenbones; EnderIO - CrazyPants; Endernet - asiekierka; Engineer's Toolbox - Emasher; Enhanced Portals 3 - Alz454; EVOC - ProfMobius; Expanded Redstone - Reika; Extra Utilities - RWTema; Factorization - neptunepink; Flatsigns - Myrathi; Forestry - SirSengir; Forge Multipart - Chickenbones; GasCraft - Emasher; Gate Copy - denoflions; Gendustry - bdew; GeoStrata - Reika; Hopper Ducts - FyberOptic; IChunUtil - IChun; IC2 Experimental - IC2 Dev Team; Infinibows - Myrathi; Inventory Tweaks - Kobata; Iron Chests - cpw; JABBA - ProfMobius; JourneyMap - Techbrew; Logistic Pipes - RS485; Lycanites Mobs - Lycanite; Magic Bees - MysteriousAges; Magical Crops - Mark719; Mariculture - joshie; Meteorcraft - Reika; MFFS - Calclavia; Mimicry - sparroha; MineFactoryReloaded - powercrystals, skyboy; MobiusCore - ProfMobius; Modular Powersuits - MachineMuse; Mystcraft - xcompwiz; Natura - mDiyo; NEI Addons - bdew; NEI Plugins - mistaqur; Nether Ores - powercrystals, skyboy; Not Enough Items - Chickenbones; Not Enough Keys - Mr. Okushama; Numina - MachineMuse; Obsidiplates - Myrathi; OpenBlocks - Mikee; OpenPeripheral - Mikee; Opis - ProfMobius; Project:Red - MrTjp; Portal Gun - iChun; PowerCrystalsCore - powercrystals, skyboy; QuarryPlus - denoflions; Railcraft - CovertJaguar; Random Things - lumien; ReactorCraft - Reika; Redstone Arsenal - Team COFH; Rei's Minimap - ReiNSFK; Reliquary - TheMike; RemoteIO - dmillerw; Revamp - Rivvest; Roguelike Dungeons - Greymerk; Rotarycraft - Reika; Sort Fix - LexManos; Special Mobs - FatherToast; StatusEffectHUD - bspkrs; Steve's Carts - Vswe; Switches - Myrathi; Sync - iChun; Thaumcraft 4 - Azanor; Thaumcraft Mob Aspects - Iguana_man; Thaumic Tinkerer - Vazkii; Thermal Expansion - Team COFH; Tinker's Construct - mDiyo; Tinker's Mechworks - mDiyo; Torch Levers - HitchH1k3r; Twilight Forest - Benimatic; Universal Electricity Core - Universal Electricity Team; Waila - ProfMobius; WRCBE - Chickenbones; Zan's Minimap - MamiyaOtaru" 
+        oldVersions="1.1.1;1.1.0;1.0.11;1.0.10;1.0.9;1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"
+    />
+    <modpack 
+        name="Pax East 2014 Map" author="The FTB Team" version="1.0.1" repoVersion="1_0_1" logo="logo_ftb.png" url="pax2014.zip" image="paxeast.png" dir="pax2014" mcVersion="1.6.4" serverPack="" 
+        description="FTB's challenge map for the upcoming Pax East 2014 convention."
+        mods="" 
+        oldVersions="1.0.1;1.0.0"
+    />
+    <modpack 
+        name="Direwolf20" author="The FTB Team" version="1.0.21" repoVersion="1_0_21" logo="DW20v2Icon.png" url="Direwolf20.zip" image="DW20v2Splash.png" dir="Direwolf20_1_6_4" mcVersion="1.6.4" serverPack="Direwolf20Server.zip" 
+        description="PUBLIC BETA TEST VERSION Please Read the news section of the forums before updating any pack.- Please Read the news section of the forums before updating any pack. Play along with Direwolf20 using the same pack he uses in his SSP youtube series." 
+        mods="Additional Buildcraft Objects by Flow86; Applied Energistics by AlgorithmX2; Ars Magica 2 by Mithion; BiblioCraft by Nuchaz; BiblioWoods - BoP by Nuchaz; BiblioWoods - Forestry by Nuchaz; Extra Bees and Trees - Binnie; Powersuits Addons - eximius88; BiblioWoods - Natura by Nuchaz; Billund by dan200; Biomes O Plenty by Forstride, Adubbz, etc.; Buildcraft    by SpaceToad, SirSengir, CovertJaguar, etc.; Chicken Chunks by Chickenbones; CodeChickenCore by Chickenbones; COFHcore by Team COFH; Compact Solars by cpw; ComputerCraft by dan200; denlib by denoflions; denPipes by denoflions; denPipes - Emerald by denoflions; denPipes - Forestry by denoflions; Enderstorage by Chickenbones; EVOC by ProfMobius; Extra Utilities by RWTema; Factorization by neptunepink; Flatsigns by Myrathi; Forestry by SirSengir; Forge Multipart by Chickenbones; Gate Copy by denoflions; GravityGun by iChun; Hat Stands by iChun; Hats by iChun; iChunUtil by iChun; Industrial Craft 2 Exp by Industrial Craft 2 Dev Team; Infinibows by Myrathi; Inventory Tweaks by Kobata; Iron Chests by cpw; Logistic Pipes by RS485; Magic Bees by MysteriousAges; MobiusCore by ProfMobius; Modular Powersuits by MachineMuse; ModularForceFieldSystems (Cal) by Calclavia; Morph by iChun; Mystcraft by xcompwiz; Natura by mDiyo; NEI Addons by bdew; NEI Plugins by mistaqur; Not Enough Items by Chickenbones; Nuclear Control by Shedar; Obsidiplates by Myrathi; OpenBlocks by OpenMods Team; OpenPeripheral by OpenMods Team; Opis by ProfMobius; PneumaticCraft - Minemaarten; Plugins for Forestry by denoflions; Portal Gun by iChun; Project:Red by Mr_TJP; qCraft by dan200; Railcraft by CovertJaguar; Steve's Carts by Vswe; Switches by Myrathi; Thaumcraft 4 by Azanor; Thaumic Tinkerer by Vazkii; Thermal Expansion by Team COFH; TiC:Mechworks by mDiyo; Tinker's Construct by mDiyo; Translocators by Chickenbones; Twilight Forest by Benimatic; Waila by ProfMobius; WRCBE by Chickenbones; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew" 
+        oldVersions="1.0.22;1.0.21;1.0.20;1.0.19;1.0.18;1.0.16;1.0.15;1.0.14;1.0.13;1.0.12;1.0.11;1.0.9;1.0.8;1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.0" 
+    />        
 
-	<modpack 
-		name="Horizons" author="The FTB Team" version="2.1.1" repoVersion="2_1_1" logo="HorizonsIcon.png" url="Horizons.zip" image="HorizonsSplash.png" dir="Horizons" mcVersion="1.6.4" serverPack="HorizonsServer.zip" 
-		description="A pack designed to highlight a whole new series of incredible mods for Minecraft" 
-		mods="Advanced Genetics - ObsiLP ; Agriculture - Team Metallurgy; Applied Energistics - AlgorithmX2; Arcane Scrolls - Duke605; Archimedes Ships - BalkondeurAlpha; Armor Status - bspkrs; Ars Magica 2 - Mithion; Artifice - Shukaro; Alternate Terrain Generation - TTFTCUTS; Backpacks - Eydamos; Better Chests - Aroma1997; BetterStorage - copygirl; Biomes'O'Plenty - Forstride and the BoP Team; Blood Magic - WayofTime; Chicken Chunks - ChickenBones; Damage Indicators - bspkrs; Dynamic Liquid Tanks - WingsofLife; Ender IO - CrazyPants; Engineers Toolbox - Emasher; Enhanced Portals - Alz454; Extra Tinkers Construct - Glassmaker; Farlanders - Fabiulu; Flatsigns - Myrathi; Ganys End, Nether and Surface - Ganymedes01; Gascraft - Emasher; Hopper Ducts Mod - FyberOptic; InfiniBows - Myrathi; Inventory Tweaks - Kobata; JABBA - ProfMobius; Magical Crops - Mark719; Metallurgy - Team Metallurgy; Mystcraft - Xcompwiz; Not Enough Items - ChickenBones; Obsidiplates - Myrathi; Opis - ProfMobius; Pam's Harvestcraft - MatrexsVigil; Project:Red - Mr_TJP; Random Things - lumien; ReactorCraft - Reika; RemoteIO - dmillerw; Revamp - Rivvest; Roguelike Dungeon Mod - Greymerk; RotaryCraft - Reika; StatusEffectHUD - bspkrs; Switches - Myrathi; Thaumcraft 4 - Azanor; Thermal Expansion - KingLemming, Zeldo , Cynycal; Tinker's Construct - mDiyo; Torch Levers - HitchH1k3r; Translocators - Chickenbones; Utility Mobs - FatherToast; Waila - ProfMobius; Witchery - Emoniph; WRCBE - Chickenbones; SortFix - LexManos; Tmechworks - TiCo Team; Evoc - ProfMobius; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew; Tropicraft - Tropicraft Team; Forbidden Magic - SpitefulFox" 
-		oldVersions="2.1.1;2.1.0;2.0.2;2.0.1;2.0.0;1.0.13;1.0.11;1.0.10;1.0.9;1.0.8;1.0.7;1.0.6"
-	/>
+    <modpack 
+        name="Horizons" author="The FTB Team" version="2.1.1" repoVersion="2_1_1" logo="HorizonsIcon.png" url="Horizons.zip" image="HorizonsSplash.png" dir="Horizons" mcVersion="1.6.4" serverPack="HorizonsServer.zip" 
+        description="A pack designed to highlight a whole new series of incredible mods for Minecraft" 
+        mods="Advanced Genetics - ObsiLP ; Agriculture - Team Metallurgy; Applied Energistics - AlgorithmX2; Arcane Scrolls - Duke605; Archimedes Ships - BalkondeurAlpha; Armor Status - bspkrs; Ars Magica 2 - Mithion; Artifice - Shukaro; Alternate Terrain Generation - TTFTCUTS; Backpacks - Eydamos; Better Chests - Aroma1997; BetterStorage - copygirl; Biomes'O'Plenty - Forstride and the BoP Team; Blood Magic - WayofTime; Chicken Chunks - ChickenBones; Damage Indicators - bspkrs; Dynamic Liquid Tanks - WingsofLife; Ender IO - CrazyPants; Engineers Toolbox - Emasher; Enhanced Portals - Alz454; Extra Tinkers Construct - Glassmaker; Farlanders - Fabiulu; Flatsigns - Myrathi; Ganys End, Nether and Surface - Ganymedes01; Gascraft - Emasher; Hopper Ducts Mod - FyberOptic; InfiniBows - Myrathi; Inventory Tweaks - Kobata; JABBA - ProfMobius; Magical Crops - Mark719; Metallurgy - Team Metallurgy; Mystcraft - Xcompwiz; Not Enough Items - ChickenBones; Obsidiplates - Myrathi; Opis - ProfMobius; Pam's Harvestcraft - MatrexsVigil; Project:Red - Mr_TJP; Random Things - lumien; ReactorCraft - Reika; RemoteIO - dmillerw; Revamp - Rivvest; Roguelike Dungeon Mod - Greymerk; RotaryCraft - Reika; StatusEffectHUD - bspkrs; Switches - Myrathi; Thaumcraft 4 - Azanor; Thermal Expansion - KingLemming, Zeldo , Cynycal; Tinker's Construct - mDiyo; Torch Levers - HitchH1k3r; Translocators - Chickenbones; Utility Mobs - FatherToast; Waila - ProfMobius; Witchery - Emoniph; WRCBE - Chickenbones; SortFix - LexManos; Tmechworks - TiCo Team; Evoc - ProfMobius; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew; Tropicraft - Tropicraft Team; Forbidden Magic - SpitefulFox" 
+        oldVersions="2.1.1;2.1.0;2.0.2;2.0.1;2.0.0;1.0.13;1.0.11;1.0.10;1.0.9;1.0.8;1.0.7;1.0.6"
+    />
 
-	<modpack 
-		name="Tech World 2" author="The FTB Team" version="1.1.4" repoVersion="1_1_4" logo="TechWorld2Icon.png" url="TechWorld2.zip" image="TechWorld2Splash.png" dir="TechWorld2" mcVersion="1.6.4" serverPack="TechWorld2Server.zip"
-		description="Want to create massive factories or giant power plants? No time for wands and wizardry? This mod pack is for you. All tech no magic."
-		mods="Forge - LexManos and the Forge Team; Applied Energistics - AlgorithX2; Alternate Terrain Generation - TTFTCUTS; Biomes O Plenty - Forstride and the BoP Team; Backpacks -Eydamos; Bibliocraft - Nuchaz; Big Reactors - ErogenousBeef; Buildcraft - Space Toad, Sir Sengir and Covert Jaguar; Chicken Chunks, Code Chicken Core, NEI, WR-CBE and ForgeMulitpart - Chicken Bones; Compact Windmills - Aroma1997; Compact Solars - Cpw; Computercraft - Dan200 and Cloudhunter; Engineers Toolbox , Gascraft and Emasher Core - Emasher; Extra Bees and Trees - Binnie; Extra Utilities - RWTema; Factorization - Neptunepink; GateCopy Denlib and DenPipes - DenofLions; Hopperducts - FyberOptic; IC2 - Alblaka, Player and the IC2 team; JABBA , WAILA, OPIS,EVOC, and Mobius Core - ProfMobius; MineFactoryReloaded and PowerCrystals Core - Powercrystals and Skyboy; Modular Power Suits - MachineMuse; Mystcraft - Xcompwiz; Portal GUn and IchunUtil - Ichun; Railcraft - CovertJaguar; ReactorCraft, RoataryCraft and DragonAPI - Reika; RemoteIO - dmillerw; Steve's Carts - Vswe; Simply Jetpacks - Tonius; Switches and ObsidiPlates - Myrathi; ThermalExpansion and CoFH Core - KingLemming, Zeldo and Cynycal; Tinker's Construct - mDiyo and the TiCo Team; XACT:Advanced Crafting Tables - Xhamolk; OpenPeripherals and OpenBlocks - OpenMods Team; Powersuits Addons - eximius88; Power Converters - zerotheliger; InventoryTweaks - Kobata;  NEI Addons - bdew; NEI Plugins - mistaqur; SortFix - LexManos; Status Effect Hud, bspkr's core and Armor Status Hud - bspkr; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew"
-		oldVersions="1.1.5;1.1.4;1.1.2;1.1.1;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"		
-	/>	
+    <modpack 
+        name="Tech World 2" author="The FTB Team" version="1.1.4" repoVersion="1_1_4" logo="TechWorld2Icon.png" url="TechWorld2.zip" image="TechWorld2Splash.png" dir="TechWorld2" mcVersion="1.6.4" serverPack="TechWorld2Server.zip"
+        description="Want to create massive factories or giant power plants? No time for wands and wizardry? This mod pack is for you. All tech no magic."
+        mods="Forge - LexManos and the Forge Team; Applied Energistics - AlgorithX2; Alternate Terrain Generation - TTFTCUTS; Biomes O Plenty - Forstride and the BoP Team; Backpacks -Eydamos; Bibliocraft - Nuchaz; Big Reactors - ErogenousBeef; Buildcraft - Space Toad, Sir Sengir and Covert Jaguar; Chicken Chunks, Code Chicken Core, NEI, WR-CBE and ForgeMulitpart - Chicken Bones; Compact Windmills - Aroma1997; Compact Solars - Cpw; Computercraft - Dan200 and Cloudhunter; Engineers Toolbox , Gascraft and Emasher Core - Emasher; Extra Bees and Trees - Binnie; Extra Utilities - RWTema; Factorization - Neptunepink; GateCopy Denlib and DenPipes - DenofLions; Hopperducts - FyberOptic; IC2 - Alblaka, Player and the IC2 team; JABBA , WAILA, OPIS,EVOC, and Mobius Core - ProfMobius; MineFactoryReloaded and PowerCrystals Core - Powercrystals and Skyboy; Modular Power Suits - MachineMuse; Mystcraft - Xcompwiz; Portal GUn and IchunUtil - Ichun; Railcraft - CovertJaguar; ReactorCraft, RoataryCraft and DragonAPI - Reika; RemoteIO - dmillerw; Steve's Carts - Vswe; Simply Jetpacks - Tonius; Switches and ObsidiPlates - Myrathi; ThermalExpansion and CoFH Core - KingLemming, Zeldo and Cynycal; Tinker's Construct - mDiyo and the TiCo Team; XACT:Advanced Crafting Tables - Xhamolk; OpenPeripherals and OpenBlocks - OpenMods Team; Powersuits Addons - eximius88; Power Converters - zerotheliger; InventoryTweaks - Kobata;  NEI Addons - bdew; NEI Plugins - mistaqur; SortFix - LexManos; Status Effect Hud, bspkr's core and Armor Status Hud - bspkr; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew"
+        oldVersions="1.1.5;1.1.4;1.1.2;1.1.1;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"        
+    />    
 
-	<modpack 
-		name="Magic World 2" author="The FTB Team" version="1.1.2" repoVersion="1_1_2" logo="MagicWorld2_Icon.png" url="MagicWorld2.zip" image="MagicWorld2_Banner.png" dir="Magic_World_2" mcVersion="1.6.4" serverPack="MagicWorld2Server.zip" 
-		description="When you just need to escape the world of technology and delve into the mystic forces of the world. This pack brings you into a world full of magic and wonder."
-		mods="Arcane Scrolls - Duke605; Armor Status - bspkrs; Ars Magica 2 - Mithion; BetterStorage - copygirl; BiblioCraft by Nuchaz; BiblioWoods - BoP by Nuchaz; BiblioWoods - Natura by Nuchaz; Biomes of Plenty - Forstride and the BoP team; Blood Magic - WayofTime; bspkrsCore - bspkrs; Chicken Chunks - ChickenBones; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; Craft Heraldry - vazkii; DamageIndicators - rixh1051414; DragonAPI - Reika; Enchanting Plus - Freyja; dukecore - Duke605; Dye Trees - Reika; Ender Forest - Reika; EnderNet asiekierka; Enderstorage - Chickenbones; Evoc - ProfMobius; Farlanders - Fabiulu; Flatsigns - Myrathi; Forge Multipart - Chickenbones; GeoStrata - Reika; Hopper Ducts - FyberOptic; Infinibows - Myrathi, Inventory Tweaks - Kobata; JABBA - ProfMobius; Magical Crops - Mark719; Mimicry - sparroha; Mystcraft - xcompwiz; Natura - mDiyo; NEI Addons - bdew; NEI Plugins - mistaqur; Not Enough Items - Chickenbones; Obsidiplates - Myrathi; Opis - ProfMobius; Player Beacons - Kihira; Random Things - lumien; Reliquary - TheMike; Revamp - Rivvest; StatusEffectHUD - bspkrs; Sort Fix - LexManos; Switches - Myrathi; Thaumcraft 4 - Azanor; Thaumic Tinkerer - Vazkii; Torch Levers - HitchH1k3r; Twilight Forest - Benimatic; Utility Mobs - FatherToast; Witchery - Emoniph; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew" 
-		oldVersions="1.1.2;1.1.1;1.1.0;1.0.1;1.0.0"
-	/>
+    <modpack 
+        name="Magic World 2" author="The FTB Team" version="1.1.2" repoVersion="1_1_2" logo="MagicWorld2_Icon.png" url="MagicWorld2.zip" image="MagicWorld2_Banner.png" dir="Magic_World_2" mcVersion="1.6.4" serverPack="MagicWorld2Server.zip" 
+        description="When you just need to escape the world of technology and delve into the mystic forces of the world. This pack brings you into a world full of magic and wonder."
+        mods="Arcane Scrolls - Duke605; Armor Status - bspkrs; Ars Magica 2 - Mithion; BetterStorage - copygirl; BiblioCraft by Nuchaz; BiblioWoods - BoP by Nuchaz; BiblioWoods - Natura by Nuchaz; Biomes of Plenty - Forstride and the BoP team; Blood Magic - WayofTime; bspkrsCore - bspkrs; Chicken Chunks - ChickenBones; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; Craft Heraldry - vazkii; DamageIndicators - rixh1051414; DragonAPI - Reika; Enchanting Plus - Freyja; dukecore - Duke605; Dye Trees - Reika; Ender Forest - Reika; EnderNet asiekierka; Enderstorage - Chickenbones; Evoc - ProfMobius; Farlanders - Fabiulu; Flatsigns - Myrathi; Forge Multipart - Chickenbones; GeoStrata - Reika; Hopper Ducts - FyberOptic; Infinibows - Myrathi, Inventory Tweaks - Kobata; JABBA - ProfMobius; Magical Crops - Mark719; Mimicry - sparroha; Mystcraft - xcompwiz; Natura - mDiyo; NEI Addons - bdew; NEI Plugins - mistaqur; Not Enough Items - Chickenbones; Obsidiplates - Myrathi; Opis - ProfMobius; Player Beacons - Kihira; Random Things - lumien; Reliquary - TheMike; Revamp - Rivvest; StatusEffectHUD - bspkrs; Sort Fix - LexManos; Switches - Myrathi; Thaumcraft 4 - Azanor; Thaumic Tinkerer - Vazkii; Torch Levers - HitchH1k3r; Twilight Forest - Benimatic; Utility Mobs - FatherToast; Witchery - Emoniph; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew" 
+        oldVersions="1.1.2;1.1.1;1.1.0;1.0.1;1.0.0"
+    />
 
-	<modpack 
-		name="FTBLite2" author="The FTB Team" version="1.1.7" repoVersion="1_1_7" logo="FTBLite2Icon.png" url="FTBLite2.zip" image="FTBLite2Splash.png" dir="FTBLite2" mcVersion="1.6.4" serverPack="FTBLite2Server.zip" 
-		description=" Not everyone has a massive monster of a computer. This pack is designed for people with less RAM and older systems. It will give you a full tech tree while being playable on 1GB of RAM and 32 bit Java.These mods had the lightest overhead in testing." 
-		mods="Agriculture - Team Metallurgy; Chicken Chunks - ChickenBones; Code Chicken Core - ChickenBones; CoFH Core - KingLemming and Team CoFH; Evoc- ProfMobius; Extra Utilities - RWTema; FancyFences - Koopinator; FinndusFillies - Myrathi; InfiniBows - Myrathi; InventoryTweaks - Kobata; JABBA - ProfMobius; MineFactoryReloaded - PowerCrystals and Skyboy; Mobius Core - ProfMobius; NeiAddons - bdew; NeiPlugins - Mistaqur; NEI - ChickenBones; Obsidiplates - Myrathi; OpenBlocks - OpenMods Team; PowerCrystalsCore - PowerCrystals and skyboy; Redstone Arsenal - KingLemming and Team CoFH; Simply Jetpacks - Tonius; SortFix - LexManos; Switches - Myrathi; Thermal Expansion - KingLemming and Team CoFH; WAILA - ProfMobius" 
-		oldVersions="1.1.8;1.1.7;1.1.6;1.1.5;1.1.4;1.1.3;1.1.2;1.1.1;1.1.0;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0" 
-	/>	
+    <modpack 
+        name="FTBLite2" author="The FTB Team" version="1.1.7" repoVersion="1_1_7" logo="FTBLite2Icon.png" url="FTBLite2.zip" image="FTBLite2Splash.png" dir="FTBLite2" mcVersion="1.6.4" serverPack="FTBLite2Server.zip" 
+        description=" Not everyone has a massive monster of a computer. This pack is designed for people with less RAM and older systems. It will give you a full tech tree while being playable on 1GB of RAM and 32 bit Java.These mods had the lightest overhead in testing." 
+        mods="Agriculture - Team Metallurgy; Chicken Chunks - ChickenBones; Code Chicken Core - ChickenBones; CoFH Core - KingLemming and Team CoFH; Evoc- ProfMobius; Extra Utilities - RWTema; FancyFences - Koopinator; FinndusFillies - Myrathi; InfiniBows - Myrathi; InventoryTweaks - Kobata; JABBA - ProfMobius; MineFactoryReloaded - PowerCrystals and Skyboy; Mobius Core - ProfMobius; NeiAddons - bdew; NeiPlugins - Mistaqur; NEI - ChickenBones; Obsidiplates - Myrathi; OpenBlocks - OpenMods Team; PowerCrystalsCore - PowerCrystals and skyboy; Redstone Arsenal - KingLemming and Team CoFH; Simply Jetpacks - Tonius; SortFix - LexManos; Switches - Myrathi; Thermal Expansion - KingLemming and Team CoFH; WAILA - ProfMobius" 
+        oldVersions="1.1.8;1.1.7;1.1.6;1.1.5;1.1.4;1.1.3;1.1.2;1.1.1;1.1.0;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0" 
+    />    
 
-	<modpack
-		name="FTB Unleashed" author="The FTB Team" version="1.1.7" repoVersion="1_1_7" logo="UnleashedIcon.png" url="Unleashed.zip" image="UnleashedSplash.png" dir="Unleashed" mcVersion="1.5.2" serverPack="Unleashed-server.zip" description="FTB Unleashed"
-		mods="Forge; CreeperCollateral; CodeChickenCore; CoFHCore; denLib; Infinibows; NotEnoughItems; Nucleum-Omnium; PowerCrystalsCore; AdvancedPowerManagement; AdvancedSolarPanels; AppliedEnergistics; BackTools; BiblioCraft; BiblioWoods; BoPBiblioWoods; Forestry; BinniesMods; BiomesOPlenty; BuildCraft; ChargePads; ChickenChunks; CompactSolars; ComputerCraft; DamageIndicators; DartCraft; DeathTimer; DenPipes; DenPipes Emerald; DenPipes Forestry; Enchanting Plus; EnderStorage; EquivalentExchange3; ExtraUtils; Factorization; FlatSigns; Forestry; GateCopy; GraviSuiteGravityGun; Hats; Hatstand; IChunUtil; IndustrialCraft2; InventoryTweaks; IronChest; LogisticsPipes; MagicBees; MineFactoryReloaded; MiscPeripherals; ModularForceFieldSystem; MFFS; ModularPowerSuits; MPSAddons; Mystcraft; Natura; NEIAddons; NEIPlugins; NetherOre; NuclearControl; ObsidiPlates; OmniTools; OpenPeripheral; PluginsForForestry; PortalGun; qCraft; RailCraft; SoulShards; StevesCarts; ThaumCraft; ThaumicTinkerer; ThermalExpansion; TinkersConstruct; TwilightForest; VenderBlock; VoxelMap; WRCBE; XenosReliquary"
-		oldVersions="1.1.7;1.1.6;1.1.5;1.1.4;1.1.3;1.1.2;1.1.1;1.1.0" animation="FTB_temp.gif"
-	/>
+    <modpack
+        name="FTB Unleashed" author="The FTB Team" version="1.1.7" repoVersion="1_1_7" logo="UnleashedIcon.png" url="Unleashed.zip" image="UnleashedSplash.png" dir="Unleashed" mcVersion="1.5.2" serverPack="Unleashed-server.zip" description="FTB Unleashed"
+        mods="Forge; CreeperCollateral; CodeChickenCore; CoFHCore; denLib; Infinibows; NotEnoughItems; Nucleum-Omnium; PowerCrystalsCore; AdvancedPowerManagement; AdvancedSolarPanels; AppliedEnergistics; BackTools; BiblioCraft; BiblioWoods; BoPBiblioWoods; Forestry; BinniesMods; BiomesOPlenty; BuildCraft; ChargePads; ChickenChunks; CompactSolars; ComputerCraft; DamageIndicators; DartCraft; DeathTimer; DenPipes; DenPipes Emerald; DenPipes Forestry; Enchanting Plus; EnderStorage; EquivalentExchange3; ExtraUtils; Factorization; FlatSigns; Forestry; GateCopy; GraviSuiteGravityGun; Hats; Hatstand; IChunUtil; IndustrialCraft2; InventoryTweaks; IronChest; LogisticsPipes; MagicBees; MineFactoryReloaded; MiscPeripherals; ModularForceFieldSystem; MFFS; ModularPowerSuits; MPSAddons; Mystcraft; Natura; NEIAddons; NEIPlugins; NetherOre; NuclearControl; ObsidiPlates; OmniTools; OpenPeripheral; PluginsForForestry; PortalGun; qCraft; RailCraft; SoulShards; StevesCarts; ThaumCraft; ThaumicTinkerer; ThermalExpansion; TinkersConstruct; TwilightForest; VenderBlock; VoxelMap; WRCBE; XenosReliquary"
+        oldVersions="1.1.7;1.1.6;1.1.5;1.1.4;1.1.3;1.1.2;1.1.1;1.1.0" animation="FTB_temp.gif"
+    />
 
-	<modpack 
-		name="FTB Ultimate" author="The FTB Team" version="1.1.2" repoVersion="1_1_2" logo="logo_ftb.png" url="Ultimate.zip" image="ultimatesplash.png" dir="Ultimate" mcVersion="1.4.7" serverPack="Ultimate_Server.zip"
-		description="Feed The Beast Ultimate Modpack"
-		mods="Forge; Code Chicken Core; Misc Peripherals; Not Enough Items; Power Crystals Core; Advanced Machines; Advanced Solarpanels; Applied Energistics; BiblioCraft; Buildcraft; ChargePads; Chicken Chunks; Computercraft; EE3; Ender Storage; Extrabees; Extrabiomes; Factorization; Flat Bedrock; Forestry; GraviGun; Gravisuite; GregTech; Industrialcraft2; Nuclear Control; ImmibisCore; InvTweaks; IronChest; Mine Factory Reloaded; Modular Forcefield System; Modular Powersuits; Mystcraft; NEI Plugins; Nether Ores; Obsidiplates; Omnitools; Petrogen; PortalGun; Power Converters; Railcraft; Redpower; SecretRooms; Soulshards; Steves Carts; Thaumcraft; ThaumicBees; Thermal Expansion; Tubestuff; Twilight Forest; Voxelmods; Wireless Redstone; XReliquary; Xycraft"
-		oldVersions="1.1.2;1.1.1;1.1.0;1.0.2;1.0.1"
-		animation="FTB_temp.gif"
-	/>
+    <modpack 
+        name="FTB Ultimate" author="The FTB Team" version="1.1.2" repoVersion="1_1_2" logo="logo_ftb.png" url="Ultimate.zip" image="ultimatesplash.png" dir="Ultimate" mcVersion="1.4.7" serverPack="Ultimate_Server.zip"
+        description="Feed The Beast Ultimate Modpack"
+        mods="Forge; Code Chicken Core; Misc Peripherals; Not Enough Items; Power Crystals Core; Advanced Machines; Advanced Solarpanels; Applied Energistics; BiblioCraft; Buildcraft; ChargePads; Chicken Chunks; Computercraft; EE3; Ender Storage; Extrabees; Extrabiomes; Factorization; Flat Bedrock; Forestry; GraviGun; Gravisuite; GregTech; Industrialcraft2; Nuclear Control; ImmibisCore; InvTweaks; IronChest; Mine Factory Reloaded; Modular Forcefield System; Modular Powersuits; Mystcraft; NEI Plugins; Nether Ores; Obsidiplates; Omnitools; Petrogen; PortalGun; Power Converters; Railcraft; Redpower; SecretRooms; Soulshards; Steves Carts; Thaumcraft; ThaumicBees; Thermal Expansion; Tubestuff; Twilight Forest; Voxelmods; Wireless Redstone; XReliquary; Xycraft"
+        oldVersions="1.1.2;1.1.1;1.1.0;1.0.2;1.0.1"
+        animation="FTB_temp.gif"
+    />
 
-	<modpack 
-		name="Unstable 1.7.2" author="The FTB Team" version="1.0.3" repoVersion="1_0_3" logo="17_Icon.png" url="ftb_17testpack.zip" image="17_Banner.png" dir="ftb_17testpack" mcVersion="1.7.2" serverPack="" 
-		description=" ALPHA: Highly Experimental. Expect frequent world resets. Use at your own risk. No tech support will be offered for this pack" 
-		mods=" Biomes O Plenty - BoP Team; Buildcraft - Spacetoad and the BC Team; Blood Magic - WayofTime; Compact Solars - Cpw; Twilight Forest - Bennimatic; Ironchest - Cpw; Jabba - Professor Mobius; Painted Stone - mDiyo; Advanced Genetics - Team DNA; Tinker's Construct and TMech - SlimeKnights; Voxel Map; Waila - Professor Mobius"
-		oldVersions="1.0.3;1.0.2;1.0.1;1.0.0" 
-	/>	
+    <modpack 
+        name="Unstable 1.7.2" author="The FTB Team" version="1.0.3" repoVersion="1_0_3" logo="17_Icon.png" url="ftb_17testpack.zip" image="17_Banner.png" dir="ftb_17testpack" mcVersion="1.7.2" serverPack="" 
+        description=" ALPHA: Highly Experimental. Expect frequent world resets. Use at your own risk. No tech support will be offered for this pack" 
+        mods=" Biomes O Plenty - BoP Team; Buildcraft - Spacetoad and the BC Team; Blood Magic - WayofTime; Compact Solars - Cpw; Twilight Forest - Bennimatic; Ironchest - Cpw; Jabba - Professor Mobius; Painted Stone - mDiyo; Advanced Genetics - Team DNA; Tinker's Construct and TMech - SlimeKnights; Voxel Map; Waila - Professor Mobius"
+        oldVersions="1.0.3;1.0.2;1.0.1;1.0.0" 
+    />    
 
-	<modpack 
-		name="FTB Lite" author="The FTB Team" version="1.2.3" repoVersion="1_2_2" logo="logo_ftb.png" url="FTBLite.zip" image="splash_FTB.png" dir="FTBLite" mcVersion="1.4.7" serverPack="FTBLite_Server.zip"
-		description="A lite version of the FTB pack; designed for smaller servers"
-		mods="Minecraft Forge; NotEnoughItems; CodeChickenCore; AdvancedMachines; Buildcraft; Chargepads; ChickenChunks; CompactSolars; Computercraft; Ee3; Forestry; Ic2; InvTweaks; Ironchest; MiscPeripherals; NeiPlugins; NeiPluginsRedpower; Obsidiplates; Portalgun; Railcraft; Redpower; ReiMinimap; StevesCarts; Thaumcraft; ThermalExpansionNei; ThermalExpansion; VoxelPlayer; VoxelMenu; WirelessRedstone"
-		oldVersions="1.2.3;1.2.2;1.2.1;1.2.0;1.1.1;1.1.0;1.0.1"
-		animation="FTB_temp.gif"
-	/>
+    <modpack 
+        name="FTB Lite" author="The FTB Team" version="1.2.3" repoVersion="1_2_2" logo="logo_ftb.png" url="FTBLite.zip" image="splash_FTB.png" dir="FTBLite" mcVersion="1.4.7" serverPack="FTBLite_Server.zip"
+        description="A lite version of the FTB pack; designed for smaller servers"
+        mods="Minecraft Forge; NotEnoughItems; CodeChickenCore; AdvancedMachines; Buildcraft; Chargepads; ChickenChunks; CompactSolars; Computercraft; Ee3; Forestry; Ic2; InvTweaks; Ironchest; MiscPeripherals; NeiPlugins; NeiPluginsRedpower; Obsidiplates; Portalgun; Railcraft; Redpower; ReiMinimap; StevesCarts; Thaumcraft; ThermalExpansionNei; ThermalExpansion; VoxelPlayer; VoxelMenu; WirelessRedstone"
+        oldVersions="1.2.3;1.2.2;1.2.1;1.2.0;1.1.1;1.1.0;1.0.1"
+        animation="FTB_temp.gif"
+    />
 
-	<modpack 
-		name="Magic Farm 2:Adventures in Technology" author="Jadedcat" version="2.1.10" repoVersion="2.1.10" logo="MagicFarm2Icon.png" url="MagicFarm2.zip" image="MagicFarm2Splashv2.png" dir="MagicFarm2" mcVersion="1.6.4" serverPack="MagicFarm2Server.zip" 
-		description="This is not a magic based pack.Forget everything you know about Minecraft. This pack is a conversion pack. Wooden tools? Ha.. no. Try not to die in a pack inspired by Don't Starve, Terrafirmacraft , Diablo 3 and the Cooking Channel. This world wants you dead and you will need to carve out a safe place to survive." 
-		mods="Applied Energistics - AlgorithmX2; Biomes of Plenty - Forstride and the BoP team; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; Extra Utilities - RWTema; Extrabees and Extra Trees - Binnie;  Flatsigns and Finndus Fillies - Myrathi; Growthcraft -Gwafu; AOBD - ganymedes01; ExtraCells - m3gafr3ak; Minetweaker -StanH; Forestry - SirSengir; Forge - Lex Manos and the Forge Team; Gravestone Mod - NightKosh; Growthcraft - Gwafu; Hunger Overhaul - IguanaMan; Infernal Mobs -- Atomic Stryker; Ironchest - Cpw; Magic Bees - Mysterious Ages; MineFactory Reloaded - Powercystals and Skyboy; Modpack Tweaks - TPPI Dev Team; Mystcraft - XComp; NEI - Chicken Bones; Not Enough Keys - Mr. Okushama; Obsidiplates- Myrathi; Pam's Harvest Craft- Matrexsvigil; PowerCrystals Core - PowerCrystals and Skyboy; Redstone Arsenal - KingLemming and Zeldo; Simply Jetpacks - Tonius; Switches - Myrathi; Thaumcraft 4 - Azanor; Thaumic Tinkerer - VazKii; Thermal Expansion 3 - KingLemming and Zeldo; Bibliocraft - Nuchaz; Infinibow - Myrathi; Special Mobs and Deadly World - Father Toast; Open Blocks - OpenMods Team; Natura and Tinker's Construct - mDiyo; Fancy Fences - Koopinator; Blood Magic - Way of Time; JABBA,WAILA,OPIS - Prof Mobius; Mariculture - Joshie; Agriculture - Freyja and the Metallurgy Team; IguanaTinkersTweeks - Iguanaman; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew" 
-		oldVersions="2.1.11;2.1.10;2.1.9;2.1.8;2.1.7;2.1.6;2.1.5;2.1.3;2.1.2;2.1.1;2.0.1;2.0.0;1.1.8;1.1.7;1.1.5;1.1.4;1.1.3;1.1.2;1.1.1;1.1.0;1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"
-	/>
+    <modpack 
+        name="Magic Farm 2:Adventures in Technology" author="Jadedcat" version="2.1.10" repoVersion="2.1.10" logo="MagicFarm2Icon.png" url="MagicFarm2.zip" image="MagicFarm2Splashv2.png" dir="MagicFarm2" mcVersion="1.6.4" serverPack="MagicFarm2Server.zip" 
+        description="This is not a magic based pack.Forget everything you know about Minecraft. This pack is a conversion pack. Wooden tools? Ha.. no. Try not to die in a pack inspired by Don't Starve, Terrafirmacraft , Diablo 3 and the Cooking Channel. This world wants you dead and you will need to carve out a safe place to survive." 
+        mods="Applied Energistics - AlgorithmX2; Biomes of Plenty - Forstride and the BoP team; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; Extra Utilities - RWTema; Extrabees and Extra Trees - Binnie;  Flatsigns and Finndus Fillies - Myrathi; Growthcraft -Gwafu; AOBD - ganymedes01; ExtraCells - m3gafr3ak; Minetweaker -StanH; Forestry - SirSengir; Forge - Lex Manos and the Forge Team; Gravestone Mod - NightKosh; Growthcraft - Gwafu; Hunger Overhaul - IguanaMan; Infernal Mobs -- Atomic Stryker; Ironchest - Cpw; Magic Bees - Mysterious Ages; MineFactory Reloaded - Powercystals and Skyboy; Modpack Tweaks - TPPI Dev Team; Mystcraft - XComp; NEI - Chicken Bones; Not Enough Keys - Mr. Okushama; Obsidiplates- Myrathi; Pam's Harvest Craft- Matrexsvigil; PowerCrystals Core - PowerCrystals and Skyboy; Redstone Arsenal - KingLemming and Zeldo; Simply Jetpacks - Tonius; Switches - Myrathi; Thaumcraft 4 - Azanor; Thaumic Tinkerer - VazKii; Thermal Expansion 3 - KingLemming and Zeldo; Bibliocraft - Nuchaz; Infinibow - Myrathi; Special Mobs and Deadly World - Father Toast; Open Blocks - OpenMods Team; Natura and Tinker's Construct - mDiyo; Fancy Fences - Koopinator; Blood Magic - Way of Time; JABBA,WAILA,OPIS - Prof Mobius; Mariculture - Joshie; Agriculture - Freyja and the Metallurgy Team; IguanaTinkersTweeks - Iguanaman; REI Minimap - ReiFNSK; Zan's Minimap - MamiyaOtaru ; Journey Map -techbrew" 
+        oldVersions="2.1.11;2.1.10;2.1.9;2.1.8;2.1.7;2.1.6;2.1.5;2.1.3;2.1.2;2.1.1;2.0.1;2.0.0;1.1.8;1.1.7;1.1.5;1.1.4;1.1.3;1.1.2;1.1.1;1.1.0;1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"
+    />
 
-	<modpack 
-		name="BloodNBones" author="Eyamaz" version="1.0.7" repoVersion="1_0_7" logo="BloodNBones_Icon2.png" url="BloodNBones.zip" image="BloodNBones_Banner2.png" dir="BloodNBones" mcVersion="1.6.4" serverPack="BloodNBonesServer.zip" minJRE="1.7"
-		description="Because Hardcore just isn't Hardcore enough. This pack is not for the casual player. Warning! This pack does not support adding/removing mods. Adding mods will break progression, removing mods will break recipe changes.
-		Recommended JVM Arguments: -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CICompilerCountPerCPU -XX:+TieredCompilation" 
-		mods="AOBD by ganymedes01; Applied Energistics by AlgorithmX2; ArmorStatusHUD by bspkrs; Backpacks by Eydamos; Big Reactors by Erogenous Beef; Biomes O' Plenty by BoP Team; Blood Magic by WayofTime; Cave Control by Reika; Chicken Chunks by Chickenbones; Computercraft by Dan200; Creeper Collateral by denoflions; DamageIndicators by rich1051414; Deadly World by FatherToast; Dynamic Lights by AtomicStryker; Dynamic Liquid Tanks 2 by WingsOfLife; Ender Forest by Reika; Enhanced Portals 3 by Alz454; EVOC by ProfMobious; Extra Utilities by RWTema; ExtraTiC by glassmaker; Flatsigns by Myrathi; Glenn's Gases by Glenn; Hardcore Ender Expansion by chylex; Hostile Worlds by Corosus; Hunger Overhaul by Iguana_man; Iguana Tweaks by Iguana_man; Inventory Tweaks by Kobata; Iguana Tweaks for TiC by Iguana_man; JABBA by PrefMobius; Lava Monsters by FatherToast; Lycanites Mobs by Lycanite; Magical Crops by Mark719; Metallurgy 3 by Team Metallurgy; Meteorcraft by Reika; MineFactory Reload by powercrystals, skyboy026; Minetweaker by StanH; Natura by mDiyo; Natural Absorption by FatherToast; NEI Addons by Bdew; NEI Plugins by mistiqur; NetherOres by powercrystals, skyboy026; NotEnoughItems by Chickenbones; Obsidiplates by Myrathi; Opis by ProfMobius; Pam's Harvestcraft by MatrexsVigil, Rhodox; Project:R3D by MrTJP, chickenbones; Random Things by lumien; RemoteIO by dmillerw; Roguelike Dungeons by Greymerk; SortFix by LexManos; Special Mobs by FatherToast; StatusEffectHUD by bspkrs; Thermal Expansion by Team COFH; Tinker's Construct by mDiyo; Utility Mobs by FatherToast; Waila by ProfMobius; Witchery by Emoniph; Zombie Awareness by Corosus" 
-		oldVersions="1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"
-	/>	
-	
-	<modpack 
-		name="Agrarian Skies: Hardcore Quest" author="Jadedcat" version="2.1.2" repoVersion="2.1.2" logo="AgrarianSkiesIcon1.png" url="AgrarianSkiesHQ.zip" image="AgrarianSkiesBanner1.png" dir="AgrarianSkiesHQ" mcVersion="1.6.4" serverPack="AgrarianSkiesHQServer.zip" 
+    <modpack 
+        name="BloodNBones" author="Eyamaz" version="1.0.7" repoVersion="1_0_7" logo="BloodNBones_Icon2.png" url="BloodNBones.zip" image="BloodNBones_Banner2.png" dir="BloodNBones" mcVersion="1.6.4" serverPack="BloodNBonesServer.zip" minJRE="1.7"
+        description="Because Hardcore just isn't Hardcore enough. This pack is not for the casual player. Warning! This pack does not support adding/removing mods. Adding mods will break progression, removing mods will break recipe changes.
+        Recommended JVM Arguments: -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CICompilerCountPerCPU -XX:+TieredCompilation" 
+        mods="AOBD by ganymedes01; Applied Energistics by AlgorithmX2; ArmorStatusHUD by bspkrs; Backpacks by Eydamos; Big Reactors by Erogenous Beef; Biomes O' Plenty by BoP Team; Blood Magic by WayofTime; Cave Control by Reika; Chicken Chunks by Chickenbones; Computercraft by Dan200; Creeper Collateral by denoflions; DamageIndicators by rich1051414; Deadly World by FatherToast; Dynamic Lights by AtomicStryker; Dynamic Liquid Tanks 2 by WingsOfLife; Ender Forest by Reika; Enhanced Portals 3 by Alz454; EVOC by ProfMobious; Extra Utilities by RWTema; ExtraTiC by glassmaker; Flatsigns by Myrathi; Glenn's Gases by Glenn; Hardcore Ender Expansion by chylex; Hostile Worlds by Corosus; Hunger Overhaul by Iguana_man; Iguana Tweaks by Iguana_man; Inventory Tweaks by Kobata; Iguana Tweaks for TiC by Iguana_man; JABBA by PrefMobius; Lava Monsters by FatherToast; Lycanites Mobs by Lycanite; Magical Crops by Mark719; Metallurgy 3 by Team Metallurgy; Meteorcraft by Reika; MineFactory Reload by powercrystals, skyboy026; Minetweaker by StanH; Natura by mDiyo; Natural Absorption by FatherToast; NEI Addons by Bdew; NEI Plugins by mistiqur; NetherOres by powercrystals, skyboy026; NotEnoughItems by Chickenbones; Obsidiplates by Myrathi; Opis by ProfMobius; Pam's Harvestcraft by MatrexsVigil, Rhodox; Project:R3D by MrTJP, chickenbones; Random Things by lumien; RemoteIO by dmillerw; Roguelike Dungeons by Greymerk; SortFix by LexManos; Special Mobs by FatherToast; StatusEffectHUD by bspkrs; Thermal Expansion by Team COFH; Tinker's Construct by mDiyo; Utility Mobs by FatherToast; Waila by ProfMobius; Witchery by Emoniph; Zombie Awareness by Corosus" 
+        oldVersions="1.0.7;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.1;1.0.0"
+    />    
+    
+    <modpack 
+        name="Agrarian Skies: Hardcore Quest" author="Jadedcat" version="2.1.2" repoVersion="2.1.2" logo="AgrarianSkiesIcon1.png" url="AgrarianSkiesHQ.zip" image="AgrarianSkiesBanner1.png" dir="AgrarianSkiesHQ" mcVersion="1.6.4" serverPack="AgrarianSkiesHQServer.zip" 
         description="Warning this pack does not support removing mods. As the sole survivor of the cataclysm you must rebuild and repopulate the planet. You must create your resources out of nothing. Quests from the creator will guide you on your journey and reward you as you progress singly or in teams. " 
-		mods="Applied Energistics - AlgorithmX2; Bibliocraft - Nuchaz; BigReactors - ErogenousBeef; Blood Magic - Way of Time; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; ExAliquo - Zerokyuuni; ExNihilo- ErasamusCrowley; Extra Utilities - RWTema; Extrabees and Extra Trees - Binnie; ExtraCells - m3gafr3ak; Flatsigns - Myrathi; Forestry - SirSengir; Forge - Lex Manos and the Forge Team; Gendustry- bdew; HarvestCraft Waila Fixes and TiCon Tooltips - squeek; Hardcore Quest Mod- Vswe,LordDusk,ScottWears; Hunger Overhaul - IguanaMan; IguanaTinkersTweeks - Iguanaman; Infernal Mobs -- Atomic Stryker; Infinibow - Myrathi; Ironchest - Cpw; JABBA,WAILA,OPIS - Prof Mobius; JadedSpawn - Minalien; Journey Map -techbrew; Magic Bees - Mysterious Ages; Mariculture - Joshie; MineFactory Reloaded - Powercystals and Skyboy; Minetweaker -StanH; Natura and Tinker's Construct - mDiyo; NEI - Chicken Bones; Nether Ores and PowerCrystals Core - PowerCrystals and Skyboy; Not Enough Keys - Mr. Okushama; Obsidiplates- Myrathi; Open Blocks - OpenMods Team; Pam's Harvest Craft- Matrexsvigil; Redstone Arsenal - KingLemming and Zeldo; REI Minimap - ReiFNSK; Simply Jetpacks - Tonius; Switches - Myrathi; Thaumcraft 4 - Azanor; Thermal Expansion 3 - KingLemming and Zeldo; Tinker's Steelworks - Toops; Warp Book - panicnot42; Zan's Minimap - MamiyaOtaru"
+        mods="Applied Energistics - AlgorithmX2; Bibliocraft - Nuchaz; BigReactors - ErogenousBeef; Blood Magic - Way of Time; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; ExAliquo - Zerokyuuni; ExNihilo- ErasamusCrowley; Extra Utilities - RWTema; Extrabees and Extra Trees - Binnie; ExtraCells - m3gafr3ak; Flatsigns - Myrathi; Forestry - SirSengir; Forge - Lex Manos and the Forge Team; Gendustry- bdew; HarvestCraft Waila Fixes and TiCon Tooltips - squeek; Hardcore Quest Mod- Vswe,LordDusk,ScottWears; Hunger Overhaul - IguanaMan; IguanaTinkersTweeks - Iguanaman; Infernal Mobs -- Atomic Stryker; Infinibow - Myrathi; Ironchest - Cpw; JABBA,WAILA,OPIS - Prof Mobius; JadedSpawn - Minalien; Journey Map -techbrew; Magic Bees - Mysterious Ages; Mariculture - Joshie; MineFactory Reloaded - Powercystals and Skyboy; Minetweaker -StanH; Natura and Tinker's Construct - mDiyo; NEI - Chicken Bones; Nether Ores and PowerCrystals Core - PowerCrystals and Skyboy; Not Enough Keys - Mr. Okushama; Obsidiplates- Myrathi; Open Blocks - OpenMods Team; Pam's Harvest Craft- Matrexsvigil; Redstone Arsenal - KingLemming and Zeldo; REI Minimap - ReiFNSK; Simply Jetpacks - Tonius; Switches - Myrathi; Thaumcraft 4 - Azanor; Thermal Expansion 3 - KingLemming and Zeldo; Tinker's Steelworks - Toops; Warp Book - panicnot42; Zan's Minimap - MamiyaOtaru"
         oldVersions="2.1.3;2.1.2;2.1.1;2.0.3;2.0.2;1.0.10;1.0.8;1.0.6;1.0.5;1.0.4;1.0.3;1.0.2;1.0.0" 
         />
 
-	<modpack 
-		name="Voxel" author="Voxel Modpack Team" version="11.1.1" repoVersion="11_1_1" logo="voxelmodpack_logo.png" url="Voxel.zip" image="voxelmodpack_splash.png" dir="Voxel" mcVersion="1.6.4" serverPack="" description="The Voxel Modpack" mods=" LiteLoader by Mumfrey; VoxelLib by The VoxelModPack Team; VoxelMenu by Mumfrey and Thatapplefreak; VoxelFlight by Mumfrey; VoxelVision by anangrybeaver; VoxelPlayer by Mumfrey and MamiyaOtaru; VoxelTextures by Mumfrey; Macro/Keybind Mod by Mumfrey; VoxelGet by Thatapplefreak and Mumfrey; VoxelMap by MamiyaOtaru; VoxelSniperGUI by Thatapplefreak; VoxelCam by Thatapplefreak; VoxelBoards by Mumfrey; WorldEdit CUI by Mumfrey; TabbyChat by RocketMan10404; MCPatcher by Kahr" oldVersions="11.1.1"
-	/>
-
-	<modpack 
-		name="Infamy" author="ReFleXisGod" version="3.0.2" repoVersion="3_0_2" logo="InfamyIcon.png" url="Infamy.zip" image="InfamySplash.png" dir="Infamy"
-		 mcVersion="1.6.4" serverPack="InfamyServer.zip" 
-		description="The war has been over for some time now, but war tensions have been rising again. Which nation will you fight for?" 
-		mods="ArmorStatusHUD by bspkrs; bspkrs core by bspkrs; StatusEffectHUD by bspkrs; MrCray's Furniture Mod by Mr Cray; Damage Indicators by rich1051414; Herblore by Calebmanley; Agriculture by TeamMetallurgy; autoutils by AUTOMATIC_MAIDE; backpack by Eydamos; BiblioCraft by Nuchaz; BigReactors by ErogenousBeef; Buildcraft by SpaceToad and others; Carpenters Blocks by Mineshopper; Chisel by AUTOMATIC_MAIDE; CodeChickenCore by CodeChicken; CoFH Core by TeamCoFH; Flans Mod by Flan; Forestry by SirSengir; Hardcore Questing Mode by VSWE and others; IC2 Fixes by Hunterz; immibis-core by Immibis; Industrial Craft 2 by Industrial Craft 2 Dev Team; Inventory Tweaks by Kobata; Iron Chest by cpw; Map Writer by mapwriter; MobiusCore by ProfMobius; NEI Addons by Bdew; NEI Plugins by mistaqur; Not Enough Items by CodeChicken; Not Enough Keys by Mr. Okushama; PowerConverters by Techcable; PowerCrystals Core by PowerCrystals; Project Bench by _bau5; Project Red by Mr_TJP; Railcraft by CovertJaguar; SmallBoats by Awger; Traincraft by Traincraft; Waila by ProfMobius; Divine Smoker by Reaper; Warp Book by panicnot42" 
-		oldVersions="3.0.2;3.0.1;3.0;2.1.6;2.1.5;2.1.4;2.1.3;2.1.2;2.1.0;2.0.9;2.0.8;2.0.7;2.0.6;2.0.5;2.0.4;2.0.3;2.0.2;2.0.1;1.4.1;1.4.0;1.3.3;1.3.2;1.3.1;1.3;1.2.2;1.2.1;1.2;1.1.1;1.1.0;1.0"
-	/>
-
-	<modpack 
-		name="Lapito's Galacticraft Modpack" author="Lapito" version="2.0.2.0" repoVersion="2_0_2_0" logo="LapitosGalacticraftIcon.png" url="LapitosGalacticraft.zip" image="LapitosGalacticraftSplash.png" dir="LapitosGalacticraft" mcVersion="1.6.4" serverPack=""
-		description="This is a high-tech, space-based modpack. Explore the space; Build a moon base; Build big reactors and big missiles; and even a Spaceship factory! This pack will surely bring a galactic experience." 
-		mods="Forge; bspkrsCore; CodechickenCore; COFH Core; Galacticraft; Rei's Minimap; Not Enough Items; Not Enough Items: Plugins; Atomic Science; ICBM; ICBM Sentry; ICBM Contraption; Inventory Tweaks; Mekanism; Mekanism Generators; Mekanism Tools; Modular Force Field System; Modular Power Suits; Railcraft; Steve's Carts 2; Thermal Expansion; Treecapitator" 
-		oldVersions="2.0.2.0;2.0.1.0;2.0.0.0;1.8.5.1;1.8.5;1.8.4"
-	/>
-
-	<modpack
-		name="Direwolf20 1.5 v2" author="The FTB Team" version="1.1.3" repoVersion="1_1_3" logo="DW20v2Icon.png" url="Direwolf20_1_5_2.zip" image="DW20v2Splash.png" dir="Direwolf20_1_5_2" mcVersion="1.5.2" serverPack="Direwolf20_1_5_2-server.zip" description="Direwolf20 1.5 v2 pack"
-		mods="AdditionalBuildcraftObjects; AppliedEnergistics; BiblioCraft; BiblioWoods BoP; BiblioWoods Forestry; BinniesMods; BiomesOPlenty; BuildCraft; ChargePads; ChickenChunks; CompactSolars; ComputerCraft; EnderStorage; EquivalentExchange3; ExtraUtils; Factorization; Forestry; ForgeMultiPart; GravityGun; Hats; HatStand; IChunUtil; IndustrialCraft2; InventoryTweaks; IronChest; LogisticsPipes; MagicBees; MineFactoryReloaded; MiscPeripherals; ModularForceFieldSystem; MFFS Calclavia; ModularPowerSuits; Mystcraft; Natura; NEIAddons; NEIPlugins; ObsidiPlates; OmniTools; OpenPeripherals; OpenPeripheral; PluginsForForestry; PortalGun; RailCraft; SoulShards; StevesCarts; ThaumCraft; ThaumicTinkerer; ThermalExpansion; TinkersConstruct; Translocators; TwilightForest; VoxelMap; WRCBE"
-		oldVersions="1.1.6;1.1.5;1.1.4;1.1.3" animation="FTB_temp.gif"
-	/>
-
-	<modpack 
-		name="Direwolf20 Pack" author="The FTB Team" version="5.3.2" repoVersion="5_3_2" logo="logo_ftb.png" url="Direwolf20.zip" image="splash_FTB.png" dir="Direwolf20" mcVersion="1.4.7" serverPack="Direwolf20_Server.zip"
-		description="Direwolf20 ModPack!"
-		mods="Buildcraft; ChickenChunks; Compact Solars; ComputerCraft; EnderStorage; ExtrabiomesXL; Factorization; Forestry; GravityGun; IC2 NuclearControl; Industrialcraft 2; Iron Chests; MiscPeripherals; GraviSuite; MFFS; Mystcraft; NEI; NEI Plugins; Obsidiplates; OmniTools; Portal Gun; Railcraft; Redpower 2; Soulshards; Steves Carts; Thaumcraft 3; Thermal Expansion; Wireless Redstone - CBE; XyCraft; Thaumicbees; Reliquary; Modular Powersuits; Applied Energistics"
-		oldVersions="5.3.2;5.3.1;5.3.0;5.2.1;5.2.0;5.1.1;5.1.0;5.0.1;4;3;2;1"
-       	animation="FTB_temp.gif"
-	/>
-
-	<modpack 
-		name="MindCrack Pack" author="The FTB Team" version="8.3.2" repoVersion="8_3_2" logo="logo_minecrack.png" url="MindCrack_Client.zip" image="mindcrack_splash.png" dir="MindCrack" mcVersion="1.4.7" serverPack="MindCrack_Server.zip"
-		description="Pack for the MindCrack server!"
-		mods="Rei's minimap; Voxelmenu; PetroGen; Advanced Machines; BuildCraft; ChickenChunks; ComputerCraft; Enderstorage; Extra Bees; ExtraBiomesXL; Factorization; Forestry; GregTech Mod; IC2 NuclearControl; IC2; Iron Chests; MiscPeripherals; Advanced Solar's; GraviSuite; Portal Gun; MFFS; NEI; Obsidiplates; OmniTools; Railcraft; Redpower; SoulShards; StevesCarts; Thaumcraft; ThermalExpansion; Traincraft; Twilight Forest; WRCBE; Xycraft"
-       	oldVersions="8.3.2;8.3.1;8.3.0;8.2.0;8.1.1;8.1.0;8.0.1;7;6;4;3;2;1"
-		animation="FTB_temp.gif"
-	/>
-
-	<modpack 
-		name="YogCraft Modpack" author="The FTB Team" version="1.0.0" repoVersion="1_0_0" logo="logo_ftb.png" url="YogCraft_Client.zip" image="splash_FTB.png" dir="YogCraft" mcVersion="1.4.7" serverPack="YogCraft_Server.zip"
-		description="Modpack for YogCraft Server"
-		mods="Forge; Code Chicken Core; Misc Peripherals; Not Enough Items; Advanced Machines; Buildcraft; Chicken Chunks; Computercraft; EE3; Ender Storage; Extrabees; Forestry; GraviGun; IC2; Nuclear Control; InvTweaks; IronChest; Modular Forcefield System; Modular Powersuits; NEI Plugins; PortalGun; Power Converters; Railcraft; Redpower; Soulshards; Steves Carts; Thaumcraft; Thermal Expansion; Twilight Forest; VoxelMods; Wireless Redstone; XReliquary"
-		oldVersions="1.0.0"
-		animation="FTB_temp.gif"
-	/>
-
-	<modpack
-		name="FTB Unhinged" author="The FTB Team" version="1.1.0" repoVersion="1_1_0" logo="UnhingedIcon.png" url="Unhinged.zip" image="UnhingedSplash.png" dir="Unhinged" mcVersion="1.5.2" serverPack="Unhinged-server.zip"
-		description="FTB Unhinged"
-		mods="Forge; CodeChickenCore; CoFHCore; NotEnoughItems; PowerCrystalsCore; AppliedEnergistics; BiomesOPlenty; BuildCraft; ChargePads; ChickenChunks; DimensionalDoors; EnderStorage; Factorization; Forestry; GregTech; IndustrialCraft2; InventoryTweaks; IronChest; MineFactoryReloaded; ModularPowerSuits; Mystcraft; NEIAddons; NEIPlugins; NuclearControl; RailCraft; StevesCarts; ThermalExpansion; TwilightForest; UndergroundBiomes; VoxelMap"
-		oldVersions="1.1.0"
-		animation="FTB_temp.gif"
-	/>
-
-	<modpack 
-		name="New World Mod Pack" author="kylemcmqueen" version="0.0.7" repoVersion="0_0_7" logo="NewWorldModPackIcon.png" url="NewWorldModPack.zip" image="NewWorldModPackSplash.png" dir="NewWorldModPack" mcVersion="1.6.4" serverPack="NewWorldModPackServer.zip"
-		description="Enjoy Minecraft in a all new way! New World on Feed the Beast allows you to encounter some of your favorite mods from all over the Minecraft community in a all new way! Force yourself to attempt new ways of survival, and even do it with your friends! New World Mod Packs offers a quality multiplayer server for you and your friends to enjoy the pack without the hassle of finding or hosting your own multiplayer server. Below you will find a list of all the mods you will encounter in your journeys threw his brave new world! I hope you enjoy the pack, and as always, happy mining!"
-		mods="Additional Buildcraft Objects; ArmorStatus HUD; Animated Player Mod; Advanced Machines; Applied Energistics; Aroma1997's Core; BiblioCraft; Aroma1997's Dimensional World; bspkersCore; Buildcraft; CoFH Core; Compact Solar Arrays; ComputerCraft; Ancient Warfare; Damage Indicators; Ancient Warfare NEI Plugin; Extra Trees; Chisel; Extra Bees; ExtrabiomesXL; Hats; Dynamic Lights; ExtraUtils; Forestry; FoodPlus; Immibis TubeStuff; Immibis Dimensional Anchors; Forge Multipart; IndustrialCraft 2; Inventory Tweaks; Iron Chests; Jammy's Furniture Mod; IC2 Nuclear Control; Immibis Peripherals; Millenaire; MineFactory Reloaded; Logistics Pipes; Natura; NEI Plugins; NEI Addons; Open Blocks; Open CC Sensors; Open Peripheral Addons/Core; Railcraft; Open Mods Lib; Zan's Minimap; PowerCrystal's Core; Steve's Carts; Thermal Expansion; Traincraft; RemoteIO; Tinkers Construct; Transducers; UnderGround Biomes; Nuclear Control"
-		oldVersions="0.0.7;0.0.6;0.0.5;0.0.4;0.0.3;0.0.2;0.0.1"
-	/>
-
-	<modpack 
-		name="RPG Immersion Pack" author="The Vethean Dream Team" version="1.0.1" repoVersion="1_0_1" logo="divine_icon.png" url="divinerpg.zip" image="divine_splash.png" dir="divinerpg" mcVersion="1.4.7" serverPack="divinerpg_server.zip"
-		description="Delve into multiple worlds and experience a true RPG feel. With dozens of hours of game play anybody can achieve what they desire to become. whether someone wants to become a mighty warrior; an explorer; a farmer or a builder; the RPG Immersion Pack offers it all. With 8 new and unique dimensions; over 115 mobs and bosses to be fought; hundreds of items and blocks; this pack is guaranteed to keep anybody entertained. The pack is updated regularly with new content to provide players with even more excitement."
-		mods="Forge; Code Chicken Core; Not Enough Items; DivineRPG; Damage Indicators; InvTweaks; Voxelmods"
-		oldVersions="1.0.1;1.0.0"
-		animation="FTB_temp.gif"
-	/>
+    <modpack 
+        name="Voxel" author="Voxel Modpack Team" version="11.1.1" repoVersion="11_1_1" logo="voxelmodpack_logo.png" url="Voxel.zip" image="voxelmodpack_splash.png" dir="Voxel" mcVersion="1.6.4" serverPack="" description="The Voxel Modpack" mods=" LiteLoader by Mumfrey; VoxelLib by The VoxelModPack Team; VoxelMenu by Mumfrey and Thatapplefreak; VoxelFlight by Mumfrey; VoxelVision by anangrybeaver; VoxelPlayer by Mumfrey and MamiyaOtaru; VoxelTextures by Mumfrey; Macro/Keybind Mod by Mumfrey; VoxelGet by Thatapplefreak and Mumfrey; VoxelMap by MamiyaOtaru; VoxelSniperGUI by Thatapplefreak; VoxelCam by Thatapplefreak; VoxelBoards by Mumfrey; WorldEdit CUI by Mumfrey; TabbyChat by RocketMan10404; MCPatcher by Kahr" oldVersions="11.1.1"
+    />
 
     <modpack 
-		name="BronyModPack" author="The VoxelModPack Team" version="3.0.1" repoVersion="3_0_1" logo="brony_icon.png" url="BronyModPack.zip" image="brony_splash.png" dir="VoxelBronyPack" mcVersion="1.5.1" serverPack=""
-		description="The BronyModPack is a set of client mods designed specifically to assist ponies on brony servers like &lt;a href=&quot;http://www.brohoof.com&quot; style=&quot;color:#F0F0F0;&quot;&gt;Brohoof.com&lt;/a&gt;. This ModPack can be used any multiplayer server. &lt;a href=&quot;http://www.brohoof.com/modpack&quot; style=&quot;color:#F0F0F0;&quot;&gt;Click here&lt;/a&gt; to visit The BronyModPack Forum Post for more information and instructions."
-		mods="LiteLoader by Mumfrey; VoxelEssentials by Chrismack; Mumfrey; and Verdana; VoxelMenu by xIGBClutchIx and Mumfrey; VoxelFlight by The VoxelModPack Team; VoxelWorld by xTiming; VoxelPlayer by xTiming; MamiyaOtaru; and Mumfrey; VoxelTextures by Mumfrey; Macro/Keybind Mod by Mumfrey; IntegratedSoundpacks by Mumfrey; VoxelGET by Mumfrey; MineLittlePony by Verdana; VoxelMap by MamiyaOtaru; VoxelSniperGUI by Thatapplefreak and Jimmynator; VoxelVisualizer by Mumfrey; WorldEdit CUI - LiteLoader Edition by yetanotherx; MCPatcher by Kahr"
-		oldVersions="3.0.1;3.0.0;2.8.0;2.7.2;2.7;2.6;2.5"
-		animation="intro.gif"
-	/>
+        name="Infamy" author="ReFleXisGod" version="3.0.2" repoVersion="3_0_2" logo="InfamyIcon.png" url="Infamy.zip" image="InfamySplash.png" dir="Infamy"
+         mcVersion="1.6.4" serverPack="InfamyServer.zip" 
+        description="The war has been over for some time now, but war tensions have been rising again. Which nation will you fight for?" 
+        mods="ArmorStatusHUD by bspkrs; bspkrs core by bspkrs; StatusEffectHUD by bspkrs; MrCray's Furniture Mod by Mr Cray; Damage Indicators by rich1051414; Herblore by Calebmanley; Agriculture by TeamMetallurgy; autoutils by AUTOMATIC_MAIDE; backpack by Eydamos; BiblioCraft by Nuchaz; BigReactors by ErogenousBeef; Buildcraft by SpaceToad and others; Carpenters Blocks by Mineshopper; Chisel by AUTOMATIC_MAIDE; CodeChickenCore by CodeChicken; CoFH Core by TeamCoFH; Flans Mod by Flan; Forestry by SirSengir; Hardcore Questing Mode by VSWE and others; IC2 Fixes by Hunterz; immibis-core by Immibis; Industrial Craft 2 by Industrial Craft 2 Dev Team; Inventory Tweaks by Kobata; Iron Chest by cpw; Map Writer by mapwriter; MobiusCore by ProfMobius; NEI Addons by Bdew; NEI Plugins by mistaqur; Not Enough Items by CodeChicken; Not Enough Keys by Mr. Okushama; PowerConverters by Techcable; PowerCrystals Core by PowerCrystals; Project Bench by _bau5; Project Red by Mr_TJP; Railcraft by CovertJaguar; SmallBoats by Awger; Traincraft by Traincraft; Waila by ProfMobius; Divine Smoker by Reaper; Warp Book by panicnot42" 
+        oldVersions="3.0.2;3.0.1;3.0;2.1.6;2.1.5;2.1.4;2.1.3;2.1.2;2.1.0;2.0.9;2.0.8;2.0.7;2.0.6;2.0.5;2.0.4;2.0.3;2.0.2;2.0.1;1.4.1;1.4.0;1.3.3;1.3.2;1.3.1;1.3;1.2.2;1.2.1;1.2;1.1.1;1.1.0;1.0"
+    />
+
     <modpack 
-		name="Ampz Modpack" author="The UE Team" version="2.0.4" repoVersion="2_0_4" logo="ampz_icon.png" url="UE.zip" image="ampz.png" dir="UniversalElectricity" mcVersion="1.5.2" serverPack="UE_Server.zip"
-		description="Voltz/Ampz is a mod pack that consists of various Universal Electricity mods introducing a realistic and unique experience into Minecraft. Build large reactors and burn your enemies with missiles; create contraptions with force fields and machinery! The pack will be sure to bring exciting new possibilities into Minecraft!"
-		mods="Applied Energistics (AlgorithmX2); Atomic Science (Calclavia); CoFHCore (King_Lemming); ChickenCode Core (ChickenBones); Not Enough Items (ChickenBones); Galacticraft (Micdoodle); Minefactory Reloaded (Powercrystals); ExtrabiomesXL (MisterFiber); ICBM (Calclavia); Inventory Tweaks (Kobata); Mekanism (Aidancbrady); Modular Force Field System (Calclavia); Minefactory Reloaded (Powercrystals); Modular Powersuits (MachineMuse); Modular Powersuits Addon (Andrew); Rei's Minimap (ReiFNSK); NEI Plugins (mistaqur); Immibis Core (Immbis); Immibis's Microblocks (Immbis); RedLogic (Immbis)"
-        oldVersions="2.0.4;2.0.0;1.3;1.2;1.1.3;1.0.9;1.0.8"
-	/>
+        name="Lapito's Galacticraft Modpack" author="Lapito" version="2.0.2.0" repoVersion="2_0_2_0" logo="LapitosGalacticraftIcon.png" url="LapitosGalacticraft.zip" image="LapitosGalacticraftSplash.png" dir="LapitosGalacticraft" mcVersion="1.6.4" serverPack=""
+        description="This is a high-tech, space-based modpack. Explore the space; Build a moon base; Build big reactors and big missiles; and even a Spaceship factory! This pack will surely bring a galactic experience." 
+        mods="Forge; bspkrsCore; CodechickenCore; COFH Core; Galacticraft; Rei's Minimap; Not Enough Items; Not Enough Items: Plugins; Atomic Science; ICBM; ICBM Sentry; ICBM Contraption; Inventory Tweaks; Mekanism; Mekanism Generators; Mekanism Tools; Modular Force Field System; Modular Power Suits; Railcraft; Steve's Carts 2; Thermal Expansion; Treecapitator" 
+        oldVersions="2.0.2.0;2.0.1.0;2.0.0.0;1.8.5.1;1.8.5;1.8.4"
+    />
+
+    <modpack
+        name="Direwolf20 1.5 v2" author="The FTB Team" version="1.1.3" repoVersion="1_1_3" logo="DW20v2Icon.png" url="Direwolf20_1_5_2.zip" image="DW20v2Splash.png" dir="Direwolf20_1_5_2" mcVersion="1.5.2" serverPack="Direwolf20_1_5_2-server.zip" description="Direwolf20 1.5 v2 pack"
+        mods="AdditionalBuildcraftObjects; AppliedEnergistics; BiblioCraft; BiblioWoods BoP; BiblioWoods Forestry; BinniesMods; BiomesOPlenty; BuildCraft; ChargePads; ChickenChunks; CompactSolars; ComputerCraft; EnderStorage; EquivalentExchange3; ExtraUtils; Factorization; Forestry; ForgeMultiPart; GravityGun; Hats; HatStand; IChunUtil; IndustrialCraft2; InventoryTweaks; IronChest; LogisticsPipes; MagicBees; MineFactoryReloaded; MiscPeripherals; ModularForceFieldSystem; MFFS Calclavia; ModularPowerSuits; Mystcraft; Natura; NEIAddons; NEIPlugins; ObsidiPlates; OmniTools; OpenPeripherals; OpenPeripheral; PluginsForForestry; PortalGun; RailCraft; SoulShards; StevesCarts; ThaumCraft; ThaumicTinkerer; ThermalExpansion; TinkersConstruct; Translocators; TwilightForest; VoxelMap; WRCBE"
+        oldVersions="1.1.6;1.1.5;1.1.4;1.1.3" animation="FTB_temp.gif"
+    />
+
     <modpack 
-		name="VoxelModPack" author="The VoxelModPack Team" version="10.0.1" repoVersion="10_0_1" logo="voxelmodpack_logo.png" url="VoxelPack.zip" image="voxelmodpack_splash.png" dir="VoxelModPack" mcVersion="1.5.2" serverPack="" 
-		description="The VoxelModPack is a set of client mods chosen specifically to assist users of multiplayer creative servers like the The Voxel Box. This ModPack can be used any multiplayer server. &lt;a href=&quot;http://www.voxelwiki.com/minecraft/The_VoxelModPack&quot; style=&quot;color:#F0F0F0;&quot;&gt;Click here&lt;/a&gt; to visit VoxelWiki for more information and instructions."
-		mods="LiteLoader by Mumfrey; VoxelEssentials by Chrismack; Mumfrey; and Verdana; VoxelMenu by xIGBClutchIx; Mumfrey; and MamiyaOtaru; VoxelFlight by The VoxelModPack Team; VoxelWorld by xTiming; VoxelPlayer by xTiming; MamiyaOtaru and Mumfrey; VoxelTextures by Mumfrey; Macro/Keybind Mod by Mumfrey; IntegratedSoundpacks by Mumfrey; VoxelGET by Mumfrey; Rei's Minimap by ReiFNSK; VoxelSniperGUI by Jimmynator and xIGBClutchIx; WorldEdit CUI - LiteLoader Edition by yetanotherx ; MCPatcher by Kahr"
-		oldVersions="10.0.1;10.0.0;9.6.1;9.5;9;8;7"
-	/>
+        name="Direwolf20 Pack" author="The FTB Team" version="5.3.2" repoVersion="5_3_2" logo="logo_ftb.png" url="Direwolf20.zip" image="splash_FTB.png" dir="Direwolf20" mcVersion="1.4.7" serverPack="Direwolf20_Server.zip"
+        description="Direwolf20 ModPack!"
+        mods="Buildcraft; ChickenChunks; Compact Solars; ComputerCraft; EnderStorage; ExtrabiomesXL; Factorization; Forestry; GravityGun; IC2 NuclearControl; Industrialcraft 2; Iron Chests; MiscPeripherals; GraviSuite; MFFS; Mystcraft; NEI; NEI Plugins; Obsidiplates; OmniTools; Portal Gun; Railcraft; Redpower 2; Soulshards; Steves Carts; Thaumcraft 3; Thermal Expansion; Wireless Redstone - CBE; XyCraft; Thaumicbees; Reliquary; Modular Powersuits; Applied Energistics"
+        oldVersions="5.3.2;5.3.1;5.3.0;5.2.1;5.2.0;5.1.1;5.1.0;5.0.1;4;3;2;1"
+           animation="FTB_temp.gif"
+    />
+
     <modpack 
-		name="Magic Farm" author="Jadedcat" version="5.0" repoVersion="5_0" logo="MagicFarmIcon.png" url="MagicFarm.zip" image="MagicFarmSplash.png" dir="MagicFarm" mcVersion="1.5.2" serverPack="" 
-		description="A modpack about farming magic exploration and food.Tech is secondary in this pack. Explore your world and try not to starve while you build. " 
-		mods="Applied Energistics - AlgorithmX2; Barrels Mod - Need4Poop402; Biomes of Plenty - Forstride and the BoP team; Buildcraft - Krapht and SirSengir; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; EE3 - Pahimar; Extra Bees and Extra Trees - Binnie; Extra Utilities - RWTema; Flatsigns- Myrathi; Forestry - SirSengir; Forge - Lex Manos and the Forge Team; Growth Craft,Fishnet Hops,Booze Grapes,Apples  - Gwafu; Hunger Overhaul - IguanaMan; Infernal Mobs -- Atomic Stryker; Ironchest - Cpw; Magic Bees - Mysterious Ages; MineFactory Reloaded - Powercystals; Mystcraft - XComp; NEI - Chicken Bones; Obsidiplates- Myrathi; Omnitools - King Lemming and Zeldo; Pam's Harvest Craft- Matrexsvigil; Plugins for Forestry - denoflions; PowerCrystals Core - PowerCrystals; Switches - Myrathi; Thaumcraft 3 - Azanor; Thaumic Tinkerer - VazKii; Thermal Expansion - KingLemming and Zeldo; ValvePipes - denoflions; Bibliocraft and Bibliocraft addons - Nuchaz; Infinibow - Myrathi; Special Mobs and Deadly World - Father Toast; JadedLadder - Mikee; Natura and Tinker's Construct - mDiyo; Magic Farm Balance - Myrathi"  
-		oldVersions="5.0;4.0;3.4;3.0;2.1;2.0;1.0" 
+        name="MindCrack Pack" author="The FTB Team" version="8.3.2" repoVersion="8_3_2" logo="logo_minecrack.png" url="MindCrack_Client.zip" image="mindcrack_splash.png" dir="MindCrack" mcVersion="1.4.7" serverPack="MindCrack_Server.zip"
+        description="Pack for the MindCrack server!"
+        mods="Rei's minimap; Voxelmenu; PetroGen; Advanced Machines; BuildCraft; ChickenChunks; ComputerCraft; Enderstorage; Extra Bees; ExtraBiomesXL; Factorization; Forestry; GregTech Mod; IC2 NuclearControl; IC2; Iron Chests; MiscPeripherals; Advanced Solar's; GraviSuite; Portal Gun; MFFS; NEI; Obsidiplates; OmniTools; Railcraft; Redpower; SoulShards; StevesCarts; Thaumcraft; ThermalExpansion; Traincraft; Twilight Forest; WRCBE; Xycraft"
+           oldVersions="8.3.2;8.3.1;8.3.0;8.2.0;8.1.1;8.1.0;8.0.1;7;6;4;3;2;1"
+        animation="FTB_temp.gif"
+    />
+
+    <modpack 
+        name="YogCraft Modpack" author="The FTB Team" version="1.0.0" repoVersion="1_0_0" logo="logo_ftb.png" url="YogCraft_Client.zip" image="splash_FTB.png" dir="YogCraft" mcVersion="1.4.7" serverPack="YogCraft_Server.zip"
+        description="Modpack for YogCraft Server"
+        mods="Forge; Code Chicken Core; Misc Peripherals; Not Enough Items; Advanced Machines; Buildcraft; Chicken Chunks; Computercraft; EE3; Ender Storage; Extrabees; Forestry; GraviGun; IC2; Nuclear Control; InvTweaks; IronChest; Modular Forcefield System; Modular Powersuits; NEI Plugins; PortalGun; Power Converters; Railcraft; Redpower; Soulshards; Steves Carts; Thaumcraft; Thermal Expansion; Twilight Forest; VoxelMods; Wireless Redstone; XReliquary"
+        oldVersions="1.0.0"
+        animation="FTB_temp.gif"
+    />
+
+    <modpack
+        name="FTB Unhinged" author="The FTB Team" version="1.1.0" repoVersion="1_1_0" logo="UnhingedIcon.png" url="Unhinged.zip" image="UnhingedSplash.png" dir="Unhinged" mcVersion="1.5.2" serverPack="Unhinged-server.zip"
+        description="FTB Unhinged"
+        mods="Forge; CodeChickenCore; CoFHCore; NotEnoughItems; PowerCrystalsCore; AppliedEnergistics; BiomesOPlenty; BuildCraft; ChargePads; ChickenChunks; DimensionalDoors; EnderStorage; Factorization; Forestry; GregTech; IndustrialCraft2; InventoryTweaks; IronChest; MineFactoryReloaded; ModularPowerSuits; Mystcraft; NEIAddons; NEIPlugins; NuclearControl; RailCraft; StevesCarts; ThermalExpansion; TwilightForest; UndergroundBiomes; VoxelMap"
+        oldVersions="1.1.0"
+        animation="FTB_temp.gif"
+    />
+
+    <modpack 
+        name="New World Mod Pack" author="kylemcmqueen" version="0.0.7" repoVersion="0_0_7" logo="NewWorldModPackIcon.png" url="NewWorldModPack.zip" image="NewWorldModPackSplash.png" dir="NewWorldModPack" mcVersion="1.6.4" serverPack="NewWorldModPackServer.zip"
+        description="Enjoy Minecraft in a all new way! New World on Feed the Beast allows you to encounter some of your favorite mods from all over the Minecraft community in a all new way! Force yourself to attempt new ways of survival, and even do it with your friends! New World Mod Packs offers a quality multiplayer server for you and your friends to enjoy the pack without the hassle of finding or hosting your own multiplayer server. Below you will find a list of all the mods you will encounter in your journeys threw his brave new world! I hope you enjoy the pack, and as always, happy mining!"
+        mods="Additional Buildcraft Objects; ArmorStatus HUD; Animated Player Mod; Advanced Machines; Applied Energistics; Aroma1997's Core; BiblioCraft; Aroma1997's Dimensional World; bspkersCore; Buildcraft; CoFH Core; Compact Solar Arrays; ComputerCraft; Ancient Warfare; Damage Indicators; Ancient Warfare NEI Plugin; Extra Trees; Chisel; Extra Bees; ExtrabiomesXL; Hats; Dynamic Lights; ExtraUtils; Forestry; FoodPlus; Immibis TubeStuff; Immibis Dimensional Anchors; Forge Multipart; IndustrialCraft 2; Inventory Tweaks; Iron Chests; Jammy's Furniture Mod; IC2 Nuclear Control; Immibis Peripherals; Millenaire; MineFactory Reloaded; Logistics Pipes; Natura; NEI Plugins; NEI Addons; Open Blocks; Open CC Sensors; Open Peripheral Addons/Core; Railcraft; Open Mods Lib; Zan's Minimap; PowerCrystal's Core; Steve's Carts; Thermal Expansion; Traincraft; RemoteIO; Tinkers Construct; Transducers; UnderGround Biomes; Nuclear Control"
+        oldVersions="0.0.7;0.0.6;0.0.5;0.0.4;0.0.3;0.0.2;0.0.1"
+    />
+
+    <modpack 
+        name="RPG Immersion Pack" author="The Vethean Dream Team" version="1.0.1" repoVersion="1_0_1" logo="divine_icon.png" url="divinerpg.zip" image="divine_splash.png" dir="divinerpg" mcVersion="1.4.7" serverPack="divinerpg_server.zip"
+        description="Delve into multiple worlds and experience a true RPG feel. With dozens of hours of game play anybody can achieve what they desire to become. whether someone wants to become a mighty warrior; an explorer; a farmer or a builder; the RPG Immersion Pack offers it all. With 8 new and unique dimensions; over 115 mobs and bosses to be fought; hundreds of items and blocks; this pack is guaranteed to keep anybody entertained. The pack is updated regularly with new content to provide players with even more excitement."
+        mods="Forge; Code Chicken Core; Not Enough Items; DivineRPG; Damage Indicators; InvTweaks; Voxelmods"
+        oldVersions="1.0.1;1.0.0"
+        animation="FTB_temp.gif"
+    />
+
+    <modpack 
+        name="BronyModPack" author="The VoxelModPack Team" version="3.0.1" repoVersion="3_0_1" logo="brony_icon.png" url="BronyModPack.zip" image="brony_splash.png" dir="VoxelBronyPack" mcVersion="1.5.1" serverPack=""
+        description="The BronyModPack is a set of client mods designed specifically to assist ponies on brony servers like &lt;a href=&quot;http://www.brohoof.com&quot; style=&quot;color:#F0F0F0;&quot;&gt;Brohoof.com&lt;/a&gt;. This ModPack can be used any multiplayer server. &lt;a href=&quot;http://www.brohoof.com/modpack&quot; style=&quot;color:#F0F0F0;&quot;&gt;Click here&lt;/a&gt; to visit The BronyModPack Forum Post for more information and instructions."
+        mods="LiteLoader by Mumfrey; VoxelEssentials by Chrismack; Mumfrey; and Verdana; VoxelMenu by xIGBClutchIx and Mumfrey; VoxelFlight by The VoxelModPack Team; VoxelWorld by xTiming; VoxelPlayer by xTiming; MamiyaOtaru; and Mumfrey; VoxelTextures by Mumfrey; Macro/Keybind Mod by Mumfrey; IntegratedSoundpacks by Mumfrey; VoxelGET by Mumfrey; MineLittlePony by Verdana; VoxelMap by MamiyaOtaru; VoxelSniperGUI by Thatapplefreak and Jimmynator; VoxelVisualizer by Mumfrey; WorldEdit CUI - LiteLoader Edition by yetanotherx; MCPatcher by Kahr"
+        oldVersions="3.0.1;3.0.0;2.8.0;2.7.2;2.7;2.6;2.5"
+        animation="intro.gif"
     />
     <modpack 
-		name="Magic World" author="The FTB Team" version="7.2.0" repoVersion="7_2_0" logo="logo_ftb.png" url="MagicWorld.zip" image="splash_MagicWorld.png" dir="Magic_World" mcVersion="1.4.7" serverPack="MagicWorld_Server.zip"
-		description="A collection of the best magical mods minecraft has to offer"
-		mods="Buildcraft; CodeChickenCore; Enderstorage; ExtraBiomesXL; Forestry; ForgeIRC; InvTweaks; IronChests; Minecraft Forge; Mystcraft; NEI; NEIPlugins; Obsidiplates; OmniTools; Railcraft; Rei's Minimap; Soulshards; Steve's Carts; Thaumcraft 3; Thermal Expansion; Twilight Forest"
-		oldVersions="7.2.1;7.2.0;7.1.1;7.1.0;7.0.1;6;5;4;3;2;1"
-		animation="FTB_temp.gif"
-	/>
-	<modpack 
-		name="Tech World" author="The FTB Team" version="1.2.0" repoVersion="1_2_0" logo="logo_ftb.png" url="TechWorld.zip" image="splash_FTB.png" dir="Tech_World" mcVersion="1.4.7" serverPack="TechWorld_Server.zip"
-		description="A collection of the best technical mods minecraft has to offer"
-		mods="Minecraft Forge; NotEnoughItems; CodeChickenCore; AdvancedMachines; AdvancedSolarPanel; Buildcraft; Chargepads; ChickenChunks; Computercraft; Forestry; Gravigun; Gravisuite; GregTech; Ic2; Ic2NuclearControl; InvTweaks; Ironchest; MiscPeripherals; ModularForcefieldSystem; NeiPlugins; NeiPluginsRedpower; Obsidiplates; Omnitools; Petrogen; Portalgun; Railcraft; Redpower; ReiMinimap; StevesCarts; VoxelPlayer; VoxelMenu; WirelessRedstone; Xycraft"
-		oldVersions="1.2.1;1.2.0;1.1.1;1.1.0;1.0.1"
-		animation="FTB_temp.gif"
-	/>
+        name="Ampz Modpack" author="The UE Team" version="2.0.4" repoVersion="2_0_4" logo="ampz_icon.png" url="UE.zip" image="ampz.png" dir="UniversalElectricity" mcVersion="1.5.2" serverPack="UE_Server.zip"
+        description="Voltz/Ampz is a mod pack that consists of various Universal Electricity mods introducing a realistic and unique experience into Minecraft. Build large reactors and burn your enemies with missiles; create contraptions with force fields and machinery! The pack will be sure to bring exciting new possibilities into Minecraft!"
+        mods="Applied Energistics (AlgorithmX2); Atomic Science (Calclavia); CoFHCore (King_Lemming); ChickenCode Core (ChickenBones); Not Enough Items (ChickenBones); Galacticraft (Micdoodle); Minefactory Reloaded (Powercrystals); ExtrabiomesXL (MisterFiber); ICBM (Calclavia); Inventory Tweaks (Kobata); Mekanism (Aidancbrady); Modular Force Field System (Calclavia); Minefactory Reloaded (Powercrystals); Modular Powersuits (MachineMuse); Modular Powersuits Addon (Andrew); Rei's Minimap (ReiFNSK); NEI Plugins (mistaqur); Immibis Core (Immbis); Immibis's Microblocks (Immbis); RedLogic (Immbis)"
+        oldVersions="2.0.4;2.0.0;1.3;1.2;1.1.3;1.0.9;1.0.8"
+    />
+    <modpack 
+        name="VoxelModPack" author="The VoxelModPack Team" version="10.0.1" repoVersion="10_0_1" logo="voxelmodpack_logo.png" url="VoxelPack.zip" image="voxelmodpack_splash.png" dir="VoxelModPack" mcVersion="1.5.2" serverPack="" 
+        description="The VoxelModPack is a set of client mods chosen specifically to assist users of multiplayer creative servers like the The Voxel Box. This ModPack can be used any multiplayer server. &lt;a href=&quot;http://www.voxelwiki.com/minecraft/The_VoxelModPack&quot; style=&quot;color:#F0F0F0;&quot;&gt;Click here&lt;/a&gt; to visit VoxelWiki for more information and instructions."
+        mods="LiteLoader by Mumfrey; VoxelEssentials by Chrismack; Mumfrey; and Verdana; VoxelMenu by xIGBClutchIx; Mumfrey; and MamiyaOtaru; VoxelFlight by The VoxelModPack Team; VoxelWorld by xTiming; VoxelPlayer by xTiming; MamiyaOtaru and Mumfrey; VoxelTextures by Mumfrey; Macro/Keybind Mod by Mumfrey; IntegratedSoundpacks by Mumfrey; VoxelGET by Mumfrey; Rei's Minimap by ReiFNSK; VoxelSniperGUI by Jimmynator and xIGBClutchIx; WorldEdit CUI - LiteLoader Edition by yetanotherx ; MCPatcher by Kahr"
+        oldVersions="10.0.1;10.0.0;9.6.1;9.5;9;8;7"
+    />
+    <modpack 
+        name="Magic Farm" author="Jadedcat" version="5.0" repoVersion="5_0" logo="MagicFarmIcon.png" url="MagicFarm.zip" image="MagicFarmSplash.png" dir="MagicFarm" mcVersion="1.5.2" serverPack="" 
+        description="A modpack about farming magic exploration and food.Tech is secondary in this pack. Explore your world and try not to starve while you build. " 
+        mods="Applied Energistics - AlgorithmX2; Barrels Mod - Need4Poop402; Biomes of Plenty - Forstride and the BoP team; Buildcraft - Krapht and SirSengir; Code Chicken Core - ChickenBones; Cofh Core - King Lemming and Zeldo; EE3 - Pahimar; Extra Bees and Extra Trees - Binnie; Extra Utilities - RWTema; Flatsigns- Myrathi; Forestry - SirSengir; Forge - Lex Manos and the Forge Team; Growth Craft,Fishnet Hops,Booze Grapes,Apples  - Gwafu; Hunger Overhaul - IguanaMan; Infernal Mobs -- Atomic Stryker; Ironchest - Cpw; Magic Bees - Mysterious Ages; MineFactory Reloaded - Powercystals; Mystcraft - XComp; NEI - Chicken Bones; Obsidiplates- Myrathi; Omnitools - King Lemming and Zeldo; Pam's Harvest Craft- Matrexsvigil; Plugins for Forestry - denoflions; PowerCrystals Core - PowerCrystals; Switches - Myrathi; Thaumcraft 3 - Azanor; Thaumic Tinkerer - VazKii; Thermal Expansion - KingLemming and Zeldo; ValvePipes - denoflions; Bibliocraft and Bibliocraft addons - Nuchaz; Infinibow - Myrathi; Special Mobs and Deadly World - Father Toast; JadedLadder - Mikee; Natura and Tinker's Construct - mDiyo; Magic Farm Balance - Myrathi"  
+        oldVersions="5.0;4.0;3.4;3.0;2.1;2.0;1.0" 
+    />
+    <modpack 
+        name="Magic World" author="The FTB Team" version="7.2.0" repoVersion="7_2_0" logo="logo_ftb.png" url="MagicWorld.zip" image="splash_MagicWorld.png" dir="Magic_World" mcVersion="1.4.7" serverPack="MagicWorld_Server.zip"
+        description="A collection of the best magical mods minecraft has to offer"
+        mods="Buildcraft; CodeChickenCore; Enderstorage; ExtraBiomesXL; Forestry; ForgeIRC; InvTweaks; IronChests; Minecraft Forge; Mystcraft; NEI; NEIPlugins; Obsidiplates; OmniTools; Railcraft; Rei's Minimap; Soulshards; Steve's Carts; Thaumcraft 3; Thermal Expansion; Twilight Forest"
+        oldVersions="7.2.1;7.2.0;7.1.1;7.1.0;7.0.1;6;5;4;3;2;1"
+        animation="FTB_temp.gif"
+    />
+    <modpack 
+        name="Tech World" author="The FTB Team" version="1.2.0" repoVersion="1_2_0" logo="logo_ftb.png" url="TechWorld.zip" image="splash_FTB.png" dir="Tech_World" mcVersion="1.4.7" serverPack="TechWorld_Server.zip"
+        description="A collection of the best technical mods minecraft has to offer"
+        mods="Minecraft Forge; NotEnoughItems; CodeChickenCore; AdvancedMachines; AdvancedSolarPanel; Buildcraft; Chargepads; ChickenChunks; Computercraft; Forestry; Gravigun; Gravisuite; GregTech; Ic2; Ic2NuclearControl; InvTweaks; Ironchest; MiscPeripherals; ModularForcefieldSystem; NeiPlugins; NeiPluginsRedpower; Obsidiplates; Omnitools; Petrogen; Portalgun; Railcraft; Redpower; ReiMinimap; StevesCarts; VoxelPlayer; VoxelMenu; WirelessRedstone; Xycraft"
+        oldVersions="1.2.1;1.2.0;1.1.1;1.1.0;1.0.1"
+        animation="FTB_temp.gif"
+    />
 
     <modpack 
-		name="Pax Challenge Pack" author="The FTB Team" version="1.1.4" repoVersion="1_1_4" logo="logo_ftb.png" url="paxchallenge.zip" image="splash_FTB.png" dir="PaxChallenge" mcVersion="1.4.7" serverPack=""
-		description="Practice Map for the Pax East FTB Challenge"
-		mods=""
-		oldVersions="1.1.4;1.1.0;1.0.0"
-		animation="FTB_temp.gif"
-	/>
+        name="Pax Challenge Pack" author="The FTB Team" version="1.1.4" repoVersion="1_1_4" logo="logo_ftb.png" url="paxchallenge.zip" image="splash_FTB.png" dir="PaxChallenge" mcVersion="1.4.7" serverPack=""
+        description="Practice Map for the Pax East FTB Challenge"
+        mods=""
+        oldVersions="1.1.4;1.1.0;1.0.0"
+        animation="FTB_temp.gif"
+    />
     <modpack 
-		name="Feed The Beast Retro SSP" author="The FTB Team" version="3" logo="logo_ftb.png" url="FTBRetro_SSP.zip" image="splash_FTB.png" dir="FTBRETROSSP" mcVersion="1.2.5" serverPack=""
-		description="For SSP ONLY!!! This is the FTB Pyramid mod pack from Minecraft 1.2.5. Use in combination with the Normal or Insanity maps for full experience!"
-		mods=""
-		animation="FTB_temp.gif"
-	/>
-	<modpack 
-		name="Feed The Beast Retro SMP" author="The FTB Team" version="1" logo="logo_ftb.png" url="RetroSMP.zip" image="splash_FTB.png" dir="FTBRETROSMP" mcVersion="1.2.5" serverPack="RetroSMP_Server.zip"
-		description="For SMP ONLY!!! This has a Server version to allow you to play through the FTB Insanity map with friends!"
-		mods=""
-		animation="FTB_temp.gif"
-	/>
-	<modpack 
-		name="Slow's Stream Pack" author="The FTB Team" version="1.0.0" repoVersion="1_0_0" logo="logo_ftb.png" url="SlowsStreamPack.zip" image="splash_FTB.png" dir="SlowsStreamPack" mcVersion="1.4.7" serverPack="SlowsStreamPackServer.zip"
-		description="Modpack used on Slowpoke's Livestream"
-		mods=""
-		oldVersions="1.0.0"
-		animation="FTB_temp.gif"
-	/>
+        name="Feed The Beast Retro SSP" author="The FTB Team" version="3" logo="logo_ftb.png" url="FTBRetro_SSP.zip" image="splash_FTB.png" dir="FTBRETROSSP" mcVersion="1.2.5" serverPack=""
+        description="For SSP ONLY!!! This is the FTB Pyramid mod pack from Minecraft 1.2.5. Use in combination with the Normal or Insanity maps for full experience!"
+        mods=""
+        animation="FTB_temp.gif"
+    />
     <modpack 
-		name="Feed The Beast Beta Pack A" author="The FTB Team" version="12" logo="logo_ftb.png" url="FTBBetaA.zip" image="splash_FTB.png" dir="FTBBETAA" mcVersion="1.4.2" serverPack="FTBBetaA_Server.zip" 
-		description="This is a test pack for Feed The Beast!" 
-		mods="Minecraft Forge; Chickenbones Core; NEI; Rei's Minimap; Advanced Machines; Buildcraft; Computer Craft; Ender Storage; ExtraBiomes XL; Factorization; Forestry; ForgeIRC; Gregtech; Industrial Craft; Inventory Tweaks; Iron Chests; Advanced Solar Panels; GraviSuite; Modular Forcefield System; Mystcraft; Obsidian Pressure Plates; Portal Gun; Railcraft; Steve's Carts; Thermal Expansion; Twilight Forest"
-		animation="FTB_temp.gif"
-	/>
+        name="Feed The Beast Retro SMP" author="The FTB Team" version="1" logo="logo_ftb.png" url="RetroSMP.zip" image="splash_FTB.png" dir="FTBRETROSMP" mcVersion="1.2.5" serverPack="RetroSMP_Server.zip"
+        description="For SMP ONLY!!! This has a Server version to allow you to play through the FTB Insanity map with friends!"
+        mods=""
+        animation="FTB_temp.gif"
+    />
+    <modpack 
+        name="Slow's Stream Pack" author="The FTB Team" version="1.0.0" repoVersion="1_0_0" logo="logo_ftb.png" url="SlowsStreamPack.zip" image="splash_FTB.png" dir="SlowsStreamPack" mcVersion="1.4.7" serverPack="SlowsStreamPackServer.zip"
+        description="Modpack used on Slowpoke's Livestream"
+        mods=""
+        oldVersions="1.0.0"
+        animation="FTB_temp.gif"
+    />
+    <modpack 
+        name="Feed The Beast Beta Pack A" author="The FTB Team" version="12" logo="logo_ftb.png" url="FTBBetaA.zip" image="splash_FTB.png" dir="FTBBETAA" mcVersion="1.4.2" serverPack="FTBBetaA_Server.zip" 
+        description="This is a test pack for Feed The Beast!" 
+        mods="Minecraft Forge; Chickenbones Core; NEI; Rei's Minimap; Advanced Machines; Buildcraft; Computer Craft; Ender Storage; ExtraBiomes XL; Factorization; Forestry; ForgeIRC; Gregtech; Industrial Craft; Inventory Tweaks; Iron Chests; Advanced Solar Panels; GraviSuite; Modular Forcefield System; Mystcraft; Obsidian Pressure Plates; Portal Gun; Railcraft; Steve's Carts; Thermal Expansion; Twilight Forest"
+        animation="FTB_temp.gif"
+    />
 </modpacks>

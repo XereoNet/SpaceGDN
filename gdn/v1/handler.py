@@ -6,7 +6,7 @@ from flask import request
 from urlparse import urlparse
 from os.path import splitext, basename
 from sqlalchemy.util import KeyedTuple
-from gdn.models import * 
+from gdn.models import *
 
 def getModel(name):
     return getattr(sys.modules[__name__], name.capitalize())
@@ -109,10 +109,10 @@ def to_dict(ls):
             URLdisassembled = urlparse(getattr(model, 'url'))
             URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
             if os.path.isfile('gdn/static/cache/'+urllib.unquote_plus(URLfilename)+'Build'+str(getattr(model, 'build'))+URLfile_ext):
-                setattr(model, 'url', 'http://'+app.config['HTTP_HOST']+':'+str(app.config['HTTP_PORT'])+'/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext)   
+                setattr(model, 'url', 'http://'+app.config['HTTP_HOST']+':'+str(app.config['HTTP_PORT'])+'/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext)
 
         data['id'] = getattr(model, 'id')
-     
+
         for col in model._sa_class_manager.mapper.mapped_table.columns:
             data[col.name] = getattr(model, col.name)
 
@@ -122,11 +122,11 @@ def to_dict(ls):
             data[app.config['HEIRARCHY'][l - index - 1]['name'] + '_id'] = result[index]
 
         out.append(data)
- 
+
     return out
 
 def getNum(num, default = 0):
-    try: 
+    try:
         return int(num)
     except Exception:
         return default

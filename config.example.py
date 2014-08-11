@@ -14,17 +14,17 @@ HTTP_PORT = 8000
 # API settings
 RATE_LIMIT = True
 HEIRARCHY = [{
-	'name': 'jar',
-	'unique': 'name'
+    'name': 'jar',
+    'unique': 'name'
 }, {
-	'name': 'channel',
-	'unique': 'name'
+    'name': 'channel',
+    'unique': 'name'
 }, {
-	'name': 'version',
-	'unique': 'version'
+    'name': 'version',
+    'unique': 'version'
 }, {
-	'name': 'build',
-	'unique': 'build'
+    'name': 'build',
+    'unique': 'build'
 }]
 
 # Raven DSN. If False, Raven handler will not be enabled.
