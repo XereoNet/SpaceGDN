@@ -9,6 +9,7 @@ import requests
 import os.path
 import imp
 
+
 class Yggdrasil():
     jars = {}
     channels = {}
@@ -31,7 +32,7 @@ class Yggdrasil():
                 md5.update(data)
             return md5.hexdigest()
 
-    def getOrMake(self, where, model, data, ignore = []):
+    def getOrMake(self, where, model, data, ignore=[]):
         item = model.query.filter_by(**where).first()
 
         new = False
@@ -52,7 +53,7 @@ class Yggdrasil():
 
         return item
 
-    def getOrMakeCustom(self, where, model, data, ignore = []):
+    def getOrMakeCustom(self, where, model, data, ignore=[]):
         item = model.query.filter_by(**where).first()
 
         new = False
@@ -61,7 +62,7 @@ class Yggdrasil():
             item = model()
 
         item.updated_at = datetime.now()
-        item.name = data['name'].lower().replace (" ", "-")
+        item.name = data['name'].lower().replace(" ", "-")
         item.site_url = data['url']
         item.description = self.cap(data['desc'], 200)
 
@@ -73,40 +74,45 @@ class Yggdrasil():
         return item
 
     def cap(self, s, l):
-        return s if len(s)<=l else s[0:l-3]+'...'
+        return s if len(s) <= l else s[0:l-3] + '...'
 
     def addJarName(self, data):
-        jar = self.getOrMakeCustom(model = Jar, data = data, where = {'name': data['name']})
+        jar = self.getOrMakeCustom(model=Jar, data=data,
+                                   where={'name': data['name']})
         self.jars[jar.id] = jar
 
         return jar.id
 
     def addJar(self, data):
-        jar = self.getOrMake(model = Jar, data = data, where = {'name': data['name']})
+        jar = self.getOrMake(model=Jar, data=data,
+                             where={'name': data['name']})
         self.jars[jar.id] = jar
 
         return jar.id
 
     def addChannel(self, data, jar):
-        if not jar in self.jars:
-            raise Exception('Tried to add a channel %s in a nonexistant jar %s.' % (data['name'], jar))
+        if jar not in self.jars:
+            raise Exception(('Tried to add a channel {} in a nonexistant jar '
+                             '{}.').format(data['name'], jar))
 
         data['jar_id'] = jar
-        channel = self.getOrMake(model = Channel, data = data, where = {'name': data['name'], 'jar_id': jar})
+        channel = self.getOrMake(model=Channel, data=data,
+                                 where={'name': data['name'], 'jar_id': jar})
         self.channels[channel.id] = channel
 
         return channel.id
 
     def addVersion(self, version_name, channel):
-        if not channel in self.channels:
-            raise Exception('Tried to add a version %s in a nonexistant channel %s.' % (version_name, channel))
+        if channel not in self.channels:
+            raise Exception(('Tried to add a version {} in a nonexistant '
+                             'channel {}.').format(version_name, channel))
 
         data = {
             'channel_id': channel,
             'version': version_name
         }
 
-        version = self.getOrMake(model = Version, data = data, where = data)
+        version = self.getOrMake(model=Version, data=data, where=data)
         self.versions[version.id] = version
 
         return version.id
@@ -132,8 +138,10 @@ class Yggdrasil():
                     os.remove(fileName)
 
         if channel not in self.channels:
-            raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
-        if not data['version'] in self.versions:
+            raise Exception(
+                'Tried to add a build {} in a nonexistant channel {}.'.format(
+                    data['build'], channel))
+        if data['version'] not in self.versions:
             version = self.addVersion(data['version'], channel)
         else:
             version = self.versions[data['version']]
@@ -141,8 +149,10 @@ class Yggdrasil():
         del data['version']
         data['version_id'] = version
 
-        self.getOrMake(model = Build, data = data, where = { 'build': data['build'], 'version_id': data['version_id'] })
-        self.bubbleUpdate(version);
+        self.getOrMake(model=Build, data=data,
+                       where={'build': data['build'],
+                              'version_id': data['version_id']})
+        self.bubbleUpdate(version)
 
     def bubbleUpdate(self, version):
         version_model = self.versions[version]
@@ -156,16 +166,19 @@ class Yggdrasil():
         db.session.commit()
 
     def download_file(self, data):
-        URLdisassembled = urlparse(data['url'])
-        URLfilename, URLfile_ext = os.path.splitext(os.path.basename(URLdisassembled.path))
-        local_filename = 'gdn/static/cache/'+urllib.unquote(URLfilename).decode('utf8')+'Build'+str(data['build'])+URLfile_ext
+        url_disassembled = urlparse(data['url'])
+        filename, file_ext = os.path.splitext(
+            os.path.basename(URLdisassembled.path))
+        local_filename = ('gdn/static/cache/{}Build{}{}'.format(
+            urllib.unquote(URLfilename).decode('utf8'), str(data['build']),
+            URLfile_ext))
 
         # NOTE the stream=True parameter
         print 'Downloading ' + data['url']
         r = requests.get(data['url'], stream=True)
         with open(local_filename, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024):
-                if chunk: # filter out keep-alive new chunks
+                if chunk:  # Filter out keep-alive new chunks
                     f.write(chunk)
                     f.flush()
         return local_filename

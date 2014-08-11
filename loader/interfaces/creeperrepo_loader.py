@@ -1,9 +1,15 @@
-import requests, urllib, re
+import requests
+import urllib
+import re
 from lxml import etree as ET
+
 
 class loader_creeperrepo:
 
     base_url = 'http://www.creeperrepo.net'
+
+    def __init__(self):
+        pass
 
     def artifactURLs(self):
         return [
@@ -13,7 +19,9 @@ class loader_creeperrepo:
 
     def getData(self, name, version, file_):
 
-        url = self.base_url + '/FTB2/' + urllib.quote_plus('modpacks^'+name+'^'+version+'^'+file_)
+        url = (self.base_url + '/FTB2/' +
+               urllib.quote_plus('modpacks^{}^{}^{}'.format(name, version,
+                                                            file_)))
 
         # site = requests.head(url)
 
@@ -24,8 +32,9 @@ class loader_creeperrepo:
     def getXML(self, name):
         for url in self.artifactURLs():
             r = requests.get(url)
-            d = ET.fromstring(r.content).find('modpack[@name="%s"]' % name)
-            
+            d = ET.fromstring(r.content).find('modpack[@name="{}"]'.format(
+                name))
+
             if d is not None:
                 return d
 
@@ -36,9 +45,9 @@ class loader_creeperrepo:
         if build == last_build:
             return []
 
-        version = modpack.get('version')
-
-        url = self.getData(modpack.get('dir'), re.sub('\.', '_', modpack.get('repoVersion')), modpack.get('serverPack'))
+        url = self.getData(modpack.get('dir'),
+                           re.sub('\\.', '_', modpack.get('repoVersion')),
+                           modpack.get('serverPack'))
 
         return [{
             'version': modpack.get('version'),

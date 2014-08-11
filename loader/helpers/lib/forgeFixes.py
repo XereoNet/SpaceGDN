@@ -7,17 +7,19 @@ import tempfile
 
 patchfiles = 'gdn/static/cache/forgepatch01'
 
+
 def patchForge(path):
 
     if not os.path.exists(patchfiles):
         print 'Downloading forgepatch'
-        r = requests.get('http://s3.amazonaws.com/SpaceZips/forgepatch.zip', stream=True)
+        r = requests.get('http://s3.amazonaws.com/SpaceZips/forgepatch.zip',
+                         stream=True)
 
         handle, temp_file_path = tempfile.mkstemp()
 
         with open(temp_file_path, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=1024): 
-                if chunk: # filter out keep-alive new chunks
+            for chunk in r.iter_content(chunk_size=1024):
+                if chunk:  # Filter out keep-alive new chunks
                     f.write(chunk)
                     f.flush()
 
@@ -27,6 +29,7 @@ def patchForge(path):
         os.remove(temp_file_path)
 
     distutils.dir_util.copy_tree(patchfiles, path)
+
 
 def modify(path, build):
     patchForge(path)

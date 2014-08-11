@@ -1,6 +1,7 @@
 import os
 
-def modify(path, build):
+
+def modify(path, _):
     dirs = [os.path.join(path, 'lib'), os.path.join(path, 'libraries')]
     for d in dirs:
         if not os.path.exists(d):

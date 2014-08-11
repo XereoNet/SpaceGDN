@@ -1,11 +1,17 @@
-import requests, json
+import requests
+import json
+
 
 class loader_craftbukkit:
 
     base_url = 'http://dl.bukkit.org'
 
+    def __init__(self):
+        pass
+
     def artifactURL(self, name):
-        return self.base_url + '/api/1.0/downloads/projects/craftbukkit/artifacts/' + name
+        return (self.base_url +
+                '/api/1.0/downloads/projects/craftbukkit/artifacts/' + name)
 
     def getJSON(self, name):
         _url = self.artifactURL(name)
@@ -17,7 +23,8 @@ class loader_craftbukkit:
         builds = []
 
         for build in data['results']:
-            if build['build_number'] <= last_build or build['is_broken']: continue
+            if build['build_number'] <= last_build or build['is_broken']:
+                continue
             builds.append({
                 'version': build['version'],
                 'size': build['file']['size'] / 1024,
