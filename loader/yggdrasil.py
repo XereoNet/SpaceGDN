@@ -16,6 +16,9 @@ class Yggdrasil():
     versions = {}
     builds = {}
 
+    def __init__(self, config):
+        self.config = config
+
     def md5sumRemote(self, file_):
         return hashlib.md5(open(file_).read()).hexdigest()
 
@@ -115,16 +118,29 @@ class Yggdrasil():
         return version.id
 
     def addBuild(self, data, channel, jarname):
-        fileName = self.download_file(data)
         modifier = Modifier(jarname)
-        modifier.modify(fileName, data)
+        if (('checksum' not in data or not data['checksum']
+                or modifier.isNeeded() or 'size' not in data
+                or not data['size'] or self.config['CACHE_ALWAYS'])
+                and not self.config['NEVER_DOWNLOAD']):
+            fileName = self.download_file(data)
 
-        if 'checksum' not in data or not data['checksum']:
-            data['checksum'] = self.md5sumLocal(fileName)
+            try:
+                modifier.modify(fileName, data)
+
+                if 'checksum' not in data or not data['checksum']:
+                    data['checksum'] = self.md5sumLocal(fileName)
+                if 'size' not in data or not data['size']:
+                    data['size'] = os.path.getsize(fileName)
+            finally:
+                if (not (self.config['CACHE_PATCHED'] and modifier.isNeeded())
+                        or self.config['CACHE_ALWAYS']):
+                    os.remove(fileName)
 
         if channel not in self.channels:
-            raise Exception(('Tried to add a build {} in a nonexistant '
-                             'channel {}.').format(data['build'], channel))
+            raise Exception(
+                'Tried to add a build {} in a nonexistant channel {}.'.format(
+                    data['build'], channel))
         if data['version'] not in self.versions:
             version = self.addVersion(data['version'], channel)
         else:

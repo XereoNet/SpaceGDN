@@ -1,7 +1,6 @@
 from flask import json, make_response, request
 from gdn.v1 import lang, builder, handler
 from gdn import app
-
 from gdn.models import API_Request, db
 from datetime import datetime
 

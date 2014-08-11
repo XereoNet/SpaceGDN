@@ -19,14 +19,14 @@ class Modifier:
         self.script = self.loadFileScript(script_path)
 
     def modify(self, local_filename, build):
-        if self.script is None:
+        if not self.isNeeded():
             return False
 
         file_path = local_filename
         _, temp_file_path = tempfile.mkstemp()
         temp_dir_path = tempfile.mkdtemp()
 
-        os.rename(file_path, temp_file_path)
+        shutil.move(file_path, temp_file_path)
         self.unzip(temp_file_path, temp_dir_path)
         self.script.modify(temp_dir_path, build)
         self.zip(temp_dir_path, file_path)
@@ -54,3 +54,6 @@ class Modifier:
             return imp.load_compiled(mod_name, filepath)
 
         return None
+
+    def isNeeded(self):
+        return self.script is not None

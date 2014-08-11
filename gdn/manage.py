@@ -57,4 +57,4 @@ def debug():
 @manager.command
 def load():
     from loader import loader
-    loader.load()
+    loader.load(app.config)
