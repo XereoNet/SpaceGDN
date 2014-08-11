@@ -168,10 +168,10 @@ class Yggdrasil():
     def download_file(self, data):
         url_disassembled = urlparse(data['url'])
         filename, file_ext = os.path.splitext(
-            os.path.basename(URLdisassembled.path))
+            os.path.basename(url_disassembled.path))
         local_filename = ('gdn/static/cache/{}Build{}{}'.format(
-            urllib.unquote(URLfilename).decode('utf8'), str(data['build']),
-            URLfile_ext))
+            urllib.unquote(filename).decode('utf8'), str(data['build']),
+            file_ext))
 
         # NOTE the stream=True parameter
         print 'Downloading ' + data['url']
