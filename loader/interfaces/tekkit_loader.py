@@ -1,8 +1,13 @@
-import urllib2, json
+import urllib2
+import json
+
 
 class loader_tekkit:
 
     base_url = 'http://www.technicpack.net'
+
+    def __init__(self):
+        pass
 
     def artifactURL(self, name):
         return self.base_url + '/api/modpack/' + name
@@ -12,7 +17,7 @@ class loader_tekkit:
         response = urllib2.urlopen(_url)
         return json.loads(response.read())
 
-    def load(self, channel, last_build):
+    def load(self, channel, _):
         data = self.getJSON(channel['name'])
         builds = []
 

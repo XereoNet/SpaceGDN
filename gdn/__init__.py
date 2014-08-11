@@ -15,8 +15,9 @@ migrate = Migrate(app, db)
 from gdn.v1 import v1
 app.register_blueprint(v1.mod)
 
+
 @app.route('/', defaults={'path': ''})
-def index(path):
+def index(_):
     return render_template('index.html')
 
 from manage import manager

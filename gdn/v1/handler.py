@@ -6,35 +6,37 @@ from flask import request
 from urlparse import urlparse
 from os.path import splitext, basename
 from sqlalchemy.util import KeyedTuple
-from gdn.models import *
+from gdn.models import Build
+
 
 def getModel(name):
     return getattr(sys.modules[__name__], name.capitalize())
 
+
 def joinerQuery(query, pointer):
     clutch_in = True
     for part in reversed(app.config['HEIRARCHY']):
-        if clutch_in == False:
+        if clutch_in is False:
             model = getModel(part['name'])
-            query = query.join(model).add_columns(model.id.label(part['name'] + '_id'))
+            query = query.join(model).add_columns(model.id.label(part['name'] +
+                                                                 '_id'))
         if part['name'] == pointer:
             clutch_in = False
 
     return query
 
+
 def isValidReference(model_name, column_name):
-    if not model_name in [m['name'] for m in app.config['HEIRARCHY']]:
+    if model_name not in [m['name'] for m in app.config['HEIRARCHY']]:
         return False
 
     model = getModel(model_name)
 
-    if not column_name in model.__table__.columns:
-        return False
+    return column_name in model.__table__.columns
 
-    return True
 
 def applySorting(query, params):
-    if not 'sort' in params:
+    if 'sort' not in params:
         return query
 
     splits = params['sort'].lower().split('.', 2)
@@ -55,8 +57,9 @@ def applySorting(query, params):
 
     return query.order_by(m_direction())
 
+
 def applyWheres(query, params):
-    if not 'where' in params:
+    if 'where' not in params:
         return query
 
     expressions = params['where'].lower().split('|')
@@ -64,6 +67,7 @@ def applyWheres(query, params):
         query = applyWhereExpression(query, e)
 
     return query
+
 
 def applyWhereExpression(query, expression):
 
@@ -95,6 +99,7 @@ def applyWhereExpression(query, expression):
 
     return query
 
+
 def to_dict(ls):
     out = []
     for result in ls:
@@ -108,8 +113,14 @@ def to_dict(ls):
         if isinstance(model, Build):
             URLdisassembled = urlparse(getattr(model, 'url'))
             URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
-            if os.path.isfile('gdn/static/cache/'+urllib.unquote_plus(URLfilename)+'Build'+str(getattr(model, 'build'))+URLfile_ext):
-                setattr(model, 'url', 'http://'+app.config['HTTP_HOST']+':'+str(app.config['HTTP_PORT'])+'/static/cache/'+URLfilename+'Build'+str(getattr(model, 'build'))+URLfile_ext)
+            if os.path.isfile('gdn/static/cache/{}Build{}{}'.format(
+                              urllib.unquote_plus(URLfilename),
+                              str(getattr(model, 'build')), URLfile_ext)):
+                setattr(model, 'url',
+                        'http://{}:{}/static/cache/{}Build{}{}'.format(
+                            app.config['HTTP_HOST'],
+                            str(app.config['HTTP_PORT']), URLfilename,
+                            str(getattr(model, 'build')), URLfile_ext))
 
         data['id'] = getattr(model, 'id')
 
@@ -119,17 +130,20 @@ def to_dict(ls):
         l = len(result)
 
         for index in range(1, l):
-            data[app.config['HEIRARCHY'][l - index - 1]['name'] + '_id'] = result[index]
+            key = app.config['HEIRARCHY'][l - index - 1]['name'] + '_id'
+            data[key] = result[index]
 
         out.append(data)
 
     return out
 
-def getNum(num, default = 0):
+
+def getNum(num, default=0):
     try:
         return int(num)
-    except Exception:
+    except ValueError:
         return default
+
 
 def handle_query(data):
     query = getModel(data['select']).query

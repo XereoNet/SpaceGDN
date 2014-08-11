@@ -2,20 +2,22 @@ from flask import json, make_response, request
 from gdn.v1 import lang, builder, handler
 from gdn import app
 
-from gdn.models import * 
+from gdn.models import API_Request, db
 from datetime import datetime
 
-def show_error(code, tup = ()):
+
+def show_error(code, tup=()):
     error = {
         'success': False,
         'error': {
             'code': code,
-            'message': lang.errors[code] % tup
+            'message': lang.errors[code].format(tup)
         },
         'results': [],
         'pages': {}
     }
     return make_response((json.dumps(error), 400))
+
 
 def check_ip(ip):
     if not app.config['RATE_LIMIT']:
@@ -44,8 +46,8 @@ def check_ip(ip):
     else:
         return True
 
-def run(path):
 
+def run(path):
     if not check_ip(request.remote_addr):
         return show_error(492)
 

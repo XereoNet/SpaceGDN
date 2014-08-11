@@ -1,8 +1,9 @@
-import urllib2, json
-
 class loader_direct:
 
-    def load(self, channel, last_build):
+    def __init__(self):
+        pass
+
+    def load(self, channel, _):
         builds = []
 
         builds.append({
