@@ -2,6 +2,12 @@
 DEBUG = True
 TESTING = True
 SECRET_KEY = "SUPERSECRET"
+# Whether to always cache servers. This has no effect if CACHE_PATCHED is False
+CACHE_ALWAYS = False
+# Whether to only cache patched(servers with a Modifier) servers.
+CACHE_PATCHED = True
+# Never download servers. This overrides both CACHE_ properties
+NEVER_DOWNLOAD = False
 
 # Database settings
 SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@127.0.0.1/spacegdn'

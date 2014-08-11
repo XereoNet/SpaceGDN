@@ -15,6 +15,9 @@ class Yggdrasil():
     versions = {}
     builds = {}
 
+    def __init__(self, config):
+        self.config = config
+
     def md5sumRemote(self, file_):
         return hashlib.md5(open(file_).read()).hexdigest()
 
@@ -41,12 +44,12 @@ class Yggdrasil():
             if column in data and getattr(item, column) != data[column]:
                 setattr(item, column, data[column])
                 item.updated_at = datetime.now()
-            
+
         if new:
             item.created_at = datetime.now()
             db.session.add(item)
             db.session.commit()
-            
+
         return item
 
     def getOrMakeCustom(self, where, model, data, ignore = []):
@@ -61,12 +64,12 @@ class Yggdrasil():
         item.name = data['name'].lower().replace (" ", "-")
         item.site_url = data['url']
         item.description = self.cap(data['desc'], 200)
-            
+
         if new:
             item.created_at = datetime.now()
             db.session.add(item)
             db.session.commit()
-            
+
         return item
 
     def cap(self, s, l):
@@ -109,14 +112,26 @@ class Yggdrasil():
         return version.id
 
     def addBuild(self, data, channel, jarname):
-        fileName = self.download_file(data)
         modifier = Modifier(jarname)
-        modifier.modify(fileName, data)
+        if (('checksum' not in data or not data['checksum']
+                or modifier.isNeeded() or 'size' not in data
+                or not data['size'] or self.config['CACHE_ALWAYS'])
+                and not self.config['NEVER_DOWNLOAD']):
+            fileName = self.download_file(data)
 
-        if not 'checksum' in data or not data['checksum']:
-            data['checksum'] = self.md5sumLocal(fileName)
+            try:
+                modifier.modify(fileName, data)
 
-        if not channel in self.channels:
+                if 'checksum' not in data or not data['checksum']:
+                    data['checksum'] = self.md5sumLocal(fileName)
+                if 'size' not in data or not data['size']:
+                    data['size'] = os.path.getsize(fileName)
+            finally:
+                if (not (self.config['CACHE_PATCHED'] and modifier.isNeeded())
+                        or self.config['CACHE_ALWAYS']):
+                    os.remove(fileName)
+
+        if channel not in self.channels:
             raise Exception('Tried to add a build %s in a nonexistant channel %s.' % (data['build'], channel))
         if not data['version'] in self.versions:
             version = self.addVersion(data['version'], channel)
@@ -149,7 +164,7 @@ class Yggdrasil():
         print 'Downloading ' + data['url']
         r = requests.get(data['url'], stream=True)
         with open(local_filename, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=1024): 
+            for chunk in r.iter_content(chunk_size=1024):
                 if chunk: # filter out keep-alive new chunks
                     f.write(chunk)
                     f.flush()

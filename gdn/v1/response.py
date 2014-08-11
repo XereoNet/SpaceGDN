@@ -2,7 +2,7 @@ from flask import json, make_response, request
 from gdn.v1 import lang, builder, handler
 from gdn import app
 
-from gdn.models import * 
+from gdn.models import *
 from datetime import datetime
 
 def show_error(code, tup = ()):

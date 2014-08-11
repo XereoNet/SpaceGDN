@@ -47,10 +47,10 @@ def getLoader(name):
 def cap(s, l):
     return s if len(s)<=l else s[0:l-3]+'...'
 
-def load():
+def load(config):
     sources = loadSources()
 
-    adder = yggdrasil.Yggdrasil()
+    adder = yggdrasil.Yggdrasil(config)
 
     for source in sources:
         source['description'] = cap(source['description'], 200)
