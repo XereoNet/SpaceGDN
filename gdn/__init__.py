@@ -17,7 +17,7 @@ app.register_blueprint(v1.mod)
 
 @app.route('/', defaults={'path': ''})
 def index(path):
-	return render_template('index.html')
+    return render_template('index.html')
 
 from manage import manager
 manager.run()
