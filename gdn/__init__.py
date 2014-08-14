@@ -20,5 +20,5 @@ app.register_blueprint(v1.mod)
 def index(_):
     return render_template('index.html')
 
-from manage import manager
+from .manage import manager
 manager.run()

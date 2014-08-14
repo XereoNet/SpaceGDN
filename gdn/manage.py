@@ -1,7 +1,7 @@
 from flask.ext.script import Manager
 from flask.ext.migrate import MigrateCommand
 
-from models import *
+from .models import *
 from . import app
 
 manager = Manager(app)
@@ -40,12 +40,12 @@ def run():
     else:
         debugModeStr = ''
     try:
-        print head.format(app.config['HTTP_HOST'],
-                          str(app.config['HTTP_PORT']), debugModeStr)
+        print(head.format(app.config['HTTP_HOST'],
+                          str(app.config['HTTP_PORT']), debugModeStr))
         http_server.serve_forever()
     except KeyboardInterrupt:
         http_server.stop()
-        print tail
+        print(tail)
 
 
 @manager.command

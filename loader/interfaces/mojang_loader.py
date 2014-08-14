@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import json
 import datetime
 import re
@@ -14,7 +14,7 @@ class loader_mojang:
         pass
 
     def getJSON(self):
-        response = urllib2.urlopen(self.url)
+        response = urllib.request.urlopen(self.url)
         return json.loads(response.read())
 
     def totimestamp(self, dt, epoch=datetime.datetime(1970, 1, 1)):

@@ -1,9 +1,9 @@
 import sys
 import os.path
 from gdn import app
-import urllib
+import urllib.request, urllib.parse, urllib.error
 from flask import request
-from urlparse import urlparse
+from urllib.parse import urlparse
 from os.path import splitext, basename
 from sqlalchemy.util import KeyedTuple
 from gdn.models import Build
@@ -114,7 +114,7 @@ def to_dict(ls):
             URLdisassembled = urlparse(getattr(model, 'url'))
             URLfilename, URLfile_ext = splitext(basename(URLdisassembled.path))
             if os.path.isfile('gdn/static/cache/{}Build{}{}'.format(
-                              urllib.unquote_plus(URLfilename),
+                              urllib.parse.unquote_plus(URLfilename),
                               str(getattr(model, 'build')), URLfile_ext)):
                 setattr(model, 'url',
                         'http://{}:{}/static/cache/{}Build{}{}'.format(
@@ -151,7 +151,7 @@ def handle_query(data):
     query = applySorting(query, request.args)
     query = applyWheres(query, request.args)
 
-    for key, value in data['data'].iteritems():
+    for key, value in data['data'].items():
         model = getModel(key)
         query = query.filter(getattr(model, 'id') == value)
 

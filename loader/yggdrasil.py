@@ -1,9 +1,9 @@
 from gdn import db
 from gdn.models import Jar, Channel, Version, Build
-from urlparse import urlparse
+from urllib.parse import urlparse
 from datetime import datetime
-from modifier import Modifier
-import urllib
+from .modifier import Modifier
+import urllib.request, urllib.parse, urllib.error
 import hashlib
 import requests
 import os.path
@@ -170,11 +170,11 @@ class Yggdrasil():
         filename, file_ext = os.path.splitext(
             os.path.basename(url_disassembled.path))
         local_filename = ('gdn/static/cache/{}Build{}{}'.format(
-            urllib.unquote(filename).decode('utf8'), str(data['build']),
+            urllib.parse.unquote(filename).decode('utf8'), str(data['build']),
             file_ext))
 
         # NOTE the stream=True parameter
-        print 'Downloading ' + data['url']
+        print('Downloading ' + data['url'])
         r = requests.get(data['url'], stream=True)
         with open(local_filename, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024):

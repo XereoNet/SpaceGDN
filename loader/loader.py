@@ -1,8 +1,8 @@
-from interfaces import *
+from .interfaces import *
 from gdn import app
 from gdn.models import Version, Build
 import os
-import yggdrasil
+from . import yggdrasil
 import sys
 import traceback
 import glob
@@ -38,7 +38,7 @@ def getAndMake(filters, model, data, ignore=[]):
         item = model(**data)
         session.add(item)
     else:
-        for key, value in data.iteritems():
+        for key, value in data.items():
             if key not in ignore:
                 setattr(item, key, value)
     return item
@@ -70,8 +70,8 @@ def load(config):
             channel = adder.addChannel(channel_data, jar_obj)
             l = getLoader(channel_data['interface'])
 
-            print("\nLoading builds for {}#{}".format(source['name'],
-                                                      channel_data['name']))
+            print(("\nLoading builds for {}#{}".format(source['name'],
+                                                      channel_data['name'])))
 
             if not l:
                 continue
@@ -85,11 +85,11 @@ def load(config):
                 for build in l.load(channel_data, last_build):
                     adder.addBuild(build, channel, source['name'])
             except Exception as err:
-                print '=' * 75
+                print('=' * 75)
                 traceback.print_exc()
-                print '=' * 75
-                print 'Loading of {}#{} failed, continuing...'.format(
-                    source['name'], channel_data['name'])
+                print('=' * 75)
+                print('Loading of {}#{} failed, continuing...'.format(
+                    source['name'], channel_data['name']))
 
         adder.commit()
         sys.stdout.write("\n\n")

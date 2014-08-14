@@ -1,5 +1,5 @@
 import requests
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import re
 from lxml import etree as ET
 
@@ -20,7 +20,7 @@ class loader_creeperrepo:
     def getData(self, name, version, file_):
 
         url = (self.base_url + '/FTB2/' +
-               urllib.quote_plus('modpacks^{}^{}^{}'.format(name, version,
+               urllib.parse.quote_plus('modpacks^{}^{}^{}'.format(name, version,
                                                             file_)))
 
         # site = requests.head(url)

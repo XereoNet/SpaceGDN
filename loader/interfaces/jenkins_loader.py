@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import json
 import re
 import sys
@@ -32,7 +32,7 @@ class loader_jenkins:
 
     def getJSON(self, url):
         _url = self.apiURL(url)
-        response = urllib2.urlopen(_url)
+        response = urllib.request.urlopen(_url)
         return json.loads(response.read())
 
     def getBuildData(self, build):
@@ -48,11 +48,11 @@ class loader_jenkins:
                     if out:
                         return out
             if isinstance(i, dict):
-                for key, item in i.iteritems():
+                for key, item in i.items():
                     out = getVersion(item)
                     if out:
                         return out
-            if isinstance(i, (basestring, str)):
+            if isinstance(i, str):
                 m = re.search('[0-9].[0-9].[0-9]{1,2}(-R[0-9].[0-9])?', i)
                 if m:
                     return m.group(0)
@@ -84,6 +84,6 @@ class loader_jenkins:
             if out:
                 builds.append(out)
 
-        print ''
+        print('')
 
         return builds

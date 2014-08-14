@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import json
 
 
@@ -14,7 +14,7 @@ class loader_tekkit:
 
     def getJSON(self, name):
         _url = self.artifactURL(name)
-        response = urllib2.urlopen(_url)
+        response = urllib.request.urlopen(_url)
         return json.loads(response.read())
 
     def load(self, channel, _):

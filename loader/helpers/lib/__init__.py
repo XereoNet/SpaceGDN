@@ -1,1 +1,1 @@
-from forgeFixes import modify as forgeFixes
+from .forgeFixes import modify as forgeFixes

@@ -39,3 +39,5 @@ sftp-config.json
 env
 node_modules
 config.py
+
+/.idea
