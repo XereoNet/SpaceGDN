@@ -106,7 +106,7 @@ In order to prevent flooding, results are paginated automatically to 100 results
 
 ## General Response Format
 
-```json
+```js
 {
   "pages": {
     "current_page": 1,      // The current page requested. Will be equal to "1" or the "page" given as a GET param.
