@@ -9,29 +9,20 @@ CACHE_PATCHED = True
 # Never download servers. This overrides both CACHE_ properties
 NEVER_DOWNLOAD = False
 
-# Database settings
-SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root@127.0.0.1/spacegdn'
-SQLALCHEMY_ECHO = False
-
 # Webserver Settings
-HTTP_HOST = '127.0.0.1'
-HTTP_PORT = 8000
+HTTP_HOST = '0.0.0.0'
+HTTP_PORT = 80
 
-# API settings
+# Monog connection URI
+MONGO_URI = 'mongodb://localhost:27017/'
+# Mongo database name to use
+MONGO_DB = 'gdn'
+
+# Whether the API should be rate limited.
 RATE_LIMIT = True
-HEIRARCHY = [{
-    'name': 'jar',
-    'unique': 'name'
-}, {
-    'name': 'channel',
-    'unique': 'name'
-}, {
-    'name': 'version',
-    'unique': 'version'
-}, {
-    'name': 'build',
-    'unique': 'build'
-}]
+
+# Number of records to return per page on request
+PAGE_LENGTH = 100
 
 # Raven DSN. If False, Raven handler will not be enabled.
 RAVEN_DSN = False
