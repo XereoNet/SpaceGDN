@@ -26,5 +26,5 @@ def debug():
 
 
 @manager.command
-def load():
-    loader.run(app.config)
+def load(only=None):
+    loader.run(app.config, only)

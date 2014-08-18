@@ -12,9 +12,6 @@ class CreeperRepo():
 
     base_url = 'http://www.creeperrepo.net/FTB2/'
 
-    def artifact_urls(self):
-        return
-
     def load_pack(self, elem, url, path):
         md5sum = None
         r = requests.get(url + '.md5')

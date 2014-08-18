@@ -106,7 +106,6 @@ class Yggdrasil():
         db.items.insert(data)
 
     def resolve_filename(self, data):
-        print(data['url'])
         part = 'static/cache/%s.%s' % (data['_id'], data['url'].split('.').pop())
 
         url = 'http://%s:%s/%s' % (self.config['HTTP_HOST'], self.config['HTTP_PORT'], part)
