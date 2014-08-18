@@ -2,6 +2,7 @@ import hashlib
 import os
 import requests
 from gdn.mongo import db
+from gdn.log import logger
 
 
 class Yggdrasil():
@@ -74,11 +75,15 @@ class Yggdrasil():
         return md5.hexdigest()
 
     def make_item(self, item):
+        if item is None:
+            return
+
         idlist = [p['$id'] for p in item['$parents']]
         idlist.append(item['$id'])
         iid = self.create_id(idlist)
 
         if self.has_id(iid):
+            logger.info('Asked to load %s but we already have it!' % idlist)
             return
 
         data = self.strip_metas(item)
@@ -87,6 +92,7 @@ class Yggdrasil():
         if ('$load' in item and self.config['CACHE_ALWAYS']) or \
                 (self.config['CACHE_PATCHED'] and '$patched' in item and item['$patched']):
             path, url = self.resolve_filename(data)
+            logger.info('Loading item %s into %s' % (idlist, path))
             item['$load'](path)
             data['url'] = url
             data['md5'] = self.md5sum(path=path)
@@ -96,9 +102,11 @@ class Yggdrasil():
         data['parents'] = self.make_parents(item['$parents'])
 
         self.id_cache[iid] = True
+        logger.info('Adding item %s to collection' % idlist)
         db.items.insert(data)
 
     def resolve_filename(self, data):
+        print(data['url'])
         part = 'static/cache/%s.%s' % (data['_id'], data['url'].split('.').pop())
 
         url = 'http://%s:%s/%s' % (self.config['HTTP_HOST'], self.config['HTTP_PORT'], part)

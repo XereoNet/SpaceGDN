@@ -1,3 +1,5 @@
+import logging
+
 # App settings
 DEBUG = True
 TESTING = True
@@ -24,3 +26,14 @@ PAGE_LENGTH = 100
 
 # Raven DSN. If False, Raven handler will not be enabled.
 RAVEN_DSN = False
+# Level of error message which will be logged to Raven
+RAVEN_LEVEL = logging.WARN
+
+# Level of events which should be logged to the log/gdn.log file.
+LOG_LEVEL = logging.INFO
+# How large the log should get before being rotated. Default: 100 MB
+LOG_ROTATION_SIZE = 2 << 20
+# Number of log rotations to keep
+LOG_ROTATION_BACKUP = 5
+# Format of the console and file log
+LOG_FORMAT = '[%(asctime)s][%(levelname)s] %(message)s'

@@ -2,6 +2,7 @@ import requests
 import urllib.parse
 import re
 import datetime
+from gdn.log import logger
 
 from bs4 import BeautifulSoup
 from ..resource_bases import ZipModifier
@@ -15,8 +16,13 @@ class CreeperRepo():
         return
 
     def load_pack(self, elem, url, path):
+        md5sum = None
+        r = requests.get(url + '.md5')
+        if r.status_code == requests.codes.ok:
+            md5sum = r.text.strip()
+
         modifier = ZipModifier()
-        modifier.start_from_remote(url)
+        modifier.start_from_remote(url, md5sum=md5sum)
         modifier.patch_from_remote('http://s3.amazonaws.com/SpaceZips/forgepatch.zip')
         modifier.replace_in_file('config/forge.cfg', {
             'removeErroringEntities=false': 'removeErroringEntities=true',
@@ -30,8 +36,16 @@ class CreeperRepo():
         modifier.end_modify(path)
 
     def parse_pack(self, elem):
-        urlparts = {'dir': elem['dir'], 'version': re.sub('\.', '_', elem['repoVersion']), 'pack': elem['serverPack']}
-        url = self.base_url + urllib.parse.quote_plus('modpacks^{dir}^{version}^{pack}'.format(**urlparts))
+        if not elem.has_attr('repoVersion'):
+            return
+
+        urlparts = {
+            'dir': elem['dir'],
+            'version': re.sub('\.', '_', elem['repoVersion'])
+        }
+
+        url = (self.base_url + urllib.parse.quote_plus('modpacks^{dir}^{version}'.format(**urlparts))
+               + '/' + elem['url'])
 
         return {
             '$parents': [

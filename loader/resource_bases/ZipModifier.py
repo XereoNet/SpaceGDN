@@ -3,7 +3,9 @@ import os
 import tempfile
 import shutil
 import requests
+import hashlib
 
+from gdn.log import logger
 from distutils import dir_util
 from ..util import get_download_path, md5sum_text
 
@@ -15,17 +17,27 @@ class ZipModifier:
         self.file_path = None
         self.type = None
 
-    def download(self, url, file):
+    def download(self, url, file, md5sum=None, is_retry=False):
         r = requests.get(url, stream=True)
+        md5 = hashlib.md5()
         with open(file, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024):
                 if chunk:
                     f.write(chunk)
+                    md5.update(chunk)
                     f.flush()
 
-    def start_from_remote(self, url):
+        digest = md5.hexdigest()
+        if not md5sum is None and md5sum != digest:
+            if not is_retry:
+                logger.info('Retrying download of %s, md5sum %s did not match expected %s' % (url, digest, md5sum))
+                self.download(url, file, md5sum, True)
+            else:
+                logger.warn('Retried download, still did not checksum correctly. Continuing anyway')
+
+    def start_from_remote(self, url, md5sum=None):
         _, temp_file_path = tempfile.mkstemp()
-        self.download(url, temp_file_path)
+        self.download(url, temp_file_path, md5sum)
         self.temp_dir_path = tempfile.mkdtemp()
 
         self.unzip(temp_file_path, self.temp_dir_path)

@@ -2,6 +2,7 @@ from ..mongo import db
 from ..app import app
 import pymongo
 
+
 class Collector():
 
     operators = ['$gt', '$gte', '$in', '$lt', '$lte', '$ne', '$nin', '$eq']
