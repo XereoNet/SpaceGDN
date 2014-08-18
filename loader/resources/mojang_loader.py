@@ -61,7 +61,7 @@ class Mojang:
             ],
             '$id': version['id'],
             '$load': lambda path: self.load_pack(path, url),
-            '$patched': True,
+            '$patched': False,
             'resource': 'build',
             'created': released,
             'build': math.floor(released.timestamp() / 100),

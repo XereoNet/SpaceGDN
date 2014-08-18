@@ -9,7 +9,7 @@ formatter = logging.Formatter(app.config['LOG_FORMAT'])
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-fh = logging.handlers.RotatingFileHandler(os.path.join(os.path.dirname(__file__), '../gdn.log'),
+fh = logging.handlers.RotatingFileHandler(os.path.join(os.path.dirname(__file__), '../log/gdn.log'),
                                           maxBytes=app.config['LOG_ROTATION_SIZE'],
                                           backupCount=app.config['LOG_ROTATION_BACKUP'])
 fh.setLevel(logging.INFO)
