@@ -3,10 +3,10 @@ import json
 import datetime
 import re
 import math
-from ..resource_bases.ZipModifier import ZipModifier
+from ..resource_bases import Downloader
 
 
-class Mojang:
+class Mojang(Downloader):
 
     url = 'http://s3.amazonaws.com/Minecraft.Download/versions/versions.json'
     download_url_base = 'https://s3.amazonaws.com/Minecraft.Download/versions/{0}/minecraft_server.{0}.jar'
@@ -60,7 +60,7 @@ class Mojang:
                 }
             ],
             '$id': version['id'],
-            '$load': lambda path: self.load_pack(path, url),
+            '$load': lambda path: self.download(url, path),
             '$patched': False,
             'resource': 'build',
             'created': released,

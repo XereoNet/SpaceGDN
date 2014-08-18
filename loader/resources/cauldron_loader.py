@@ -1,10 +1,11 @@
 import requests
 import re
 import datetime
+from ..resource_bases import Downloader
 from bs4 import BeautifulSoup
 
 
-class Cauldron:
+class Cauldron(Downloader):
 
     base_url = 'http://files.minecraftforge.net/Cauldron/'
 
@@ -43,7 +44,7 @@ class Cauldron:
                 }
             ],
             '$id': version.text,
-            '$load': lambda path: self.load_pack(path, url),
+            '$load': lambda path: self.download(url, path),
             '$patched': False,
             'resource': 'build',
             'created': datetime.datetime.strptime(release.text, '%m/%d/%Y %I:%M:%S %p'),
