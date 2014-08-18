@@ -1,0 +1,10 @@
+game "minecraft"
+    will have a "type"
+        which has a "name", that is a human-readable modpack name
+        will have a "version"
+            which has a "version" that is a human-readable version number
+            will have a "build"
+                which has a "url" for the location the pack can de downloaded from
+                which has a "build", an integer representing the build of the particular pack.
+                which has a "created" indicating when it was published, if possible
+                which has an "md5" for an integrity check of the modpack

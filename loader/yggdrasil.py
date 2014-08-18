@@ -1,184 +1,112 @@
-from gdn import db
-from gdn.models import Jar, Channel, Version, Build
-from urllib.parse import urlparse
-from datetime import datetime
-from .modifier import Modifier
-import urllib.request, urllib.parse, urllib.error
 import hashlib
+import os
 import requests
-import os.path
-import imp
+from gdn.mongo import db
 
 
 class Yggdrasil():
-    jars = {}
-    channels = {}
-    versions = {}
-    builds = {}
 
     def __init__(self, config):
         self.config = config
+        self.id_cache = {}
 
-    def md5sumRemote(self, file_):
-        return hashlib.md5(open(file_).read()).hexdigest()
+    def has_id(self, id):
+        if not id in self.id_cache:
+            result = db.items.find_one({'_id': id})
+            self.id_cache[id] = False if result is None else True
 
-    def md5sumLocal(self, file, block_size=2**20):
-        with open(file, 'r') as f:
-            md5 = hashlib.md5()
-            while True:
-                data = f.read(block_size)
-                if not data:
-                    break
-                md5.update(data)
-            return md5.hexdigest()
+        return self.id_cache[id]
 
-    def getOrMake(self, where, model, data, ignore=[]):
-        item = model.query.filter_by(**where).first()
+    def create_id(self, idlist):
+        iid = hashlib.md5()
 
-        new = False
-        if not item:
-            new = True
-            item = model()
+        for i in idlist:
+            iid.update(i.encode('utf-8'))
 
-        for key in model.__mapper__.columns:
-            table, column = str(key).split('.', 1)
-            if column in data and getattr(item, column) != data[column]:
-                setattr(item, column, data[column])
-                item.updated_at = datetime.now()
+        return iid.hexdigest()
 
-        if new:
-            item.created_at = datetime.now()
-            db.session.add(item)
-            db.session.commit()
+    def make_parents(self, parents):
+        ids = []
+        hashed_ids = []
+        for parent in parents:
+            ids.append(parent['$id'])
+            pid = self.create_id(ids)
+            hashed_ids.append(pid)
 
-        return item
+            if self.has_id(pid):
+                continue
 
-    def getOrMakeCustom(self, where, model, data, ignore=[]):
-        item = model.query.filter_by(**where).first()
+            data = self.strip_metas(parent)
+            data['_id'] = pid
 
-        new = False
-        if not item:
-            new = True
-            item = model()
+            if hashed_ids:
+                data['parents'] = hashed_ids
 
-        item.updated_at = datetime.now()
-        item.name = data['name'].lower().replace(" ", "-")
-        item.site_url = data['url']
-        item.description = self.cap(data['desc'], 200)
+            self.id_cache[pid] = True
+            db.items.insert(data)
 
-        if new:
-            item.created_at = datetime.now()
-            db.session.add(item)
-            db.session.commit()
+        return hashed_ids
 
-        return item
+    def strip_metas(self, obj):
+        out = {}
+        for key, value in obj.items():
+            if not key.startswith('$'):
+                out[key] = value
 
-    def cap(self, s, l):
-        return s if len(s) <= l else s[0:l-3] + '...'
+        return out
 
-    def addJarName(self, data):
-        jar = self.getOrMakeCustom(model=Jar, data=data,
-                                   where={'name': data['name']})
-        self.jars[jar.id] = jar
+    def md5sum(self, path='', remote=''):
+        md5 = hashlib.md5()
 
-        return jar.id
-
-    def addJar(self, data):
-        jar = self.getOrMake(model=Jar, data=data,
-                             where={'name': data['name']})
-        self.jars[jar.id] = jar
-
-        return jar.id
-
-    def addChannel(self, data, jar):
-        if jar not in self.jars:
-            raise Exception(('Tried to add a channel {} in a nonexistant jar '
-                             '{}.').format(data['name'], jar))
-
-        data['jar_id'] = jar
-        channel = self.getOrMake(model=Channel, data=data,
-                                 where={'name': data['name'], 'jar_id': jar})
-        self.channels[channel.id] = channel
-
-        return channel.id
-
-    def addVersion(self, version_name, channel):
-        if channel not in self.channels:
-            raise Exception(('Tried to add a version {} in a nonexistant '
-                             'channel {}.').format(version_name, channel))
-
-        data = {
-            'channel_id': channel,
-            'version': version_name
-        }
-
-        version = self.getOrMake(model=Version, data=data, where=data)
-        self.versions[version.id] = version
-
-        return version.id
-
-    def addBuild(self, data, channel, jarname):
-        modifier = Modifier(jarname)
-        if (('checksum' not in data or not data['checksum']
-                or modifier.isNeeded() or 'size' not in data
-                or not data['size'] or self.config['CACHE_ALWAYS'])
-                and not self.config['NEVER_DOWNLOAD']):
-            fileName = self.download_file(data)
-
-            try:
-                modifier.modify(fileName, data)
-
-                if 'checksum' not in data or not data['checksum']:
-                    data['checksum'] = self.md5sumLocal(fileName)
-                if 'size' not in data or not data['size']:
-                    data['size'] = os.path.getsize(fileName)
-            finally:
-                if (not (self.config['CACHE_PATCHED'] and modifier.isNeeded())
-                        or self.config['CACHE_ALWAYS']):
-                    os.remove(fileName)
-
-        if channel not in self.channels:
-            raise Exception(
-                'Tried to add a build {} in a nonexistant channel {}.'.format(
-                    data['build'], channel))
-        if data['version'] not in self.versions:
-            version = self.addVersion(data['version'], channel)
-        else:
-            version = self.versions[data['version']]
-
-        del data['version']
-        data['version_id'] = version
-
-        self.getOrMake(model=Build, data=data,
-                       where={'build': data['build'],
-                              'version_id': data['version_id']})
-        self.bubbleUpdate(version)
-
-    def bubbleUpdate(self, version):
-        version_model = self.versions[version]
-        channel_model = self.channels[version_model.channel_id]
-        jar_model = self.jars[channel_model.jar_id]
-
-        for parent in [channel_model, version_model, jar_model]:
-            parent.updated_at = datetime.now()
-
-    def commit(self):
-        db.session.commit()
-
-    def download_file(self, data):
-        url_disassembled = urlparse(data['url'])
-        filename, file_ext = os.path.splitext(
-            os.path.basename(url_disassembled.path))
-        local_filename = ('gdn/static/cache/{}Build{}{}'.format(
-            urllib.parse.unquote(filename).decode('utf8'), str(data['build']),
-            file_ext))
-
-        # NOTE the stream=True parameter
-        print('Downloading ' + data['url'])
-        r = requests.get(data['url'], stream=True)
-        with open(local_filename, 'wb') as f:
+        if path == '':
+            r = requests.get(remote, stream=True)
             for chunk in r.iter_content(chunk_size=1024):
-                if chunk:  # Filter out keep-alive new chunks
-                    f.write(chunk)
-                    f.flush()
-        return local_filename
+                if chunk:
+                    md5.update(chunk)
+        else:
+            with open(path, 'rb') as f:
+                while True:
+                    data = f.read(2**20)
+                    if not data:
+                        break
+                    md5.update(data)
+
+        return md5.hexdigest()
+
+    def make_item(self, item):
+        idlist = [p['$id'] for p in item['$parents']]
+        idlist.append(item['$id'])
+        iid = self.create_id(idlist)
+
+        if self.has_id(iid):
+            return
+
+        data = self.strip_metas(item)
+        data['_id'] = iid
+
+        if ('$load' in item and self.config['CACHE_ALWAYS']) or \
+                (self.config['CACHE_PATCHED'] and '$patched' in item and item['$patched']):
+            path, url = self.resolve_filename(data)
+            item['$load'](path)
+            data['url'] = url
+            data['md5'] = self.md5sum(path=path)
+        else:
+            data['md5'] = self.md5sum(remote=data['url'])
+
+        data['parents'] = self.make_parents(item['$parents'])
+
+        self.id_cache[iid] = True
+        db.items.insert(data)
+
+    def resolve_filename(self, data):
+        part = 'static/cache/%s.%s' % (data['_id'], data['url'].split('.').pop())
+
+        url = 'http://%s:%s/%s' % (self.config['HTTP_HOST'], self.config['HTTP_PORT'], part)
+        path = os.path.join(os.path.dirname(__file__), '../gdn', part)
+
+        return path, url
+
+    def run(self, loaders):
+        for loader in loaders:
+            for item in loader.items():
+                self.make_item(item)

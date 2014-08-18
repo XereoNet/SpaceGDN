@@ -14,7 +14,7 @@ class Collector():
 
     def _collect_route(self, route):
         parts = route.strip('/').split('/')
-        if len(parts) == 0:
+        if len(parts) == 0 or parts == ['']:
             return
 
         self.find.setdefault('spec', {})['parents'] = parts.pop()

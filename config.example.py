@@ -6,8 +6,6 @@ SECRET_KEY = "SUPERSECRET"
 CACHE_ALWAYS = False
 # Whether to only cache patched(servers with a Modifier) servers.
 CACHE_PATCHED = True
-# Never download servers. This overrides both CACHE_ properties
-NEVER_DOWNLOAD = False
 
 # Webserver Settings
 HTTP_HOST = '0.0.0.0'

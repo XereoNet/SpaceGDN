@@ -1,5 +1,6 @@
 from flask.ext.script import Manager
 from . import app
+import loader
 
 manager = Manager(app)
 
@@ -12,9 +13,11 @@ For more info on production use, see: http://uwsgi-docs.readthedocs.org/en/lates
 If you do not intend to use this in production, use the "debug" command instead!
 '''
 
+
 @manager.command
 def run():
     print(deprecation)
+
 
 @manager.command
 def debug():
@@ -24,5 +27,4 @@ def debug():
 
 @manager.command
 def load():
-    from loader import loader
-    loader.load(app.config)
+    loader.run(app.config)
