@@ -93,7 +93,12 @@ class Yggdrasil():
                 (self.config['CACHE_PATCHED'] and '$patched' in item and item['$patched']):
             path, url = self.resolve_filename(data)
             logger.info('Loading item %s into %s' % (idlist, path))
-            item['$load'](path)
+            try:
+                item['$load'](path)
+            except Exception as e:
+                logger.exception('An error occured while loading %s, skipping...' % idlist)
+                return
+
             data['url'] = url
             data['md5'] = self.md5sum(path=path)
         else:
