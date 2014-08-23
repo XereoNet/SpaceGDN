@@ -22,7 +22,7 @@ class Technic():
     def load_pack(self, url, path, slug):
         modifier = ZipModifier()
         modifier.start_from_remote(url)
-        modifier.patch_from_remote('http://s3.amazonaws.com/SpaceZips/forgepatch.zip')
+        modifier.patch_from_remote('https://s3.amazonaws.com/MCProHosting-Misc/forgepatch.zip')
         modifier.replace_in_file('config/forge.cfg', {
             'removeErroringEntities=false': 'removeErroringEntities=true',
             'removeErroringTileEntities=false': 'removeErroringTileEntities=true'

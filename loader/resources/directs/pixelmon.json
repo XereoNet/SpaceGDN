@@ -1,0 +1,54 @@
+[
+    {
+        "$parents": [
+            {
+                "$id":      "minecraft",
+                "resource": "game",
+                "name":     "Minecraft"
+            },
+            {
+                "$id":         "pixelmon",
+                "resource":    "type",
+                "name":        "Pixelmon",
+                "author":      "Pixelmon",
+                "description": ""
+            },
+            {
+                "$id":      "3.2.4",
+                "resource": "version",
+                "version":  "3.2.4"
+            }
+        ],
+        "$id":      "1710",
+        "resource": "build",
+        "created":  1408665600,
+        "build":    1710,
+        "url":      "https://s3.amazonaws.com/MCProHosting-Misc/pixelmon1710.zip"
+    },
+    {
+        "$parents": [
+            {
+                "$id":      "minecraft",
+                "resource": "game",
+                "name":     "Minecraft"
+            },
+            {
+                "$id":         "pixelmon",
+                "resource":    "type",
+                "name":        "Pixelmon",
+                "author":      "Pixelmon",
+                "description": ""
+            },
+            {
+                "$id":      "3.1.4",
+                "resource": "version",
+                "version":  "3.1.4"
+            }
+        ],
+        "$id":      "17",
+        "resource": "build",
+        "created":  1405123200,
+        "build":    17,
+        "url":      "https://s3.amazonaws.com/MCProHosting-Misc/pixelmon17.zip"
+    }
+]
