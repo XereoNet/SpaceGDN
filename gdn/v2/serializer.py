@@ -53,6 +53,8 @@ def dumps(obj, *args, **kwargs):
     """
     if not json_lib:
         raise Exception("No json library available")
+
+    kwargs['indent'] = 4
     return json.dumps(_json_convert(obj), *args, **kwargs)
 
 
