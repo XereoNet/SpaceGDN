@@ -1,8 +1,4 @@
-import os
-import sys
-
 from setuptools import setup, find_packages
-from distutils.sysconfig import get_python_lib
 
 setup(
     name='SpaceGDN',
@@ -11,7 +7,7 @@ setup(
     author='Connor Peet',
     author_email='connor@connorpeet.com',
     description='Game Delivery Network for SpaceCP',
-    license='MIT',
+    license='AGPL-3.0',
     packages=find_packages(),
     include_package_data=True,
     install_requires=['Flask',
