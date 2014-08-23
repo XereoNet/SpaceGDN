@@ -11,7 +11,7 @@ patchfiles = 'gdn/static/cache/forgepatch01'
 def patchForge(path):
 
     if not os.path.exists(patchfiles):
-        print 'Downloading forgepatch'
+        print('Downloading forgepatch')
         r = requests.get('http://s3.amazonaws.com/SpaceZips/forgepatch.zip',
                          stream=True)
 
@@ -44,7 +44,7 @@ def modify(path, build):
         return True
 
     for line in fileinput.FileInput(config, inplace=True):
-        for find, replace in replacements.iteritems():
+        for find, replace in replacements.items():
             line = line.replace(find, replace)
 
-        print line,
+        print(line, end=' ')

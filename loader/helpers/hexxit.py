@@ -15,5 +15,5 @@ def modify(path, build):
         return True
 
     for line in fileinput.FileInput(config, inplace=1):
-        for find, replace in replacements.iteritems():
+        for find, replace in replacements.items():
             line = line.replace(find, replace)
