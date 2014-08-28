@@ -11,6 +11,7 @@ class Collector():
     def __init__(self):
         self.result = {}
         self.page = 1
+        self.parents = False
         self.find = {'limit': app.config['PAGE_LENGTH']}
 
     def _collect_route(self, route):
@@ -58,17 +59,31 @@ class Collector():
         self.page = max(int(page), 1)
         self.find['skip'] = (self.page - 1) * app.config['PAGE_LENGTH']
 
+    def _collect_parents(self, parents):
+        self.parents = True
+
     def collect(self, route, params):
         self.params = params
         self.params['route'] = route
 
-        for collector in ['route', 'r', 'sort', 'where', 'page']:
+        for collector in ['route', 'r', 'sort', 'where', 'page', 'parents']:
             if collector in self.params:
                 getattr(self, '_collect_' + collector)(self.params[collector])
 
+    def findItems(self):
+        items = [dict(result) for result in db.items.find(**self.find)]
+
+        if self.parents:
+            for item in items:
+                for parent in item['parents']:
+                    result = db.items.find_one({'_id': parent})
+                    item[result['resource']] = result
+
+        return items
+
     def results(self):
         if not 'results' in self.result:
-            self.result['results'] = [dict(result) for result in db.items.find(**self.find)]
+            self.result['results'] = self.findItems()
             self.result['pagination'] = self.pagination()
 
         return self.result

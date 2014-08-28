@@ -30,7 +30,6 @@ class Usage():
 
         record['request_limit'] = max(record.setdefault('request_limit', 0) - delta, 0) + 1
         record['last_request'] = now
-        print(record)
 
         return record['request_limit'] < limit
 
