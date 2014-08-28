@@ -68,7 +68,6 @@ class Collector():
 
     def results(self):
         if not 'results' in self.result:
-            print(self.find)
             self.result['results'] = [dict(result) for result in db.items.find(**self.find)]
             self.result['pagination'] = self.pagination()
 
