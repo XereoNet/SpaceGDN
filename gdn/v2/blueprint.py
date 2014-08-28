@@ -25,7 +25,7 @@ def show_pretty_response(res, path = ''):
 def show_usage():
     res = make_response((dumps(usage.show_usage()), 200))
     
-    return show_pretty_response(res)
+    return show_pretty_response(res, 'usage')
 
 @blueprint.route('/')
 @blueprint.route('/<path:path>')
