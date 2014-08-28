@@ -5,12 +5,13 @@ import datetime
 
 class Usage():
     def process(self, request):
-        base_dict = {"ip": request.remote_addr, "agent": request.user_agent.string}
+        base_dict = {'ip': request.remote_addr}
 
         record = db.usage.find_one(base_dict)
         if not record:
             record = base_dict
 
+        record['agent'] = request.user_agent.string
         record['total_requests'] = record.setdefault('total_requests', 0) + 1
 
         result = True
