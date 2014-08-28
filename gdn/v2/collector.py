@@ -61,6 +61,7 @@ class Collector():
 
     def _collect_parents(self, parents):
         self.parents = True
+        self.find['limit'] = 10
 
     def collect(self, route, params):
         self.params = params
@@ -75,9 +76,13 @@ class Collector():
 
         if self.parents:
             for item in items:
-                for parent in item['parents']:
-                    result = db.items.find_one({'_id': parent})
-                    item[result['resource']] = result
+                parents = item['parents']
+                item['parents'] = []
+                for parent in parents:
+                    r = db.items.find_one({'_id': parent})
+                    del r['parents']
+
+                    item['parents'].append(r)
 
         return items
 
@@ -91,7 +96,7 @@ class Collector():
     def pagination(self):
         return {
             'page': self.page,
-            'per_page': app.config['PAGE_LENGTH'],
-            'has_next': app.config['PAGE_LENGTH'] == len(self.result['results']),
+            'per_page': self.find['limit'],
+            'has_next': self.find['limit'] == len(self.result['results']),
             'has_prev': self.page > 1
         }
