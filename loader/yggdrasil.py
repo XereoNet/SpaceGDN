@@ -40,8 +40,8 @@ class Yggdrasil():
             data = self.strip_metas(parent)
             data['_id'] = pid
 
-            if hashed_ids:
-                data['parents'] = hashed_ids
+            if len(hashed_ids):
+                data['parents'] = hashed_ids[:-1]
 
             self.id_cache[pid] = True
             db.items.insert(data)
