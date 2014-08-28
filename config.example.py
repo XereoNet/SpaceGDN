@@ -1,10 +1,12 @@
 import logging
 
-# App settings
+# App settings. Debug and testing should be set to "False" in production, and
+# the secret key should be randomized. It's not used *yet*, but it may be in
+# the future.
 DEBUG = True
 TESTING = True
 SECRET_KEY = "SUPERSECRET"
-# Whether to always cache servers. This has no effect if CACHE_PATCHED is False
+# Whether to always cache servers. This has no effect if CACHE_PATCHED is False.
 CACHE_ALWAYS = False
 # Whether to only cache patched(servers with a Modifier) servers.
 CACHE_PATCHED = True
@@ -18,13 +20,18 @@ MONGO_URI = 'mongodb://localhost:27017/'
 # Mongo database name to use
 MONGO_DB = 'gdn'
 
-# Whether the API should be rate limited.
-RATE_LIMIT = True
+# Rate limit tuple in the format <number of requests>, <minutes interval>.
+# Or, False if you do not want any rate limiting.
+RATE_LIMIT = 1000, 60
+
+# Whether IP/agent stats should be collected and displayed publicly.
+COLLECT_STATS = True
 
 # Number of records to return per page on request
 PAGE_LENGTH = 100
 
-# Raven DSN. If False, Raven handler will not be enabled.
+# Raven DSN. If False, Raven handler will not be enabled. See getsentry.com
+# if you would like to use this. It's fantasic!
 RAVEN_DSN = False
 # Level of error message which will be logged to Raven
 RAVEN_LEVEL = logging.WARN
