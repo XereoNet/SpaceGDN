@@ -11,11 +11,6 @@ class Mojang(Downloader):
     url = 'http://s3.amazonaws.com/Minecraft.Download/versions/versions.json'
     download_url_base = 'https://s3.amazonaws.com/Minecraft.Download/versions/{0}/minecraft_server.{0}.jar'
 
-    descriptions = {
-        'release': 'An official release of a Minecraft version.',
-        'snapshot': 'The latest testing snapshot of Minecraft. It may be unstable!'
-    }
-
     def __init__(self):
         pass
 
@@ -48,11 +43,15 @@ class Mojang(Downloader):
                     'resource': 'game',
                     'name': 'Minecraft'
                 }, {
-                    '$id': version['type'],
+                    '$id': 'vanilla',
                     'resource': 'type',
-                    'name': ' '.join([n.capitalize() for n in version['type'].split('_')]),
+                    'name': 'Vanilla Minecraft',
                     'author': 'Mojang',
-                    'description': self.get_description(version['type'])
+                    'description': ''
+                }, {
+                    '$id': version['type'],
+                    'resource': 'channel',
+                    'name': ' '.join([n.capitalize() for n in version['type'].split('_')])
                 }, {
                     '$id': version['id'],
                     'resource': 'version',
