@@ -24,6 +24,9 @@ MONGO_DB = 'gdn'
 # Or, False if you do not want any rate limiting.
 RATE_LIMIT = 1000, 60
 
+# Number of seconds to keep usage records for.
+KEEP_USAGE_FOR = 60 * 60 * 24 * 7
+
 # Whether IP/agent stats should be collected and displayed publicly.
 COLLECT_STATS = True
 
