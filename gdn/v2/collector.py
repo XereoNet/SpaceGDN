@@ -1,5 +1,6 @@
 from ..mongo import db
 from ..app import app
+import re
 import pymongo
 
 
@@ -19,7 +20,12 @@ class Collector():
         if len(parts) == 0 or parts == ['']:
             return
 
-        self.find.setdefault('spec', {})['parents'] = parts.pop()
+        parent = parts.pop()
+
+        if len(parent) == 32:
+            self.find.setdefault('spec', {})['parents'] = parent
+        elif parent.isalnum():
+            self.find.setdefault('spec', {})['parents'] = re.compile('^' + parent, re.IGNORECASE)
 
     def _collect_r(self, resource):
         self.find.setdefault('spec', {})['resource'] = resource
