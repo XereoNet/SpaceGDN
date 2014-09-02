@@ -1,108 +1,57 @@
-from ..mongo import db
 from ..app import app
-import re
-import pymongo
+from .strategies import strategies
 
 
 class Collector():
 
-    operators = ['$gt', '$gte', '$in', '$lt', '$lte', '$ne', '$nin', '$eq']
-    arrayOperators = ['$nin', '$in']
-
     def __init__(self):
         self.result = {}
         self.page = 1
-        self.parents = False
-        self.find = {'limit': app.config['PAGE_LENGTH']}
+        self.request = None
+        self.pointer = None
 
-    def _collect_route(self, route):
-        parts = route.strip('/').split('/')
-        if len(parts) == 0 or parts == ['']:
-            return
+        self.pagination_data = {
+            'limit': app.config['PAGE_LENGTH'],
+            'page': 1,
+            'count': 0
+        }
 
-        parent = parts.pop()
+    def collect(self, request, path):
+        self.request = request
 
-        if len(parent) == 32:
-            self.find.setdefault('spec', {})['parents'] = parent
-        elif parent.isalnum():
-            self.find.setdefault('spec', {})['parents'] = re.compile('^' + parent, re.IGNORECASE)
+        s = self.request.args.get('strategy')
+        if s or not s in strategies:
+            s = 'find'
 
-    def _collect_r(self, resource):
-        self.find.setdefault('spec', {})['resource'] = resource
-
-    def _collect_sort(self, sorting):
-        for sort in sorting.split('|'):
-            data = sort.split('.', 1)
-
-            if len(data)!= 2:
-                continue
-
-            data[1] = pymongo.ASCENDING if data[1] == 'asc' else pymongo.DESCENDING
-
-            self.find.setdefault('sort', []).append(tuple(data))
-
-    def _collect_where(self, wheres):
-        for where in wheres.split('|'):
-            data = where.split('.', 2)
-
-            if len(data) != 3:
-                continue
-
-            key, operator, value = data
-
-            if not operator in self.operators:
-                continue
-
-            if operator in self.arrayOperators:
-                value = value.split(',')
-
-            if operator == '$eq':
-                self.find.setdefault('spec', {})[key] = value
-            else:
-                self.find.setdefault('spec', {})[key] = {operator: value}
-
-    def _collect_page(self, page):
-        self.page = max(int(page), 1)
-        self.find['skip'] = (self.page - 1) * app.config['PAGE_LENGTH']
-
-    def _collect_parents(self, parents):
-        self.parents = True
-        self.find['limit'] = 10
-
-    def collect(self, route, params):
-        self.params = params
-        self.params['route'] = route
-
-        for collector in ['route', 'r', 'sort', 'where', 'page', 'parents']:
-            if collector in self.params:
-                getattr(self, '_collect_' + collector)(self.params[collector])
-
-    def findItems(self):
-        items = [dict(result) for result in db.items.find(**self.find)]
-
-        if self.parents:
-            for item in items:
-                parents = item['parents']
-                item['parents'] = []
-                for parent in parents:
-                    r = db.items.find_one({'_id': parent})
-                    del r['parents']
-
-                    item['parents'].append(r)
-
-        return items
+        strategy_instance = strategies[s](self.request, path)
+        self.pointer = strategy_instance.results(self.set_page)
 
     def results(self):
         if not 'results' in self.result:
-            self.result['results'] = self.findItems()
+            self.result['results'] = self.pointer
             self.result['pagination'] = self.pagination()
 
         return self.result
 
+    def set_page(self, pointer):
+        self.pointer = pointer
+
+        self.pagination_data['count'] = pointer.count()
+        self.pointer.limit(app.config['PAGE_LENGTH'])
+
+        if 'page' in self.request.args:
+            self.pagination_data['page'] = max(int(self.request.args.get('page')), 1)
+            self.pagination_data['limit'] = (self.page - 1) * app.config['PAGE_LENGTH']
+
+            self.pointer.skip(self.pagination_data['limit'])
+
+        return self.pointer
+
     def pagination(self):
         return {
-            'page': self.page,
-            'per_page': self.find['limit'],
-            'has_next': self.find['limit'] == len(self.result['results']),
-            'has_prev': self.page > 1
+            'page':  self.pagination_data['page'],
+            'items':  self.pagination_data['count'],
+            'per_page':  self.pagination_data['limit'],
+            'has_next':  self.pagination_data['limit'] ==  self.pagination_data['count'],
+            'has_prev': self.pagination_data['page'] > 1
         }

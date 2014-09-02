@@ -34,7 +34,7 @@ def resolve(path = ''):
         return 'Rate limit exceeded', 492
 
     collector = Collector()
-    collector.collect(path, request.args.to_dict(True))
+    collector.collect(request, path)
 
     res = make_response((dumps(collector.results()), 200))
 
