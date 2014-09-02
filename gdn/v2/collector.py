@@ -20,7 +20,7 @@ class Collector():
         self.request = request
 
         s = self.request.args.get('strategy')
-        if s or not s in strategies:
+        if not s in strategies:
             s = 'find'
 
         strategy_instance = strategies[s](self.request, path)

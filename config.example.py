@@ -24,6 +24,17 @@ MONGO_DB = 'gdn'
 # Or, False if you do not want any rate limiting.
 RATE_LIMIT = 1000, 60
 
+# List of enabled strategies. "find" is the default, public-safe one. You can
+# also use "aggregate", which allows you to directly pipe data into the mongo
+# aggregation pipeline, see:
+#
+#   http://docs.mongodb.org/manual/reference/operator/aggregation/
+#
+# There is a also "rawfind" that pushes data directly into mongo's find().
+# However, NO VALIDATION IS DONE ON THIS INPUT and therefore it is not
+# recommended to allow these strategies on public instances.
+ENABLED_STRATEGIES = ['find']
+
 # Number of seconds to keep usage records for.
 KEEP_USAGE_FOR = 60 * 60 * 24 * 7
 
