@@ -27,6 +27,10 @@ RATE_LIMIT = 1000, 60
 # Number of seconds to keep usage records for.
 KEEP_USAGE_FOR = 60 * 60 * 24 * 7
 
+# The "key" needed to access private routes. This should be passed as a GET or
+# POST parameter. Uncomment it to enable the private key and private routes.
+# PRIVATE_KEY = 'verySeekrit'
+
 # Whether IP/agent stats should be collected and displayed publicly.
 COLLECT_STATS = True
 
