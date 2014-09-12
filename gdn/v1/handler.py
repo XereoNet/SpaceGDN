@@ -6,7 +6,7 @@ from flask import request
 from urlparse import urlparse
 from os.path import splitext, basename
 from sqlalchemy.util import KeyedTuple
-from gdn.models import Build
+from gdn.models import *
 
 
 def getModel(name):
@@ -141,7 +141,7 @@ def to_dict(ls):
 def getNum(num, default=0):
     try:
         return int(num)
-    except ValueError:
+    except (ValueError, TypeError):
         return default
 
 
