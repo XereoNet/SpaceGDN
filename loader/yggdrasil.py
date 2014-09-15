@@ -85,6 +85,8 @@ class Yggdrasil():
         if self.has_id(iid):
             logger.info('Asked to load %s but we already have it!' % idlist)
             return
+        else:
+            self.id_cache[iid] = True
 
         data = self.strip_metas(item)
         data['_id'] = iid
@@ -106,7 +108,6 @@ class Yggdrasil():
 
         data['parents'] = self.make_parents(item['$parents'])
 
-        self.id_cache[iid] = True
         logger.info('Adding item %s to collection' % idlist)
         db.items.insert(data)
 
