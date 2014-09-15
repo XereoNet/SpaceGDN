@@ -95,7 +95,7 @@ class Yggdrasil():
             logger.info('Loading item %s into %s' % (idlist, path))
             try:
                 item['$load'](path)
-            except Exception as e:
+            except Exception:
                 logger.exception('An error occured while loading %s, skipping...' % idlist)
                 return
 
@@ -120,5 +120,11 @@ class Yggdrasil():
 
     def run(self, loaders):
         for loader in loaders:
-            for item in loader.items():
+            try:
+                items = loader.items()
+            except Exception:
+                logger.exception('An error occured while loading builds for ' + loader.__class__.__name__)
+                continue
+
+            for item in items:
                 self.make_item(item)
