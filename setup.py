@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='SpaceGDN',
-    version='2.1.1',
+    version='2.1.2',
     url='https://github.com/connor4312/querytree',
     author='Connor Peet',
     author_email='connor@connorpeet.com',
