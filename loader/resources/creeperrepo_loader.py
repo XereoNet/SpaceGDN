@@ -43,6 +43,7 @@ class CreeperRepo():
 
         url = (self.base_url + urllib.parse.quote_plus('modpacks^{dir}^{version}'.format(**urlparts))
                + '/' + elem['url'])
+        build = re.sub(r'[^0-9]', '', elem['version'])
 
         return {
             '$parents': [
@@ -60,7 +61,8 @@ class CreeperRepo():
                     '$id': elem['version'],
                     'resource': 'version',
                     'version': elem['version'],
-                    'mc_version': elem['mcVersion']
+                    'mc_version': elem['mcVersion'],
+                    'last_build': build
                 }
             ],
             '$id': elem['version'],
@@ -68,7 +70,7 @@ class CreeperRepo():
             '$patched': True,
             'resource': 'build',
             'created': datetime.datetime.now(),
-            'build': re.sub(r'[^0-9]', '', elem['version']),
+            'build': build,
             'url': url,
         }
 

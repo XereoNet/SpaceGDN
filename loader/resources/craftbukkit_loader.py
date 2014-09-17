@@ -37,7 +37,8 @@ class CraftBukkit(Downloader):
                     '$id': result['version'],
                     'resource': 'version',
                     'version': result['version'],
-                    'mc_version': re.search(r'^[0-9\.]+', result['version']).group(0)
+                    'mc_version': re.search(r'^[0-9\.]+', result['version']).group(0),
+                    'last_build': result['build_number']
                 }
             ],
             '$id': str(result['build_number']),

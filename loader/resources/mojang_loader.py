@@ -36,6 +36,8 @@ class Mojang(Downloader):
         url = self.download_url_base.format(version['id'])
         released = datetime.datetime.strptime(re.sub(r'\+[0-9]{2}:[0-9]{2}$', '',
                                                      version['releaseTime']), '%Y-%m-%dT%H:%M:%S')
+        build = math.floor(released.timestamp() / 100)
+
         return {
             '$parents': [
                 {
@@ -55,7 +57,8 @@ class Mojang(Downloader):
                 }, {
                     '$id': version['id'],
                     'resource': 'version',
-                    'version': version['id']
+                    'version': version['id'],
+                    'last_build': build,
                 }
             ],
             '$id': version['id'],
@@ -63,7 +66,7 @@ class Mojang(Downloader):
             '$patched': False,
             'resource': 'build',
             'created': released,
-            'build': math.floor(released.timestamp() / 100),
+            'build': build,
             'url': url,
         }
 
