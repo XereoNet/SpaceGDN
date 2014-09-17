@@ -23,6 +23,7 @@ class Cauldron(Downloader):
     def parse_rows(self, row):
         version, minecraft, release, downloads = row.find_all('td')
         url = downloads.find_all('a').pop()['href']
+        build = re.sub(r'[^0-9]', '', version.text)
 
         return {
             '$parents': [
@@ -40,7 +41,8 @@ class Cauldron(Downloader):
                     '$id': minecraft.text,
                     'resource': 'version',
                     'version': minecraft.text,
-                    'mc_version': minecraft.text
+                    'mc_version': minecraft.text,
+                    'last_build': build
                 }
             ],
             '$id': version.text,
@@ -48,7 +50,7 @@ class Cauldron(Downloader):
             '$patched': False,
             'resource': 'build',
             'created': datetime.datetime.strptime(release.text, '%m/%d/%Y %I:%M:%S %p'),
-            'build': re.sub(r'[^0-9]', '', version.text),
+            'build': build,
             'url': url,
         }
 

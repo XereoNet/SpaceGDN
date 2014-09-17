@@ -14,9 +14,10 @@
                 "description": ""
             },
             {
-                "$id":      "3.2.4",
-                "resource": "version",
-                "version":  "3.2.4"
+                "$id":        "3.2.4",
+                "resource":   "version",
+                "version":    "3.2.4",
+                "last_build": 324
             }
         ],
         "$id":      "1710",
@@ -40,9 +41,10 @@
                 "description": ""
             },
             {
-                "$id":      "3.1.4",
-                "resource": "version",
-                "version":  "3.1.4"
+                "$id":        "3.1.4",
+                "resource":   "version",
+                "version":    "3.1.4",
+                "last_build": 314
             }
         ],
         "$id":      "17",
