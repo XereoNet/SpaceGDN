@@ -9,12 +9,22 @@ class Technic():
 
     listing_url = 'http://solder.technicpack.net/api/modpack'
     pack_url = 'http://solder.technicpack.net/api/modpack/%s'
-    download_url = 'http://mirror.technicpack.net/Technic/servers/{name}/{cap_name}_Server_v{build}.zip'
+    download_url = 'http://mirror.technicpack.net/Technic/servers/'
 
     descriptions = {
         'release': 'An official release of a Minecraft version.',
         'snapshot': 'The latest testing snapshot of Minecraft. It may be unstable!'
     }
+
+    mapping = {
+            'attack-of-the-bteam': 'bteam/BTeam_Server_v',
+            'tekkitmain': 'tekkitmain/Tekkit_Server_v',
+            'tekkit': 'tekkit/Tekkit_Server_',
+            'bigdig': 'bigdig/BigDigServer-v',
+            'hexxit': 'hexxit/Hexxit_Server_v',
+            'voltz': 'voltz/Voltz_Server_v',
+            'tekkitlite': 'tekkitlite/Tekkit_Lite_Server_'
+        }
 
     def __init__(self):
         pass
@@ -42,11 +52,15 @@ class Technic():
 
         out = []
         for build in data['builds']:
-            url = self.download_url.format(**{
-                'name': data['name'],
-                'cap_name': data['name'].capitalize(),
-                'build': build
-            })
+            if data['name'] in self.mapping:
+                name = self.mapping[data['name']]
+            else:
+                continue
+
+            url = self.download_url + name + build + '.zip'
+
+            print(url)
+            build_num = re.sub(r'[^0-9]', '', build)
 
             out.append({
                 '$parents': [
@@ -63,7 +77,8 @@ class Technic():
                     }, {
                         '$id': build,
                         'resource': 'version',
-                        'version': build
+                        'version': build,
+                        'last_build': build_num
                     }
                 ],
                 '$id': build,
@@ -71,7 +86,7 @@ class Technic():
                 '$patched': True,
                 'resource': 'build',
                 'created': datetime.datetime.now(),
-                'build': re.sub(r'[^0-9]', '', build),
+                'build': build_num,
                 'url': url,
             })
 
