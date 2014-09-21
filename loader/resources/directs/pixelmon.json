@@ -14,6 +14,33 @@
                 "description": ""
             },
             {
+                "$id":        "3.2.9",
+                "resource":   "version",
+                "version":    "3.2.9",
+                "last_build": 329
+            }
+        ],
+        "$id":      "3.2.9",
+        "resource": "build",
+        "created":  1411171200,
+        "build":    329,
+        "url":      "https://s3.amazonaws.com/MCProHosting-Misc/Pixelmon1710_3.2.9.zip"
+    },
+    {
+        "$parents": [
+            {
+                "$id":      "minecraft",
+                "resource": "game",
+                "name":     "Minecraft"
+            },
+            {
+                "$id":         "pixelmon",
+                "resource":    "type",
+                "name":        "Pixelmon",
+                "author":      "Pixelmon",
+                "description": ""
+            },
+            {
                 "$id":        "3.2.8",
                 "resource":   "version",
                 "version":    "3.2.8",
