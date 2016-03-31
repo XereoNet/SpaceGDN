@@ -27,12 +27,12 @@ class Find:
             parent = parts.pop()
 
             if len(parent) == 32:
-                self.find.setdefault('spec', {})['parents'] = parent
+                self.find.setdefault('filter', {})['parents'] = parent
             elif parent.isalnum():
-                self.find.setdefault('spec', {})['parents'] = re.compile('^' + parent, re.IGNORECASE)
+                self.find.setdefault('filter', {})['parents'] = re.compile('^' + parent, re.IGNORECASE)
 
     def _collect_r(self, resource):
-        self.find.setdefault('spec', {})['resource'] = resource
+        self.find.setdefault('filter', {})['resource'] = resource
 
     def _collect_sort(self, sorting):
         for sort in sorting.split('|'):
@@ -61,9 +61,9 @@ class Find:
                 value = value.split(',')
 
             if operator == '$eq':
-                self.find.setdefault('spec', {})[key] = value
+                self.find.setdefault('filter', {})[key] = value
             else:
-                self.find.setdefault('spec', {})[key] = {operator: value}
+                self.find.setdefault('filter', {})[key] = {operator: value}
 
     def _collect_parents(self, parents):
         self.parents = True
