@@ -28,7 +28,7 @@ from bson.objectid import ObjectId
 from bson.regex import Regex
 from bson.timestamp import Timestamp
 
-from bson.py3compat import PY3, binary_type, string_types
+from bson.py3compat import PY3, string_type
 
 
 _RE_OPT_TABLE = {
@@ -64,7 +64,7 @@ def _json_convert(obj):
     """
     if hasattr(obj, 'items'):  # PY3 support
         return SON(((k, _json_convert(v)) for k, v in obj.items()))
-    elif hasattr(obj, '__iter__') and not isinstance(obj, string_types):
+    elif hasattr(obj, '__iter__') and not isinstance(obj, string_type):
         return list((_json_convert(v) for v in obj))
     try:
         return default(obj)
@@ -122,7 +122,7 @@ def default(obj):
         return SON([
             ('$binary', base64.b64encode(obj).decode()),
             ('$type', "%02x" % obj.subtype)])
-    if PY3 and isinstance(obj, binary_type):
+    if PY3 and isinstance(obj, bytes):
         return SON([
             ('$binary', base64.b64encode(obj).decode()),
             ('$type', "00")])

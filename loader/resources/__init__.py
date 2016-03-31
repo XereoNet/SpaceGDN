@@ -4,6 +4,7 @@ from .cauldron_loader import Cauldron
 from .craftbukkit_loader import CraftBukkit
 from .technic_loader import Technic
 from .direct_loader import Direct
+from .jenkins_maven_loader import JenkinsMaven
 
 loaders = {
     'creeperrepo': CreeperRepo(),
@@ -11,5 +12,6 @@ loaders = {
     'cauldron': Cauldron(),
     'craftbukkit': CraftBukkit(),
     'technic': Technic(),
-    'direct': Direct()
+    'direct': Direct(),
+    'jenkins_maven': JenkinsMaven()
 }
