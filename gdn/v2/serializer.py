@@ -52,6 +52,7 @@ def dumps(obj, *args, **kwargs):
        Preserves order when rendering SON, Timestamp, Code, Binary, and DBRef
        instances.
     """
+    kwargs['indent'] = 4
     return json.dumps(_json_convert(obj), *args, **kwargs)
 
 
