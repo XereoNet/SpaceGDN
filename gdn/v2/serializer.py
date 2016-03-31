@@ -18,17 +18,20 @@ except ImportError:
         json_lib = False
 
 import bson
+import uuid
 from bson import EPOCH_AWARE, RE_TYPE, SON
 from bson.binary import Binary
 from bson.code import Code
 from bson.dbref import DBRef
+from bson.int64 import Int64
 from bson.max_key import MaxKey
 from bson.min_key import MinKey
 from bson.objectid import ObjectId
 from bson.regex import Regex
 from bson.timestamp import Timestamp
+from bson.tz_util import utc
 
-from bson.py3compat import PY3, string_type
+from bson.py3compat import PY3, iteritems, string_type, text_type
 
 
 _RE_OPT_TABLE = {
@@ -38,23 +41,17 @@ _RE_OPT_TABLE = {
     "s": re.S,
     "u": re.U,
     "x": re.X,
-    }
+}
 
 
 def dumps(obj, *args, **kwargs):
     """Helper function that wraps :class:`json.dumps`.
-
     Recursive function that handles all BSON types including
     :class:`~bson.binary.Binary` and :class:`~bson.code.Code`.
-
     .. versionchanged:: 2.7
        Preserves order when rendering SON, Timestamp, Code, Binary, and DBRef
-       instances. (But not in Python 2.4.)
+       instances.
     """
-    if not json_lib:
-        raise Exception("No json library available")
-
-    kwargs['indent'] = 4
     return json.dumps(_json_convert(obj), *args, **kwargs)
 
 
@@ -74,23 +71,18 @@ def _json_convert(obj):
 
 def default(obj):
     # We preserve key order when rendering SON, DBRef, etc. as JSON by
-    # returning a SON for those types instead of a dict. This works with
-    # the "json" standard library in Python 2.6+ and with simplejson
-    # 2.1.0+ in Python 2.5+, because those libraries iterate the SON
-    # using PyIter_Next. Python 2.4 must use simplejson 2.0.9 or older,
-    # and those versions of simplejson use the lower-level PyDict_Next,
-    # which bypasses SON's order-preserving iteration, so we lose key
-    # order in Python 2.4.
+    # returning a SON for those types instead of a dict.
     if isinstance(obj, ObjectId):
-        return str(obj)
+        return {"$oid": str(obj)}
     if isinstance(obj, DBRef):
         return _json_convert(obj.as_doc())
     if isinstance(obj, datetime.datetime):
+        # TODO share this code w/ bson.py?
         if obj.utcoffset() is not None:
             obj = obj - obj.utcoffset()
         millis = int(calendar.timegm(obj.timetuple()) * 1000 +
                      obj.microsecond / 1000)
-        return millis
+        return {"$date": millis}
     if isinstance(obj, (RE_TYPE, Regex)):
         flags = ""
         if obj.flags & re.IGNORECASE:
@@ -105,7 +97,7 @@ def default(obj):
             flags += "u"
         if obj.flags & re.VERBOSE:
             flags += "x"
-        if isinstance(obj.pattern, unicode):
+        if isinstance(obj.pattern, text_type):
             pattern = obj.pattern
         else:
             pattern = obj.pattern.decode('utf-8')
@@ -115,7 +107,7 @@ def default(obj):
     if isinstance(obj, MaxKey):
         return {"$maxKey": 1}
     if isinstance(obj, Timestamp):
-        return SON([("t", obj.time), ("i", obj.inc)])
+        return {"$timestamp": SON([("t", obj.time), ("i", obj.inc)])}
     if isinstance(obj, Code):
         return SON([('$code', str(obj)), ('$scope', obj.scope)])
     if isinstance(obj, Binary):
@@ -126,6 +118,6 @@ def default(obj):
         return SON([
             ('$binary', base64.b64encode(obj).decode()),
             ('$type', "00")])
-    if bson.has_uuid() and isinstance(obj, bson.uuid.UUID):
+    if isinstance(obj, uuid.UUID):
         return {"$uuid": obj.hex}
     raise TypeError("%r is not JSON serializable" % obj)
