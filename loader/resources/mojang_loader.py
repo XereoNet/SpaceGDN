@@ -14,14 +14,6 @@ class Mojang(Downloader):
     def __init__(self):
         pass
 
-    def load_pack(self, path, url):
-        r = requests.get(url, stream=True)
-        with open(path, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=1024):
-                if chunk:
-                    f.write(chunk)
-                    f.flush()
-
     def get_description(self, t):
         if t in self.descriptions:
             return self.descriptions[t]

@@ -12,14 +12,6 @@ class Cauldron(Downloader):
     def __init__(self):
         pass
 
-    def load_pack(self, path, url):
-        r = requests.get(url, stream=True)
-        with open(path, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=1024):
-                if chunk:
-                    f.write(chunk)
-                    f.flush()
-
     def parse_rows(self, row):
         version, minecraft, release, downloads = row.find_all('td')
         url = downloads.find_all('a').pop()['href']
