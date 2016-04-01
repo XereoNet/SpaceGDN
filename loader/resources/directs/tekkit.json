@@ -1,0 +1,29 @@
+[
+    {
+        "$parents": [
+            {
+                "$id":      "minecraft",
+                "resource": "game",
+                "name":     "Minecraft"
+            },
+            {
+                "$id":         "tekkit",
+                "resource":    "type",
+                "name":        "Tekkit",
+                "author":      "TechnicPack",
+                "description": "We have Liftoff! Tekkit has launched into a new era, and with it new frontiers to explore! Dimensions, pockets and planets, it’s all there for you and your friends to exploit and conquer."
+            },
+            {
+                "$id":        "1.2.9G",
+                "resource":   "version",
+                "version":    "1.2.9G",
+                "last_build": 129
+            }
+        ],
+        "$id":      "1.2.9G",
+        "resource": "build",
+        "created":  1459541840,
+        "build":    129,
+        "url":      "http://servers.technicpack.net/Technic/servers/tekkitmain/Tekkit_Server_v1.2.9g.zip"
+    }
+]
