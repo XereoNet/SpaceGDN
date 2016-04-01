@@ -18,12 +18,9 @@ class Technic():
 
     mapping = {
             'attack-of-the-bteam': 'bteam/BTeam_Server_v',
-            'tekkitmain': 'tekkitmain/Tekkit_Server_v',
-            'tekkit': 'tekkit/Tekkit_Server_',
-            'bigdig': 'bigdig/BigDigServer-v',
             'hexxit': 'hexxit/Hexxit_Server_v',
-            'voltz': 'voltz/Voltz_Server_v',
-            'tekkitlite': 'tekkitlite/Tekkit_Lite_Server_'
+            'blightfall': 'blightfall/Blightfall_Server_v',
+            'tekkit-legends': 'tekkit-legends/Tekkit_Legends_Server_v'
         }
 
     def __init__(self):
@@ -51,15 +48,15 @@ class Technic():
         data = json.loads(r.text)
 
         out = []
-        for build in data['builds']:
-            if data['name'] in self.mapping:
-                name = self.mapping[data['name']]
-            else:
-                continue
 
+        if not data['name'] in self.mapping:
+            return out
+
+        name = self.mapping[data['name']]
+
+        for build in data['builds']:
             url = self.download_url + name + build + '.zip'
 
-            print(url)
             build_num = re.sub(r'[^0-9]', '', build)
 
             out.append({
