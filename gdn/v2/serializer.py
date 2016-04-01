@@ -74,7 +74,7 @@ def default(obj):
     # We preserve key order when rendering SON, DBRef, etc. as JSON by
     # returning a SON for those types instead of a dict.
     if isinstance(obj, ObjectId):
-        return {"$oid": str(obj)}
+        return str(obj)
     if isinstance(obj, DBRef):
         return _json_convert(obj.as_doc())
     if isinstance(obj, datetime.datetime):
@@ -83,7 +83,7 @@ def default(obj):
             obj = obj - obj.utcoffset()
         millis = int(calendar.timegm(obj.timetuple()) * 1000 +
                      obj.microsecond / 1000)
-        return {"$date": millis}
+        return millis
     if isinstance(obj, (RE_TYPE, Regex)):
         flags = ""
         if obj.flags & re.IGNORECASE:
@@ -108,7 +108,7 @@ def default(obj):
     if isinstance(obj, MaxKey):
         return {"$maxKey": 1}
     if isinstance(obj, Timestamp):
-        return {"$timestamp": SON([("t", obj.time), ("i", obj.inc)])}
+        return SON([("t", obj.time), ("i", obj.inc)])
     if isinstance(obj, Code):
         return SON([('$code', str(obj)), ('$scope', obj.scope)])
     if isinstance(obj, Binary):
