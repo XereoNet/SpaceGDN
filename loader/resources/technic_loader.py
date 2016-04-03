@@ -7,20 +7,19 @@ from ..resource_bases import ZipModifier
 
 class Technic():
 
-    listing_url = 'http://solder.technicpack.net/api/modpack'
-    pack_url = 'http://solder.technicpack.net/api/modpack/%s'
+    api_url = 'http://solder.technicpack.net/api/modpack/'
     download_url = 'http://mirror.technicpack.net/Technic/servers/'
-
-    descriptions = {
-        'release': 'An official release of a Minecraft version.',
-        'snapshot': 'The latest testing snapshot of Minecraft. It may be unstable!'
-    }
 
     mapping = {
             'attack-of-the-bteam': 'bteam/BTeam_Server_v',
             'hexxit': 'hexxit/Hexxit_Server_v',
             'blightfall': 'blightfall/Blightfall_Server_v',
-            'tekkit-legends': 'tekkit-legends/Tekkit_Legends_Server_v'
+            'tekkit-legends': 'tekkit-legends/Tekkit_Legends_Server_v',
+            'bigdig': 'bigdig/BigDigServer_v',
+            'tekkitmain': 'tekkitmain/Tekkit_Server_v',
+            'tekkit': 'tekkit/Tekkit_Server_v',
+            'tekkitlite': 'tekkitlite/Tekkit_Lite_Server_v',
+            'voltz': 'voltz/Voltz_Server_v'
         }
 
     def __init__(self):
@@ -43,19 +42,17 @@ class Technic():
         modifier.end_modify(path)
 
     def get_versions(self, slug):
-
-        r = requests.get(self.pack_url % slug)
-        data = json.loads(r.text)
-
         out = []
 
-        if not data['name'] in self.mapping:
+        r = requests.get(self.api_url + slug)
+        if not r.ok:
             return out
+        data = r.json()
 
-        name = self.mapping[data['name']]
+        download_name = self.mapping[data['name']]
 
         for build in data['builds']:
-            url = self.download_url + name + build + '.zip'
+            url = self.download_url + download_name + build + '.zip'
 
             build_num = re.sub(r'[^0-9]', '', build)
 
@@ -89,20 +86,9 @@ class Technic():
 
         return out
 
-    def get_packs(self):
-        r = requests.get(self.listing_url)
-        data = json.loads(r.text)
-
-        if 'vanilla' in data['modpacks']:
-            del data['modpacks']['vanilla']
-        if 'hackslashmine' in data['modpacks']:
-            del data['modpacks']['hackslashmine']
-
-        return data['modpacks'].keys()
-
     def items(self):
         out = []
-        for pack in self.get_packs():
+        for pack in self.mapping.keys():
             out.extend(self.get_versions(pack))
 
         return out
