@@ -2,10 +2,10 @@ import requests
 import json
 import datetime
 import re
-from ..resource_bases import ZipModifier
+from ..resource_bases import Downloader
 
 
-class Technic():
+class Technic(Downloader):
 
     api_url = 'http://solder.technicpack.net/api/modpack/'
     download_url = 'http://mirror.technicpack.net/Technic/servers/'
@@ -21,25 +21,6 @@ class Technic():
             'tekkitlite': 'tekkitlite/Tekkit_Lite_Server_v',
             'voltz': 'voltz/Voltz_Server_v'
         }
-
-    def __init__(self):
-        pass
-
-    def load_pack(self, url, path, slug):
-        modifier = ZipModifier()
-        modifier.start_from_remote(url)
-        modifier.patch_from_remote('https://s3.amazonaws.com/MCProHosting-Misc/forgepatch.zip')
-        modifier.replace_in_file('config/forge.cfg', {
-            'removeErroringEntities=false': 'removeErroringEntities=true',
-            'removeErroringTileEntities=false': 'removeErroringTileEntities=true'
-        })
-
-        if slug == 'Hexxit':
-            modifier.replace_in_file('config/InfernalMobs.cfg', {
-                'useSimpleEntityClassnames=false': 'useSimpleEntityClassnames=true'
-            })
-
-        modifier.end_modify(path)
 
     def get_versions(self, slug):
         out = []
@@ -76,7 +57,7 @@ class Technic():
                     }
                 ],
                 '$id': build,
-                '$load': lambda path, url=url, slug=slug: self.load_pack(url, path, slug),
+                '$load': lambda path: self.download(url, path),
                 '$patched': True,
                 'resource': 'build',
                 'created': datetime.datetime.now(),
