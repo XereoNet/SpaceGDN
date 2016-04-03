@@ -1,0 +1,14 @@
+{
+    "id": "spigot",
+    "name": "Spigot",
+    "author": "md_5",
+    "description": "High performance Minecraft server implementation",
+    "game_id": "minecraft",
+    "game_name": "Minecraft",
+    "jenkins_url": "http://jenkins.xereo.net/job/Spigot/",
+    "patch_url_format": "https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse/CraftBukkit-Patches/0001-POM-Changes.patch?at={0}&raw",
+    "version_regexp": "^\\s*<version>(.*?)</version>",
+    "game_version_regexp": "((?:\\d+\\.?)+)-.*",
+    "limit": 10,
+    "special_builds": []
+}
