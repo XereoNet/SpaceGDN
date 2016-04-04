@@ -17,8 +17,8 @@ class Technic(Downloader):
             'tekkit-legends': 'tekkit-legends/Tekkit_Legends_Server_v',
             'bigdig': 'bigdig/BigDigServer_v',
             'tekkitmain': 'tekkitmain/Tekkit_Server_v',
-            'tekkit': 'tekkit/Tekkit_Server_v',
-            'tekkitlite': 'tekkitlite/Tekkit_Lite_Server_v',
+            'tekkit': 'tekkit/Tekkit_Server_',
+            'tekkitlite': 'tekkitlite/Tekkit_Lite_Server_',
             'voltz': 'voltz/Voltz_Server_v'
         }
 
@@ -58,7 +58,6 @@ class Technic(Downloader):
                 ],
                 '$id': build,
                 '$load': lambda path: self.download(url, path),
-                '$patched': True,
                 'resource': 'build',
                 'created': datetime.datetime.now(),
                 'build': build_num,
