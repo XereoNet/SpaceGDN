@@ -27,4 +27,7 @@ def debug():
 
 @manager.command
 def load(only=None):
-    loader.run(app.config, only)
+    try:
+        loader.run(app.config, only)
+    except KeyboardInterrupt:
+        return
