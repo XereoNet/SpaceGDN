@@ -17,11 +17,19 @@ class ZipModifier(Downloader):
 
     def start_from_remote(self, url, md5sum=None):
         _, temp_file_path = tempfile.mkstemp()
-        self.download(url, temp_file_path, md5sum)
+        self.download(url, temp_file_path, md5sum, expect="application/zip")
         self.temp_dir_path = tempfile.mkdtemp()
 
         self.unzip(temp_file_path, self.temp_dir_path)
         os.remove(temp_file_path)
+
+    def move_from_subdirectory(self, subdirectory):
+        subdirectory = os.path.join(self.temp_dir_path, subdirectory)
+        if not os.path.isdir(subdirectory):
+            return
+
+        dir_util.copy_tree(subdirectory, self.temp_dir_path)
+        shutil.rmtree(subdirectory)
 
     def start_from_local(self, local_filename):
         file_path = local_filename
@@ -93,7 +101,7 @@ class ZipModifier(Downloader):
 
         if force or not os.path.exists(dlpath):
             _, temp_file_path = tempfile.mkstemp()
-            self.download(url, temp_file_path)
+            self.download(url, temp_file_path, expect="application/zip")
 
 
             with zipfile.ZipFile(temp_file_path) as z:

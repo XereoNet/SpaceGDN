@@ -3,8 +3,12 @@ import requests
 from gdn.log import logger
 
 class Downloader():
-    def download(self, url, file, md5sum=None, is_retry=False):
+    def download(self, url, file, md5sum=None, is_retry=False, expect=None):
         r = requests.get(url, stream=True)
+        if not r.ok:
+            raise Exception("Not OK response from: " + url)
+        if not expect is None and not expect in r.headers["content-type"]:
+            raise Exception("Not expected content-type, '{}'! Got: '{}'".format(expect, r.headers["content-type"]))
         md5 = hashlib.md5()
         with open(file, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024):
