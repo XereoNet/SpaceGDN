@@ -5,15 +5,15 @@ import datetime
 from gdn.log import logger
 
 from bs4 import BeautifulSoup
-from ..resource_bases import ForgePatcher
+from ..resource_bases import Downloader
 
 
-class CreeperRepo(ForgePatcher):
+class CreeperRepo(Downloader):
 
     base_url = 'http://www.creeperrepo.net/FTB2/'
 
     def parse_pack(self, elem):
-        if not elem.has_attr('repoVersion'):
+        if not elem.has_attr('repoVersion') or not elem.has_attr('serverPack') or len(elem['serverPack']) == 0:
             return
 
         urlparts = {
@@ -22,7 +22,7 @@ class CreeperRepo(ForgePatcher):
         }
 
         url = (self.base_url + urllib.parse.quote_plus('modpacks^{dir}^{version}'.format(**urlparts))
-               + '/' + elem['url'])
+               + '/' + elem['serverPack'])
         build = re.sub(r'[^0-9]', '', elem['version'])
 
         return {
@@ -46,8 +46,7 @@ class CreeperRepo(ForgePatcher):
                 }
             ],
             '$id': elem['version'],
-            '$load': lambda path: self.patch_download(elem['mcVersion'], url, path),
-            '$patched': True,
+            '$load': lambda path: self.download(url, path),
             'resource': 'build',
             'created': datetime.datetime.now(),
             'build': build,
